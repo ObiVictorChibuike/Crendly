@@ -1,10 +1,9 @@
-import 'dart:convert';
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/shared_widgets/shared_questionnaire_screens.dart';
 import 'package:crendly/src/intro_screens/widgets/custom_carousel_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class DummyData {
   DummyData._();
@@ -28,7 +27,8 @@ class DummyData {
     {
       "asset": "assets/svg_assets/orange_head.svg",
       "title": "Individual",
-      "description": "Invest in the needs of real people and earn interests monthly.",
+      "description":
+          "Invest in the needs of real people and earn interests monthly.",
       "color": orangeGradient,
     },
     {
@@ -45,7 +45,7 @@ class DummyData {
       "description": "Quick Loans to take care of your needs",
     },
     {
-    "asset": "assets/png_assets/category_image2.png",
+      "asset": "assets/png_assets/category_image2.png",
       "description": "Loan you can repay in no time.",
     },
     {
@@ -60,15 +60,27 @@ class DummyData {
 
   static final rowButtonIcon = [
     {
-      "icon": const Icon(Icons.add, color: kWhite, size: 28,),
+      "icon": const Icon(
+        Icons.add,
+        color: kWhite,
+        size: 28,
+      ),
       "Text": "Top-Up"
     },
     {
-      "icon": const Icon(Icons.print_outlined, color: kWhite, size: 28,),
+      "icon": const Icon(
+        Icons.print_outlined,
+        color: kWhite,
+        size: 28,
+      ),
       "Text": "Withdraw"
     },
     {
-      "icon": const Icon(Icons.more_horiz, color: kWhite, size: 28,),
+      "icon": const Icon(
+        Icons.more_horiz,
+        color: kWhite,
+        size: 28,
+      ),
       "Text": "More"
     }
   ];
@@ -91,7 +103,7 @@ class DummyData {
     },
   ];
 
-  static final  stackImages = [
+  static final stackImages = [
     "assets/png_assets/orange_head.png",
     "assets/png_assets/melon_head.png",
     "assets/png_assets/orange_head.png",
@@ -110,14 +122,32 @@ class DummyData {
         image: AssetPath.onBoardingImage2,
         firstText: 'We turn up ',
         secondText: 'safety',
-        thirdText: 'You worked hard for your money.Crendly makes it come back with you for more'
-    ),
+        thirdText:
+            'You worked hard for your money.Crendly makes it come back with you for more'),
     const CarouselPage(
         image: AssetPath.onBoardingImage3,
         firstText: 'You\'re in ',
         secondText: 'control',
-        thirdText: 'Control your profit on what you lend out'
-    ),
+        thirdText: 'Control your profit on what you lend out'),
+  ];
+
+  List<String> trustQuestionsOptions = [
+    "Never",
+    "Rarely",
+    "Sometimes",
+    "Often",
+    "Always"
+  ];
+  static final List<Widget> trustQuestionsViews = [
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "People tell me they understand me",
+        questionNumber: 1),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question:
+            "I empathize with others a lot and I find it easy letting them know",
+        questionNumber: 2)
   ];
 
   static final crendlyCommunity = [
@@ -137,7 +167,6 @@ class DummyData {
       "buttonLabel": "Interview"
     },
   ];
-
 
   static final reportDataList = [
     ReportData(
@@ -178,7 +207,8 @@ class ReportData {
 
   ReportData({required this.reportText, required this.reportData});
 }
-class BabiesRedAlertModel{
+
+class BabiesRedAlertModel {
   BabiesRedAlertModel({required this.alertType, required this.alertDesc});
 
   String alertType;
@@ -186,7 +216,7 @@ class BabiesRedAlertModel{
   bool selected = false;
 }
 
-class PregnancyRedAlertModel{
+class PregnancyRedAlertModel {
   PregnancyRedAlertModel({required this.alertType, required this.alertDesc});
 
   String alertType;
