@@ -1,6 +1,5 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/values_manager.dart';
-import 'package:crendly/shared_widgets/custom_appBar.dart';
 import 'package:flutter/material.dart';
 
 class SharedQuestionnaire extends StatefulWidget {
@@ -24,7 +23,6 @@ class _SharedQuestionnaireState extends State<SharedQuestionnaire> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kDarkBackGroundColor,
-      appBar: CustomAppbar(title: Text("Trust Questions")),
       body: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: AppPadding.p21, vertical: AppPadding.p32),
@@ -32,12 +30,39 @@ class _SharedQuestionnaireState extends State<SharedQuestionnaire> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              children: [Text("Question"), Text("${widget.questionNumber}/12")],
+              children: [
+                Text(
+                  "Question",
+                  style: TextStyle(color: kOrange, fontSize: 16),
+                ),
+                const SizedBox(
+                  width: 3,
+                ),
+                RichText(
+                    text: TextSpan(
+                        text: '${widget.questionNumber}',
+                        style: TextStyle(
+                            color: kOrange,
+                            fontSize: 26,
+                            fontFamily: "KumbhSans"),
+                        children: [
+                      TextSpan(
+                          text: '/12',
+                          style: TextStyle(
+                              color: kWhite,
+                              fontSize: 16,
+                              fontFamily: "KumbhSans"))
+                    ]))
+              ],
             ),
             const SizedBox(
               height: 35,
             ),
-            Text(widget.question),
+            Text(
+              widget.question,
+              style: TextStyle(
+                  color: kWhite, fontSize: 20, fontFamily: "KumbhSans"),
+            ),
             const SizedBox(
               height: 62,
             ),
@@ -45,7 +70,12 @@ class _SharedQuestionnaireState extends State<SharedQuestionnaire> {
                 shrinkWrap: true,
                 itemCount: widget.options.length,
                 itemBuilder: (context, int index) => ListTile(
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(color: kRadioBlue),
+                          borderRadius: BorderRadius.circular(4.0)),
                       leading: Radio(
+                        activeColor: kRadioBlue,
+                        fillColor: MaterialStateProperty.all<Color>(kRadioBlue),
                         value: index,
                         groupValue: currentIndex,
                         onChanged: (int? val) {
@@ -54,7 +84,13 @@ class _SharedQuestionnaireState extends State<SharedQuestionnaire> {
                           });
                         },
                       ),
-                      title: Text(widget.options[index]),
+                      title: Text(
+                        widget.options[index],
+                        style: TextStyle(
+                            color: kWhite,
+                            fontSize: 14,
+                            fontFamily: "KumbhSans"),
+                      ),
                     ))
           ],
         ),

@@ -12,6 +12,7 @@ const kPurple = Color(0xFF4700E0);
 const kRedPink = Color(0xFFFF0062);
 const kWhite = Color(0xFFFFFFFF);
 const kGrey = Color(0xFFEEEEEE);
+const kRadioBlue = Color(0xff8095E0);
 
 const List<Color> orangeGradient = [
   Color(0xFFFD5454),
@@ -19,8 +20,6 @@ const List<Color> orangeGradient = [
   Color(0xFFFFBA7B),
   Color(0xFFFFCEC3),
 ];
-
-
 
 const List<Color> greenGradient = [
   Color(0xFF63BEDB),

@@ -1,10 +1,11 @@
-import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/src/intro_screens/onboarding/landing.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+
+import '../../../shared_widgets/customButton.dart';
+import '../../../shared_widgets/custom_appBar.dart';
 
 class TrustQuestionsScreen extends StatefulWidget {
   const TrustQuestionsScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
     _controller.addListener(() {
       if (_controller.page == 0) {
         setState(() {
-          text = 'Later';
+          text = '';
         });
       } else if (_controller.page == 1) {
         setState(() {
@@ -33,7 +34,7 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
   }
 
   void next() {
-    if (_controller.page == 2) {
+    if (_controller.page == 12) {
       Get.to(() => const LandingPage());
     } else {
       _controller.nextPage(
@@ -60,6 +61,10 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
       bottom: false,
       child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
+          appBar: CustomAppbar(
+            title: Text("Trust Questions"),
+            centerTitle: true,
+          ),
           body: Column(
             children: [
               Expanded(
@@ -68,30 +73,48 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
                   children: trustQuestionsViews,
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: previous,
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 33, bottom: 40),
-                      child: Text(
-                        text,
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                            color: kWhite,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: previous,
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 67),
+                        child: Text(
+                          text,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText2
+                              ?.copyWith(
+                                  color: kWhite,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: next,
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 33, bottom: 40),
-                      child: SvgPicture.asset(AssetPath.nextButtonLogo),
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 67),
+                      child: ButtonWidget(
+                          onPressed: () {
+                            next();
+                          },
+                          buttonColor: kGreen,
+                          buttonText: "Next",
+                          borderRadius: 8,
+                          height: 50,
+                          width: 133),
                     ),
-                  )
-                ],
+                    // GestureDetector(
+                    //   onTap: next,
+                    //   child: Container(
+                    //     margin: const EdgeInsets.only(right: 33, bottom: 40),
+                    //     child: SvgPicture.asset(AssetPath.nextButtonLogo),
+                    //   ),
+                    // )
+                  ],
+                ),
               ),
             ],
           )),

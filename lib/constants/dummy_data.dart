@@ -147,7 +147,47 @@ class DummyData {
         options: DummyData._().trustQuestionsOptions,
         question:
             "I empathize with others a lot and I find it easy letting them know",
-        questionNumber: 2)
+        questionNumber: 2),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "I enjoy getting the things I want",
+        questionNumber: 3),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "People see me as an honest and passionate communicator",
+        questionNumber: 4),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "I am quick to praise people",
+        questionNumber: 5),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "People say that I'm predictable and consistent",
+        questionNumber: 6),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "People easily confide in me",
+        questionNumber: 7),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "In interactions with others, I lead with curiosity",
+        questionNumber: 8),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "I an not ashamed to say I don't know",
+        questionNumber: 9),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "People say that I am dependable",
+        questionNumber: 10),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "I am really good at what I do",
+        questionNumber: 11),
+    SharedQuestionnaire(
+        options: DummyData._().trustQuestionsOptions,
+        question: "I care less about others",
+        questionNumber: 12),
   ];
 
   static final crendlyCommunity = [
