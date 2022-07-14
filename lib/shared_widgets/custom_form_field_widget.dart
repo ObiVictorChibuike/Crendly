@@ -32,7 +32,7 @@ class FormFieldWidget extends StatelessWidget {
     return Container(
       padding: padding,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(8),
         color: Colors.transparent,border: Border.all(width: 0.7, color: kDarkBackGroundColor),
       ),
       height: 55,
@@ -58,23 +58,23 @@ class FormFieldWidget extends StatelessWidget {
           hintStyle: hintTextStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff868484), fontSize: 16),
           labelStyle: labelStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff868484), fontSize: 16),
           enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(color: kWhite, width: 0.7)
           ),
           focusedBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(color: kWhite, width: 0.7)
           ),
           focusedErrorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(color: kWhite, width: 0.7)
           ),
           border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(color: kWhite, width: 0.7)
           ),
           errorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
               borderSide: BorderSide(color: kWhite, width: 0.7)
           ),
           fillColor: kDarkBackGroundColor,

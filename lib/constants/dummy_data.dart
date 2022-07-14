@@ -39,6 +39,23 @@ class DummyData {
     },
   ];
 
+  static final userData = [];
+
+  static final crendlyOption = [
+    {
+      "asset": "assets/svg_assets/orange_head.svg",
+      "title": "Give Loan",
+      "description": "Invest in the needs of real people and earn interests monthly.",
+      "color": orangeGradient,
+    },
+    {
+      "asset": "assets/svg_assets/melon_head.svg",
+      "title": "Collect Loan",
+      "description": "Get money for what you need at an incredible speed. ",
+      "color": greenGradient
+    },
+  ];
+
   static final browseOptions = [
     {
       "asset": "assets/png_assets/category_image1.png",

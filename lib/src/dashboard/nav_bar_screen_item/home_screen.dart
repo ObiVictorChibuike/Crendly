@@ -1,9 +1,18 @@
+import 'dart:async';
+
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+import '../../../shared_widgets/custom_buttom_sheet.dart';
+import '../../../shared_widgets/custom_dialog_widget.dart';
+import '../../../shared_widgets/custom_outlined_button.dart';
+import '../../../shared_widgets/cutom_pincode_field.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,14 +22,338 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String? selectedBankAccount;
+  final List<String> bankAccount = ["Access Bank 0437193638", "GTBank 0213111726", "FirstBank 3819361374"];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List rowButtonItem = DummyData.rowButtonIcon;
   List browseOptions = DummyData.browseOptions;
+  List userData = DummyData.userData;
   List community = DummyData.crendlyCommunity;
+
+  showMyBankAccountDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2.8, MediaQuery.of(context).size.width /1.2, [
+      Expanded(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(height: 30,),
+            ...List.generate(bankAccount.length, (index){
+              return InkWell(
+                onTap: (){
+                  setState(() {
+                    selectedBankAccount = bankAccount[index];
+                    Get.back();
+                  });
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10,top: 15, left: 24, right: 24),
+                  child: Column(
+                    children: [
+                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(bankAccount[index], style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                          selectedBankAccount == bankAccount[index] ? const Icon(Icons.check, size: 12, color: kOrange,): const SizedBox()
+                        ],
+                      ),
+                      const Divider(color: kLighterBackGroundColor,)
+                    ],
+                  ),
+                ),);
+            },)
+          ],
+        ),
+      )
+    ]);
+  }
+  void showPinBottomBottomSheet(){
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,
+      child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+        constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
+        child: Column(
+          children: [
+            const SizedBox(height: 10,),
+            Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
+            Expanded(
+              child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    children:[
+                      Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(alignment: Alignment.centerRight,
+                            child: IconButton(
+                                onPressed: (){
+                                  Get.back();},
+                                icon: Icon(Icons.clear, color: kOrange,)
+                            ),
+                          ),
+                          Align(alignment: Alignment.center,
+                              child: Text("Transaction Pin", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700 ),)),
+                          const SizedBox(height: 80,),
+                          PinCodeWidget(
+                            length: 4, padding: 70,
+                              onChanged: (value){}
+                          ),
+                          SizedBox(height: MediaQuery.of(context).size.height/6,),
+                          ButtonWidget(
+                              onPressed: (){
+                                Get.back();
+                                showSuccessfulWithdrawalDialog();
+                              },
+                              buttonText: "Continue",
+                              height: 55, buttonColor: kGreen,
+                              width: double.maxFinite
+                          ),
+                        ],
+                      )
+                    ]
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20),),
+      ),
+      isScrollControlled: true,
+    );
+  }
+
+  void showFundWithdrawalBottomSheet(){
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,
+        child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+          constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
+          child: Column(
+            children: [
+              const SizedBox(height: 10,),
+              Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
+              const SizedBox(height: 30,),
+              Expanded(
+                child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children:[
+                        Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text("Withdraw Funds", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700 ),),
+
+                                IconButton(onPressed: (){
+                                  Get.back();
+                                }, icon: Icon(Icons.clear, color: kOrange,))
+                              ],
+                            ),
+                            const SizedBox(height: 50,),
+                            Text("Amount", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                            const SizedBox(height: 10,),
+                            FormFieldWidget(
+                              hintText: "Enter amount",
+                            ),
+                            SizedBox(height: 30),
+                            Text("Select Bank Account", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                            const SizedBox(height: 10,),
+                            Container(height: 55, width: double.maxFinite, decoration: BoxDecoration(border: Border.all(color: kWhite, width: 0.7), borderRadius: BorderRadius.circular(8)),
+                              child: TextButton(
+                                style: ButtonStyle(overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent)),
+                                onPressed: (){
+                                 showMyBankAccountDialog();
+                                },
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(selectedBankAccount ?? "Bank Account", style: TextStyle(color: selectedBankAccount == null ? const Color(0xff868484) : kWhite, fontSize: 18),),
+                                    const Icon(Icons.keyboard_arrow_down, color: kWhite)
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 50,),
+                            ButtonWidget(
+                                onPressed: (){
+                                  Get.back();
+                                  showPinBottomBottomSheet();
+                                  },
+                                buttonText: "Withdraw Funds",
+                                height: 55, buttonColor: kGreen,
+                                width: double.maxFinite
+                            ),
+                          ],
+                        )
+                      ]
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20),),
+      ),
+      isScrollControlled: true,
+    );
+  }
 
   @override
   void initState() {
+    Timer(const Duration(seconds: 3), () => showMyDialog(),);
     super.initState();
+  }
+  showTransactionPinSetDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
+      Expanded(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Spacer(flex: 2,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(height: 80, width: 80,
+                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
+                child: const Center(child: Icon(Icons.lock, color: kOrange, size: 45,)),
+              ),
+            ),
+            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 50,),
+            Text("Transaction PIN Set", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            const SizedBox(height: 20,),
+            Text("Transaction PIN set successfully", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+            const SizedBox(height: 50,),
+            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              child: CustomOutlineButton(
+                  backGroundColor: const Color(0xff081952),
+                  text: "Ok", height: 60,
+                  onPressed: (){
+                    Get.back();
+                    Get.back();
+                  }
+              ),
+            ),
+            const Spacer(flex: 2,),
+          ],
+        ),
+      )
+    ]);
+  }
+
+  showSuccessfulWithdrawalDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
+      Expanded(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Spacer(flex: 2,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(height: 80, width: 80,
+                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
+                child: const Center(child: Icon(Icons.print_outlined, color: kOrange, size: 45,)),
+              ),
+            ),
+            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 50,),
+            Text("Withdrawal successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            const SizedBox(height: 20,),
+            Text("Your withdrawal was successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+            const SizedBox(height: 50,),
+            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              child: CustomOutlineButton(
+                  backGroundColor: const Color(0xff081952),
+                  text: "Ok", height: 60,
+                  onPressed: (){
+                    Get.back();
+                  }
+              ),
+            ),
+            const Spacer(flex: 2,),
+          ],
+        ),
+      )
+    ]);
+  }
+
+
+  showMyDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
+      Expanded(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(height: 30,),
+            Text("Create Transaction PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            Text("Create your very own transaction PIN ", textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400)),
+            const Spacer(flex: 2,),
+            Text("Enter New PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+            const SizedBox(height: 20,),
+            PinCodeWidget(
+              onChanged: (value) {},
+              length: 4, padding: 45,
+            ),
+            const SizedBox(height: 50,),
+            Text("Confirm New PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w400),),
+            const SizedBox(height: 20,),
+            PinCodeWidget(
+              onChanged: (value) {},
+              length: 4, padding: 45,
+            ),
+            const SizedBox(height: 30,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              child: ButtonWidget(
+                  onPressed: (){
+                    Get.back();
+                    showTransactionPinSetDialog();
+                  }, buttonText: "Set PIN", buttonColor: kGreen,
+                  height: 55, width: double.maxFinite
+              ),
+            ),
+            const Spacer(),
+          ],
+        ),
+      )
+    ]);
+  }
+
+  void showEmptyWithdrawalWalletBottomSheet(BuildContext context){
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/2,
+        children: [
+          Align(alignment: Alignment.centerRight,
+            child: IconButton(onPressed: (){
+              Get.back();
+            }, icon: Icon(Icons.clear, color: kOrange,),),
+          ),
+          const SizedBox(height: 10,),
+          Align(alignment: Alignment.center,
+              child: CircleAvatar(backgroundColor: kBlue, radius: 45, child: Icon(Icons.print_outlined, color: kWhite, size: 45,))),
+          const SizedBox(height: 50,),
+          Align(alignment: Alignment.center,
+            child: Text("You have no funds to \nwithdraw yet.", textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700),),
+          ),
+          const SizedBox(height: 30,),
+          Align(alignment: Alignment.center,
+            child: Text("Fusce lacinia vulputate gravida massa \nnibh faucibus lorem vel etiam. ", textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16)),
+          ),
+        ]
+    );
+  }
+
+  selectBetweenTopWithDrawAndMoreOption(int index){
+    if(index == 0 && userData.isEmpty){
+
+    }else if(index == 0 && userData.isNotEmpty){
+      showFundWithdrawalBottomSheet();
+    }else if(index == 1 && userData.isEmpty){
+      showEmptyWithdrawalWalletBottomSheet(context);
+    }else if(index == 1 && userData.isNotEmpty){
+
+    }else if(index == 2 && userData.isEmpty){
+
+    }else if(index == 2 && userData.isNotEmpty){
+
+    }
   }
 
   @override
@@ -33,7 +366,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: MediaQuery.of(context).size.height / 2.5,
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: MediaQuery.of(context).size.height / 2.8,
                 decoration: BoxDecoration(color: kLightBackGroundColor, border: Border.all(color: kLightBackGroundColor),
                     borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))),
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,12 +383,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(width: 9,),
                           Text("Hi, Damilare", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 15, fontWeight: FontWeight.w700, color: kOrange),),
                           const Spacer(),
-                          IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
+                          userData.isEmpty ? const SizedBox() : IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
                           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none, color: kWhite,)),
                         ],
                       ),
                     ),
                     const SizedBox(height: 50,),
+                    userData.isEmpty ? const SizedBox() :
                     Container(
                       height: 56, width: double.maxFinite, decoration: BoxDecoration(color: const Color(0xff4700E0), borderRadius: BorderRadius.circular(8)),
                       padding: const EdgeInsets.all(16),
@@ -76,13 +410,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: 28,),
-                    Center(child: Text('₦350,000.00', style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),),),
+                    Center(child: Text(userData.isEmpty ? "₦0": '₦350,000.00', 
+                      style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),),),
                     const SizedBox(height: 54,),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ...List.generate(rowButtonItem.length, (index){
                           return InkWell(
                             onTap: (){
+                              selectBetweenTopWithDrawAndMoreOption(index);
                               // showModalBottomSheet(
                               //     context: context,
                               //     enableDrag: false,
@@ -264,13 +600,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 19.0),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-
                         Container(
                           padding: const EdgeInsets.only(top: 23, left: 16, right: 16, bottom: 23,), width: double.maxFinite, height: MediaQuery.of(context).size.height / 4,
                           decoration: BoxDecoration(gradient: const LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: greenGradient),
                               border: Border.all(), borderRadius: BorderRadius.circular(12)),
                           child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              userData.isEmpty ?  const SizedBox() :
                               Expanded(
                                 child: Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -337,6 +673,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const Spacer(),
+                              userData.isEmpty ?
+                              Align(alignment: Alignment.center,
+                                child: Text("You have no loans yet. \nTake a loan to see your \nloan data.", textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff131176), fontWeight: FontWeight.bold, fontSize: 20),),
+                              ) :
                               IntrinsicHeight(
                                 child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -360,6 +701,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const Spacer(),
+                              userData.isEmpty ? Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
+                                  border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
+                                width: double.maxFinite, height: 55,
+                                child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(AssetPath.takenLoanIcon),
+                                    const SizedBox(width: 5,),
+                                    const Text('Take Loan')
+                                  ],
+                                ),
+                              ) :
                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
@@ -369,6 +722,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(AssetPath.takenLoanIcon),
+                                        const SizedBox(width: 5,),
                                         const Text('Take Loan')
                                       ],
                                     ),
@@ -379,7 +733,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: 128, height: 48,
                                     child: Row(
                                       children: [
-                                        SvgPicture.asset(AssetPath.repaidLoanIcon), const Text('Take Loan')
+                                        SvgPicture.asset(AssetPath.repaidLoanIcon),
+                                        const SizedBox(width: 5,),
+                                        const Text('Repay Loan')
                                       ],
                                     ),
                                   ),
@@ -388,7 +744,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: const Icon(Icons.more_vert, color: kWhite,),
                                   )
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -400,6 +756,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               border: Border.all(), borderRadius: BorderRadius.circular(12)),
                           child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              userData.isEmpty ? const SizedBox() :
                               Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(crossAxisAlignment: CrossAxisAlignment.center,mainAxisAlignment: MainAxisAlignment.start,
@@ -463,6 +820,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                               const Spacer(),
+                              userData.isEmpty ? Align(alignment: Alignment.center,
+                                child: Text("You have no portfolio yet. \nCreate a portfolio to see \nyour portfolio data.",
+                                    textAlign: TextAlign.center,
+                                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff131176), fontWeight: FontWeight.bold, fontSize: 20)),
+                              ) :
                               IntrinsicHeight(
                                 child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -486,6 +848,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const Spacer(),
                              
+                              userData.isEmpty ? Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
+                                  border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
+                                width: double.maxFinite, height: 55,
+                                child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(AssetPath.addFile),
+                                    const SizedBox(width: 5,),
+                                    const Text('Create Portfolio')
+                                  ],
+                                ),
+                              ) :
                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
@@ -496,7 +870,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(AssetPath.addFile),
-                                        const Text('Take Loan')
+                                        const SizedBox(width: 5,),
+                                        const Text('Create Portfolio')
                                       ],
                                     ),
                                   ),
@@ -507,7 +882,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(AssetPath.funds),
-                                        const Text('Take Loan')
+                                        const SizedBox(width: 5,),
+                                        const Text('Fund Portfolio')
                                       ],
                                     ),
                                   ),

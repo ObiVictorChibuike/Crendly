@@ -7,13 +7,14 @@ class PinCodeWidget extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String) onChanged;
   final int? length;
-  const PinCodeWidget({Key? key, this.onCompleted, this.controller, this.validator, required this.onChanged, this.length}) : super(key: key);
+  final double? padding;
+  const PinCodeWidget({Key? key, this.onCompleted, this.controller, this.validator, required this.onChanged, this.length, this.padding}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: 8.0, horizontal: 5),
+        padding: EdgeInsets.symmetric(
+            vertical: 8.0, horizontal: padding ?? 5),
         child: PinCodeTextField(
           textStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 25),
           autoDisposeControllers: false,
