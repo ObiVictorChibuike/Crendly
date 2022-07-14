@@ -81,11 +81,11 @@ class _UploadIDCardState extends State<UploadIDCard> {
     );
   }
   showMyDialog(){
-    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2.5, MediaQuery.of(context).size.width /1.3, [
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
       Expanded(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Spacer(flex: 3,),
+            const Spacer(flex: 2,),
             Align(
               alignment: Alignment.center,
               child: Container(height: 80, width: 80,
@@ -94,7 +94,7 @@ class _UploadIDCardState extends State<UploadIDCard> {
               ),
             ),
             Container(height: 55, width:2, color: kGreen,),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 50,),
             Text("We’ll have our AI system \nverify your ID in a bit", textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
             const SizedBox(height: 10,),
             Container(height: 55, width:2, color: kGreen,),
@@ -110,7 +110,7 @@ class _UploadIDCardState extends State<UploadIDCard> {
                   }
               ),
             ),
-            const Spacer(flex: 3,),
+            const Spacer(flex: 2,),
           ],
         ),
       )

@@ -1,6 +1,7 @@
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/src/auth/auth_screens/registration/face_scan/scanning_face.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -56,7 +57,9 @@ class _FaceScanAuthState extends State<FaceScanAuth> {
                         SizedBox(height: MediaQuery.of(context).size.height / 5.5,),
                         CustomOutlineButton(
                             text: "Scan Face",
-                            onPressed: (){}
+                            onPressed: (){
+                              Get.to(()=> const ScanningFace());
+                            }
                         ),
                         SizedBox(height: MediaQuery.of(context).size.height / 13,),
                         Align(alignment: Alignment.center,

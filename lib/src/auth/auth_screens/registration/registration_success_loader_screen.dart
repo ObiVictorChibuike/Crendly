@@ -19,11 +19,11 @@ class RegistrationSuccessLoaderScreen extends StatefulWidget {
 class _RegistrationSuccessLoaderScreenState extends State<RegistrationSuccessLoaderScreen> {
 
   showMyDialog(){
-    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2.5, MediaQuery.of(context).size.width /1.3, [
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
       Expanded(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Spacer(flex: 3,),
+            const Spacer(flex: 2,),
             Align(
               alignment: Alignment.center,
               child: Container(height: 80, width: 80,
@@ -34,7 +34,7 @@ class _RegistrationSuccessLoaderScreenState extends State<RegistrationSuccessLoa
             Container(height: 55, width:2, color: kGreen,),
             const SizedBox(height: 30,),
             Text("OTP Verification successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 50,),
             Container(height: 55, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
@@ -47,7 +47,7 @@ class _RegistrationSuccessLoaderScreenState extends State<RegistrationSuccessLoa
                   }
               ),
             ),
-            const Spacer(flex: 3,),
+            const Spacer(flex: 2,),
           ],
         ),
       )
