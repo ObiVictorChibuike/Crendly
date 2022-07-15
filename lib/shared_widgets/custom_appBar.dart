@@ -4,6 +4,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final void Function()? onBackPressed;
   final String? decorationImagePath;
   final Widget? title;
+  final Widget? trailing;
   final Color? backgroundColor;
   final Widget? flexibleSpace;
   final bool? centerTitle;
@@ -14,6 +15,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       this.title,
       this.backgroundColor,
       this.flexibleSpace,
+      this.trailing,
       this.centerTitle})
       : super(key: key);
 

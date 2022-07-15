@@ -7,14 +7,16 @@ import 'package:get/get.dart';
 import '../../../shared_widgets/customButton.dart';
 import '../../../shared_widgets/custom_appBar.dart';
 
-class TrustQuestionsScreen extends StatefulWidget {
-  const TrustQuestionsScreen({Key? key}) : super(key: key);
+class PersonalityQuestionsScreen extends StatefulWidget {
+  const PersonalityQuestionsScreen({Key? key}) : super(key: key);
 
   @override
-  _TrustQuestionsScreenState createState() => _TrustQuestionsScreenState();
+  _PersonalityQuestionsScreenState createState() =>
+      _PersonalityQuestionsScreenState();
 }
 
-class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
+class _PersonalityQuestionsScreenState
+    extends State<PersonalityQuestionsScreen> {
   final _controller = PageController();
   String text = '';
   @override
@@ -34,7 +36,7 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
   }
 
   void next() {
-    if (_controller.page == 12) {
+    if (_controller.page == 20) {
       Get.to(() => const LandingPage());
     } else {
       _controller.nextPage(
@@ -52,7 +54,7 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
     );
   }
 
-  List<Widget> trustQuestionsViews = DummyData.trustQuestionsViews;
+  List<Widget> personalityQuestionsViews = DummyData.personalityQuestionsViews;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,7 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
       child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
-            title: Text("Trust Questions"),
+            title: Text("Personality Questions"),
             centerTitle: true,
           ),
           body: Column(
@@ -70,7 +72,7 @@ class _TrustQuestionsScreenState extends State<TrustQuestionsScreen> {
               Expanded(
                 child: PageView(
                   controller: _controller,
-                  children: trustQuestionsViews,
+                  children: personalityQuestionsViews,
                 ),
               ),
               Padding(

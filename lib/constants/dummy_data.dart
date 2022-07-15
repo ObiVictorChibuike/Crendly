@@ -140,56 +140,241 @@ class DummyData {
   ];
   static final List<Widget> trustQuestionsViews = [
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "People tell me they understand me",
-        questionNumber: 1),
+      options: DummyData._().trustQuestionsOptions,
+      question: "People tell me they understand me",
+      questionNumber: 1,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question:
-            "I empathize with others a lot and I find it easy letting them know",
-        questionNumber: 2),
+      options: DummyData._().trustQuestionsOptions,
+      question:
+          "I empathize with others a lot and I find it easy letting them know",
+      questionNumber: 2,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "I enjoy getting the things I want",
-        questionNumber: 3),
+      options: DummyData._().trustQuestionsOptions,
+      question: "I enjoy getting the things I want",
+      questionNumber: 3,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "People see me as an honest and passionate communicator",
-        questionNumber: 4),
+      options: DummyData._().trustQuestionsOptions,
+      question: "People see me as an honest and passionate communicator",
+      questionNumber: 4,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "I am quick to praise people",
-        questionNumber: 5),
+      options: DummyData._().trustQuestionsOptions,
+      question: "I am quick to praise people",
+      questionNumber: 5,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "People say that I'm predictable and consistent",
-        questionNumber: 6),
+      options: DummyData._().trustQuestionsOptions,
+      question: "People say that I'm predictable and consistent",
+      questionNumber: 6,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "People easily confide in me",
-        questionNumber: 7),
+      options: DummyData._().trustQuestionsOptions,
+      question: "People easily confide in me",
+      questionNumber: 7,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "In interactions with others, I lead with curiosity",
-        questionNumber: 8),
+      options: DummyData._().trustQuestionsOptions,
+      question: "In interactions with others, I lead with curiosity",
+      questionNumber: 8,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "I an not ashamed to say I don't know",
-        questionNumber: 9),
+      options: DummyData._().trustQuestionsOptions,
+      question: "I an not ashamed to say I don't know",
+      questionNumber: 9,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "People say that I am dependable",
-        questionNumber: 10),
+      options: DummyData._().trustQuestionsOptions,
+      question: "People say that I am dependable",
+      questionNumber: 10,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "I am really good at what I do",
-        questionNumber: 11),
+      options: DummyData._().trustQuestionsOptions,
+      question: "I am really good at what I do",
+      questionNumber: 11,
+      totalNumberOfQuestions: 12,
+    ),
     SharedQuestionnaire(
-        options: DummyData._().trustQuestionsOptions,
-        question: "I care less about others",
-        questionNumber: 12),
+      options: DummyData._().trustQuestionsOptions,
+      question: "I care less about others",
+      questionNumber: 12,
+      totalNumberOfQuestions: 12,
+    ),
   ];
 
+  static final List<Widget> personalityQuestionsViews = [
+    SharedQuestionnaire(
+      options: ["calm, quiet and reserved", "friendly, talkative and outgoing"],
+      question: "What do people mostly think of you?",
+      questionNumber: 1,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Drained and tired even if I had fun",
+        "Pumped and can't wait to do it again"
+      ],
+      question: "How do you feel after a night out",
+      questionNumber: 2,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: ["Can't listen enough because you're tired", "Hear them out"],
+      question:
+          "You're busy after your nights out nd someone is telling you their life story",
+      questionNumber: 3,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: ["You and friends on an enjoyment tour", "Round the city"],
+      question: "Pick your typical  night out",
+      questionNumber: 4,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "I'm speaking my mind on the spot",
+        "Need to process before confronting"
+      ],
+      question:
+          "You just had a disagreement with someone. What's your first reaction?",
+      questionNumber: 5,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Drained and tired even if I had fun",
+        "Pumped and can't wait to do it again"
+      ],
+      question: "How do you feel after a night out",
+      questionNumber: 1,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Get my work done before taking a break",
+        "Listen to music, work, take small breks"
+      ],
+      question: "What's your routine like, when you're working?",
+      questionNumber: 5,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "No, School is all theories and no practical",
+        "Yes, it's very important and helpful"
+      ],
+      question: "If you had the power, would school exist?",
+      questionNumber: 1,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: ["Getting things done", "Thinking of solutions"],
+      question:
+          "You have one choice in an exam. which would you say you're better at?",
+      questionNumber: 2,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Do things one after the other",
+        "Start big, fills in the details later"
+      ],
+      question: "If you had lots of tasks to do today, how would you begin?",
+      questionNumber: 3,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Results, I believe in what I see",
+        "Process, I believe the results will roll in"
+      ],
+      question: "What keeps you going in work and life?",
+      questionNumber: 4,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: ["Not really, Things change, that's life", "Absolutely"],
+      question: "Can you think of one life goal you will never compromise on?",
+      questionNumber: 5,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "The task-oriented working from an outline",
+        "The task-oriented who goes with th flow"
+      ],
+      question: "In your opinion, who will win a competition?",
+      questionNumber: 4,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Analyze to make logical decisions",
+        "Consider others points_of_view"
+      ],
+      question: "Before you make decisions, you?",
+      questionNumber: 5,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Detailed, organized & proper planner",
+        "Flexible and spontaneous"
+      ],
+      question: "Which best describes you?",
+      questionNumber: 1,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Spend time thinking through my decision",
+        "Jump to my decisions"
+      ],
+      question: "How quick do you make decisions",
+      questionNumber: 2,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Proactive- i like to plan ahead",
+        "Reactive- We cross when we get there"
+      ],
+      question: "How do you approach challenges?",
+      questionNumber: 3,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "I get work done before a deadline",
+        "Stimulated by an approaching deadline"
+      ],
+      question: "What's your second superpower?",
+      questionNumber: 4,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Get my work done before taking a break",
+        "Listen to music, work, take small breks"
+      ],
+      question: "What's your routine like, when you're working?",
+      questionNumber: 5,
+      totalNumberOfQuestions: 5,
+    ),
+  ];
   static final crendlyCommunity = [
     {
       "asset": "assets/png_assets/community_image1.png",

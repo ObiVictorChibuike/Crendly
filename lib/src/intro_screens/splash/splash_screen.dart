@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/src/questionnaire/trust_questions/trust_questions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/color_palette.dart';
+import '../../questionnaire/trust_questions/personality_questions.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
         const Duration(seconds: 3),
-        () => Get.to(() => TrustQuestionsScreen()
+        () => Get.to(() => PersonalityQuestionsScreen()
             //const MainOnBoardingScreen()
             ));
   }
