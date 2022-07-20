@@ -8,7 +8,8 @@ class PinCodeWidget extends StatelessWidget {
   final void Function(String) onChanged;
   final int? length;
   final double? padding;
-  const PinCodeWidget({Key? key, this.onCompleted, this.controller, this.validator, required this.onChanged, this.length, this.padding}) : super(key: key);
+  final String? obscuringCharacter;
+  const PinCodeWidget({Key? key, this.onCompleted, this.controller, this.validator, required this.onChanged, this.length, this.padding, this.obscuringCharacter}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class PinCodeWidget extends StatelessWidget {
           autoDisposeControllers: false,
           controller: controller,
           onCompleted: onCompleted,
-          appContext: context,
+          appContext: context, obscuringCharacter: obscuringCharacter ?? '●',
           pastedTextStyle: const TextStyle(color: Colors.black,),
           length: length ?? 6, errorTextSpace: 20,
           enablePinAutofill: false, obscureText: true,

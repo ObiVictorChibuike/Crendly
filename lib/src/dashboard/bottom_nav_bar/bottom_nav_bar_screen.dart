@@ -1,7 +1,9 @@
 import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/explore_section/explore_screen.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/loan_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import '../nav_bar_screen_item/home_screen.dart';
+import '../nav_bar_screen_item/home_section/home_screen.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({Key? key}) : super(key: key);
@@ -18,9 +20,9 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   void initState() {
     _screens = [
       HomeScreen(),
+      LoanScreen(),
       HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
+      Explore(),
     ];
     super.initState();
   }

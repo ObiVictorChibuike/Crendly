@@ -40,6 +40,7 @@ class DummyData {
   ];
 
   static final userData = [];
+  static final myLoan = [];
 
   static final crendlyOption = [
     {

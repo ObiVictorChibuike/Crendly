@@ -1,18 +1,19 @@
 import 'dart:async';
-
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../shared_widgets/custom_outlined_button.dart';
-import '../../../shared_widgets/cutom_pincode_field.dart';
+import 'package:dotted_line/dotted_line.dart';
+import '../../../../shared_widgets/custom_buttom_sheet.dart';
+import '../../../../shared_widgets/custom_dialog_widget.dart';
+import '../../../../shared_widgets/custom_outlined_button.dart';
+import '../../../../shared_widgets/cutom_pincode_field.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -64,57 +65,211 @@ class _HomeScreenState extends State<HomeScreen> {
       )
     ]);
   }
-  void showPinBottomBottomSheet(){
-    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,
+
+  bool? isCardSelected = true;
+
+  void showTopUPWalletBottomSheet(){
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.65,
       child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
         constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
-        child: Column(
-          children: [
-            const SizedBox(height: 10,),
-            Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
-            Expanded(
-              child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                    children:[
-                      Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Align(alignment: Alignment.centerRight,
-                            child: IconButton(
-                                onPressed: (){
-                                  Get.back();},
-                                icon: Icon(Icons.clear, color: kOrange,)
+        child: StatefulBuilder(builder: (context, mySetState){
+          return Column(
+            children: [
+              const SizedBox(height: 10,),
+              Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
+              const SizedBox(height: 30,),
+              Expanded(
+                child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children:[
+                        Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text("TopUp Wallet", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.bold),),
+                                      IconButton(
+                                          onPressed: (){
+                                            Get.back();
+                                          },
+                                          icon: Icon(Icons.clear, color: kOrange, size: 25,)
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Align(alignment: Alignment.center,
-                              child: Text("Transaction Pin", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700 ),)),
-                          const SizedBox(height: 80,),
-                          PinCodeWidget(
-                            length: 4, padding: 70,
-                              onChanged: (value){}
-                          ),
-                          SizedBox(height: MediaQuery.of(context).size.height/6,),
-                          ButtonWidget(
-                              onPressed: (){
-                                Get.back();
-                                showSuccessfulWithdrawalDialog();
-                              },
-                              buttonText: "Continue",
-                              height: 55, buttonColor: kGreen,
-                              width: double.maxFinite
-                          ),
-                        ],
-                      )
-                    ]
+                            const SizedBox(height: 20,),
+                            Text("How much do you want to fund?",
+                              style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
+                            const SizedBox(height: 13,),
+                            FormFieldWidget(
+                              hintText: "Enter amount",
+                            ),
+                            const SizedBox(height: 24,),
+                            DottedLine(
+                              dashColor: Color(0xff163393),
+                            ),
+                            const SizedBox(height: 24,),
+                            Text("Fund your wallet using",
+                              style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
+                            const SizedBox(height: 13,),
+                            Container(
+                              decoration: BoxDecoration(border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(8)),
+                              height: 55, width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 6),
+                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          ButtonWidget(
+                                              onPressed: (){
+                                                mySetState(() {
+                                                  isCardSelected = true;
+                                                });
+                                              },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
+                                              color: isCardSelected == true ? Colors.black : kWhite
+                                          ),
+                                              buttonColor: isCardSelected == true ? kOrange : Colors.transparent, buttonText: "Card",
+                                              width: MediaQuery.of(context).size.width / 2.4, height: 45
+                                          ),
+                                          ButtonWidget(
+                                              onPressed: (){
+                                                mySetState(() {
+                                                  isCardSelected = false;
+                                                });
+                                              },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: isCardSelected == false ? Colors.black : kWhite),
+                                              buttonColor: isCardSelected == false ? kOrange : Colors.transparent, buttonText: "Bank Transfer",
+                                              width: MediaQuery.of(context).size.width / 2.4, height: 45
+                                          ),
+                                        ],
+                                      )
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: 30,),
+                            isCardSelected == true ? Column(
+                              children: [
+                                Text("Enter Card Number",
+                                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
+                                const SizedBox(height: 13,),
+                                FormFieldWidget(
+                                  hintText: "Card number",
+                                ),
+                                const SizedBox(height: 24,),
+                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("Expiry date", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
+                                                const SizedBox(height: 10,),
+                                                FormFieldWidget(
+                                                  width: MediaQuery.of(context).size.width / 2.3,
+                                                  hintText: "MM/YY",
+                                                ),
+                                              ],
+                                            ),
+                                            Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text("CVV", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
+                                                const SizedBox(height: 10,),
+                                                FormFieldWidget(
+                                                  width: MediaQuery.of(context).size.width / 2.3,
+                                                  hintText: "123",
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 30,),
+                                Text("You will be charged a sum of N200,000.",
+                                  style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16, fontWeight: FontWeight.w500, color: kWhite),),
+                                const SizedBox(height: 50,),
+                                ButtonWidget(
+                                    onPressed: (){
+                                      Get.back();
+                                      showPinBottomBottomSheet(context: context,
+                                          onPressed: () {
+                                            Get.back();
+                                            showTopUpSuccessDialog();
+                                          });
+                                    }, buttonText: "Pay N200,000",buttonColor: kGreen,
+                                    height: 55, width: double.maxFinite
+                                ),
+                                const SizedBox(height: 50,),
+                              ],
+                            ) :
+                             Column(
+                               children: [
+                                 DottedBorder(color: Color(0xffC1CDF6), dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
+                                   child: Padding(
+                                     padding: const EdgeInsets.all(25.0),
+                                     child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                       children: [
+                                         Align(alignment: Alignment.center,
+                                           child: Text("Make payment using this bank details.",
+                                             style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                                         ),
+                                         const SizedBox(height: 20,),
+                                         const Divider(
+                                           color: Color(0xffC1CDF6),
+                                         ),
+                                         const SizedBox(height: 20,),
+                                         Row(mainAxisAlignment: MainAxisAlignment.center,
+                                           children: [
+                                             Expanded(
+                                                 child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                                   children: [
+                                                     Text("Account Name: ", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
+                                                     Text("WEMA", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
+                                                   ],
+                                                 )
+                                             )
+                                           ],
+                                         ),
+                                         Row(mainAxisAlignment: MainAxisAlignment.center,
+                                           children: [
+                                             Expanded(
+                                                 child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                                   children: [
+                                                     Text("Account Number: ", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
+                                                     Text("588291782882", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
+                                                     IconButton(onPressed: (){
+
+                                                     }, icon: Icon(Icons.file_copy_outlined, color: kOrange,))
+                                                   ],
+                                                 )
+                                             )
+                                           ],
+                                         ),
+                                       ],
+                                     ),
+                                   )
+                                 ),
+                               ],
+                             )
+                          ],
+                        )
+                      ]
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          );
+        })
       ),
     ),
-      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20),),
-      ),
-      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20),),),
+      isScrollControlled: true, isDismissible: false
     );
   }
 
@@ -169,7 +324,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             ButtonWidget(
                                 onPressed: (){
                                   Get.back();
-                                  showPinBottomBottomSheet();
+                                  showPinBottomBottomSheet(context: context,
+                                      onPressed: () {
+                                        Get.back();
+                                        showSuccessfulWithdrawalDialog();
+                                      });
                                   },
                                 buttonText: "Withdraw Funds",
                                 height: 55, buttonColor: kGreen,
@@ -224,8 +383,46 @@ class _HomeScreenState extends State<HomeScreen> {
                   text: "Ok", height: 60,
                   onPressed: (){
                     Get.back();
-                    Get.back();
                   }
+              ),
+            ),
+            const Spacer(flex: 2,),
+          ],
+        ),
+      )
+    ]);
+  }
+
+  showTopUpSuccessDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
+      Expanded(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const Spacer(flex: 2,),
+            Align(
+              alignment: Alignment.center,
+              child: Container(height: 80, width: 80,
+                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
+                child: const Center(child: Icon(Icons.add, color: kOrange, size: 45,)),
+              ),
+            ),
+            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 50,),
+            Text("TopUp successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            const SizedBox(height: 20,),
+            Text("Your wallet topup was successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+            const SizedBox(height: 50,),
+            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: ButtonWidget(
+                onPressed: (){
+                  Get.back();
+                },
+                buttonText: "Go to Home",
+                height: 55, buttonColor: kGreen,
+                width: double.maxFinite,
               ),
             ),
             const Spacer(flex: 2,),
@@ -257,13 +454,14 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(height: 65, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:99.0),
-              child: CustomOutlineButton(
-                  backGroundColor: const Color(0xff081952),
-                  text: "Ok", height: 60,
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: ButtonWidget(
                   onPressed: (){
                     Get.back();
-                  }
+                  },
+                  buttonText: "Go to Home",
+                  height: 55, buttonColor: kGreen,
+                  width: double.maxFinite,
               ),
             ),
             const Spacer(flex: 2,),
@@ -342,13 +540,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   selectBetweenTopWithDrawAndMoreOption(int index){
     if(index == 0 && userData.isEmpty){
-
+      showTopUPWalletBottomSheet();
     }else if(index == 0 && userData.isNotEmpty){
-      showFundWithdrawalBottomSheet();
-    }else if(index == 1 && userData.isEmpty){
-      showEmptyWithdrawalWalletBottomSheet(context);
-    }else if(index == 1 && userData.isNotEmpty){
 
+    }else if(index == 1 && userData.isEmpty){
+      showFundWithdrawalBottomSheet();
+    }else if(index == 1 && userData.isNotEmpty){
+      showEmptyWithdrawalWalletBottomSheet(context);
     }else if(index == 2 && userData.isEmpty){
 
     }else if(index == 2 && userData.isNotEmpty){
@@ -1018,163 +1216,6 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
     );
   }
-
-  // Widget More() {
-  //   return Container(
-  //     color: backgroundColor,
-  //     height: MediaQuery.of(context).size.height,
-  //     width: MediaQuery.of(context).size.width,
-  //     child: Padding(
-  //       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 26),
-  //       child: Column(
-  //         children: [
-  //           Row(
-  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //             children: [
-  //               const Text(
-  //                 'Others',
-  //                 style: boldSubtitle,
-  //               ),
-  //               IconButton(
-  //                 icon: const Icon(
-  //                   Icons.cancel_outlined,
-  //                   color: iconColor,
-  //                 ),
-  //                 onPressed: () {
-  //                   Get.back();
-  //                 },
-  //               )
-  //             ],
-  //           ),
-  //           const SizedBox(
-  //             height: 24,
-  //           ),
-  //           SizedBox(
-  //             height: 155,
-  //             child: DottedBorder(
-  //               color: const Color(0xff2E4DBD),
-  //               child: Padding(
-  //                 padding:
-  //                 const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-  //                 child: Column(
-  //                   children: [
-  //                     Row(
-  //                       children: [
-  //                         Container(
-  //                           height: 64,
-  //                           width: 64,
-  //                           margin: const EdgeInsets.only(right: 16),
-  //                           child: CircleAvatar(
-  //                             backgroundColor:
-  //                             const Color.fromRGBO(255, 255, 255, 1),
-  //                             radius: 25,
-  //                             child: SvgPicture.asset(
-  //                               'assets/images/orange.svg',
-  //                               height: 40,
-  //                               width: 40,
-  //                             ),
-  //                           ),
-  //                         ),
-  //                         Column(
-  //                           children: const [
-  //                             Text(
-  //                               'Damilare Martins',
-  //                               style: boldSmallText,
-  //                             ),
-  //                             SizedBox(
-  //                               height: 10,
-  //                             ),
-  //                             SizedBox(
-  //                               width: 206,
-  //                               child: LinearProgressIndicator(
-  //                                 backgroundColor: Color(0xff040F35),
-  //                                 value: 80,
-  //                                 color: colorLinearProgress,
-  //                               ),
-  //                             ),
-  //                             SizedBox(
-  //                               height: 10,
-  //                             ),
-  //                             Text(
-  //                               'Your profile is 80% complete',
-  //                               style: regularFont,
-  //                             )
-  //                           ],
-  //                         )
-  //                       ],
-  //                     ),
-  //                     const SizedBox(
-  //                       height: 20,
-  //                     ),
-  //                     const Text(
-  //                       'Complete your profile',
-  //                       style: skipText,
-  //                     )
-  //                   ],
-  //                 ),
-  //               ),
-  //             ),
-  //           ),
-  //           const SizedBox(height: 42),
-  //           Row(
-  //             children: [
-  //               Row(
-  //                 children: const [
-  //                   Text(
-  //                     'Quick Menu',
-  //                     style: regularFont,
-  //                   ),
-  //                   SizedBox(width: 3),
-  //                   SizedBox(
-  //                     width: 227,
-  //                     child: Divider(
-  //                       color: Color(0xff2E4DBD),
-  //                     ),
-  //                   )
-  //                 ],
-  //               )
-  //             ],
-  //           ),
-  //           const SizedBox(
-  //             height: 30,
-  //           ),
-  //           Row(
-  //             children: [
-  //               Container(
-  //                 padding: const EdgeInsets.only(top: 14),
-  //                 decoration: BoxDecoration(
-  //                     borderRadius: BorderRadius.circular(8),
-  //                     color: const Color(0xff4700E0),
-  //                     border: Border.all(
-  //                       color: const Color(0xff4700E0),
-  //                     )),
-  //                 height: 92,
-  //                 width: 90,
-  //                 child: Column(
-  //                   children: const [
-  //                     SizedBox(
-  //                       width: 39,
-  //                       height: 39,
-  //                       child: CircleAvatar(
-  //                           backgroundColor: Color(0xff6219FF),
-  //                           radius: 25,
-  //                           child: Icon(Icons.calculate_outlined)),
-  //                     ),
-  //                     SizedBox(height:7),
-  //                     Text(
-  //                       'Calculator',
-  //                       style: regularFont,
-  //                     )
-  //                   ],
-  //                 ),
-  //               )
-  //             ],
-  //           )
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 
   // Widget getViewTabBar(int index) {
   //   switch (index) {
