@@ -608,7 +608,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     const SizedBox(height: 28,),
-                    Center(child: Text(userData.isEmpty ? "₦0": '₦350,000.00', 
+                    Center(child: Text(userData.isEmpty ? "₦0": '₦350,000.00',
                       style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),),),
                     const SizedBox(height: 54,),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
