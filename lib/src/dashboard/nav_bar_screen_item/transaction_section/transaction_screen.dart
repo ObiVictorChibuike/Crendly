@@ -1,22 +1,19 @@
-
-import 'package:crendly/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../constants/color_palette.dart';
 import '../../../../constants/dummy_data.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
-
-
-class LoanScreen extends StatefulWidget {
-  const LoanScreen({Key? key}) : super(key: key);
+class TransactionScreen extends StatefulWidget {
+  const TransactionScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoanScreen> createState() => _LoanScreenState();
+  State<TransactionScreen> createState() => _TransactionScreenState();
 }
 
-class _LoanScreenState extends State<LoanScreen> {
-  List userLoan = DummyData.myLoan;
+class _TransactionScreenState extends State<TransactionScreen> {
+  List userTransaction = DummyData.transaction;
   @override
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,
@@ -27,7 +24,7 @@ class _LoanScreenState extends State<LoanScreen> {
               children: [
                 Text("My Loan", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
                 const SizedBox(height: 15,),
-                Text("See all your loan activities",
+                Text("See all your transaction activities",
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
               ],
             ),
@@ -38,20 +35,20 @@ class _LoanScreenState extends State<LoanScreen> {
           backgroundColor: kDarkBackGroundColor,
           body: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              userLoan.isEmpty ?
-                  Align(alignment: Alignment.center,
-                    child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CircleAvatar(
-                            backgroundColor: kBlue,
-                            radius: 50, child: Icon(MdiIcons.handCoinOutline, color: kWhite, size: 50,)
-                        ),
-                        const SizedBox(height: 40,),
-                        Text("You haven't take or \ngiven any Loan yet.", textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.bold, fontSize: 20),)
-                      ],
+              userTransaction.isEmpty ?
+              Align(alignment: Alignment.center,
+                child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                        backgroundColor: kBlue,
+                        radius: 50, child: Icon(MdiIcons.calendarTextOutline, color: kWhite, size: 50,)
                     ),
-                  ) :
+                    const SizedBox(height: 40,),
+                    Text("You haven't made \nany transaction yet.", textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.bold, fontSize: 20),)
+                  ],
+                ),
+              ) :
               Column(
                 children: [
 

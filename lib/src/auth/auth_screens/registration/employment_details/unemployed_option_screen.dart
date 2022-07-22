@@ -35,7 +35,7 @@ class _UnemployedOptionScreenState extends State<UnemployedOptionScreen> {
           title: Text(
             "Unemployed",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -43,7 +43,7 @@ class _UnemployedOptionScreenState extends State<UnemployedOptionScreen> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -82,7 +82,7 @@ class _UnemployedOptionScreenState extends State<UnemployedOptionScreen> {
                         borderRadius: BorderRadius.circular(25),
                         selectedColor: const Color(0xff8095E0),
                         buttonHeight: 50,
-                        buttonWidth: MediaQuery.of(context).size.width / 2.3),
+                        buttonWidth: MediaQuery.of(context).size.width / 2.5),
                     isRadio: false,
                     enableDeselect: true,
                     onSelected: (String value, index, isSelected) {},
@@ -99,7 +99,7 @@ class _UnemployedOptionScreenState extends State<UnemployedOptionScreen> {
                       buttonColor: kGreen,
                       borderRadius: 8,
                       buttonText: "Next",
-                      height: 55,
+                      height: 50,
                       width: double.maxFinite),
                   const Spacer(),
                 ],

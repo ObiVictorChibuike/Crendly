@@ -2,6 +2,7 @@ import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/src/auth/auth_screens/registration/bvn_verifcation.dart';
 import 'package:crendly/src/auth/auth_screens/registration/crendly_business_registration_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -39,29 +40,31 @@ class SignUpOption extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Spacer(),
+              const SizedBox(height: 30,),
+              Text("We are about the credibility of our platform. Hence, you will be asked "
+                  "a series of questions to onboard Crendly. Please be patient and get all your details handy. ", textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, color: kWhite),),
+              const SizedBox(height: 30,),
               Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: ConstrainedBox(
                     constraints: BoxConstraints(
-                        maxWidth: MediaQuery.of(context).size.width / 2,
+                        maxWidth: MediaQuery.of(context).size.width / 1.2,
                         minHeight: 50),
                     child: Text(
-                      'Which one of these options best describes you?',
+                      'Which one of these options best describes you?', textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                          fontSize: 32,
-                          color: kOrange,
-                          fontWeight: FontWeight.w700),
+                          fontSize: 24, color: kOrange, fontWeight: FontWeight.bold),
                     )),
               ),
-              const SizedBox(
-                height: 15,
+              const SizedBox(height: 10,),
+              Align(alignment: Alignment.center,
+                child: Text('Either way welcome to crendly',textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: kWhite)),
               ),
-              Text('Either way welcome to crendly',
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: kWhite)),
               const SizedBox(
                 height: 47,
               ),
@@ -80,7 +83,7 @@ class SignUpOption extends StatelessWidget {
                             //Get.toNamed('/bvn');
                           },
                           child: Container(
-                            height: 285,
+                            height: 248,
                             width: MediaQuery.of(context).size.width / 2.3,
                             padding: const EdgeInsets.fromLTRB(
                                 15.0, 19.0, 15.0, 20.0),
@@ -99,57 +102,21 @@ class SignUpOption extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Container(
-                                          height: 70,
-                                          width: 70,
-                                          decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: kDarkBackGroundColor),
-                                          child: Center(
-                                            child: SvgPicture.asset(
-                                              options[index]["asset"],
-                                              height: 50,
-                                              width: 50,
-                                              theme:
-                                                  const SvgTheme(fontSize: 25),
+                                          height: 70, width: 70,
+                                          decoration: const BoxDecoration(shape: BoxShape.circle, color: kDarkBackGroundColor),
+                                          child: Center(child: SvgPicture.asset(options[index]["asset"], height: 60, width: 60, theme: const SvgTheme(fontSize: 25),
                                             ),
                                           ),
                                         ),
-                                        const SizedBox(
-                                          height: 27.0,
-                                        ),
+                                        const SizedBox(height: 20.0,),
                                         ConstrainedBox(
-                                            constraints: BoxConstraints(
-                                                maxWidth: MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    4,
-                                                minHeight: 50),
-                                            child: Text(
-                                              options[index]["title"],
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText2
-                                                  ?.copyWith(
-                                                      fontSize: 28,
-                                                      fontWeight:
-                                                          FontWeight.w700),
+                                            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width /3, minHeight: 30),
+                                            child: Text(options[index]["title"], style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 24, fontWeight: FontWeight.w700),
                                             )),
                                         ConstrainedBox(
-                                            constraints: BoxConstraints(
-                                                maxWidth: MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    5,
-                                                minHeight: 50),
-                                            child: Text(
-                                              options[index]["description"],
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText2
-                                                  ?.copyWith(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.w500),
+                                            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 5, minHeight: 50),
+                                            child: Text(options[index]["description"],
+                                              style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w400),
                                             )),
                                       ],
                                     ),

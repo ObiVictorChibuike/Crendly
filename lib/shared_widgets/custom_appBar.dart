@@ -32,12 +32,12 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
       ),
       leading: IconButton(
-          onPressed: onBackPressed, icon: const Icon(Icons.arrow_back_ios)),
+          onPressed: onBackPressed, icon: const Icon(Icons.arrow_back_ios, size: 20,)),
       actions: [
         Padding(
-          padding: const EdgeInsets.only(right: 15.0),
+          padding: const EdgeInsets.only(right: 15.0, top: 15),
           child: decorationImagePath != null
-              ? Image.asset(decorationImagePath ?? "")
+              ? Image.asset(decorationImagePath ?? "", height: 50, width: 50,)
               : Container(),
         )
       ],

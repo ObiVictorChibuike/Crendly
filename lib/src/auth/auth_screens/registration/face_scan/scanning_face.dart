@@ -38,22 +38,22 @@ class _ScanningFaceState extends State<ScanningFace> {
                 child: Center(child: SvgPicture.asset(AssetPath.faceIcon)),
               ),
             ),
-            Container(height: 55, width:2, color: kGreen,),
+            Container(height:45, width:2, color: kGreen,),
             const SizedBox(height: 30,),
             Align(alignment: Alignment.center,
               child: Text("Facial Recognition Complete", textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 5),
             Text("Your face looks pretty nice, actually", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.bold, fontSize: 12),),
             const SizedBox(height: 30,),
-            Container(height: 55, width:2, color: kGreen,),
+            Container(height: 45, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              padding: const EdgeInsets.symmetric(horizontal:60.0),
               child: CustomOutlineButton(
                   backGroundColor: const Color(0xff081952),
-                  text: "Ok", height: 60,
+                  text: "Ok", height: 50,
                   onPressed: (){
                     Get.to(()=> const ScanSignature());
                   }

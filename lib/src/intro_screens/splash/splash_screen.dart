@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../constants/color_palette.dart';
 import '../../questionnaire/trust_questions/personality_questions.dart';
+import '../onboarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,8 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
         const Duration(seconds: 3),
-        () => Get.to(() => PersonalityQuestionsScreen()
-            //const MainOnBoardingScreen()
+        () => Get.to(() =>
+            //PersonalityQuestionsScreen()
+            const MainOnBoardingScreen()
             ));
   }
 

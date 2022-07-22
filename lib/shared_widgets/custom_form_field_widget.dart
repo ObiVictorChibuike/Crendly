@@ -35,7 +35,7 @@ class FormFieldWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         color: Colors.transparent,border: Border.all(width: 0.7, color: kDarkBackGroundColor),
       ),
-      height: 55,
+      height: 50,
       width: width ?? double.maxFinite,
       child: TextFormField(
         obscureText: obscureText ?? false,

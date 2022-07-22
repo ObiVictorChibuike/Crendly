@@ -44,157 +44,161 @@ class _MaritalStatusState extends State<MaritalStatus> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "What is your marital status?",
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                        color: kWhite,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  )),
-              const SizedBox(
-                height: 15,
-              ),
-              GroupButton(
-                options: GroupButtonOptions(
-                    selectedTextStyle: Theme.of(context)
-                        .textTheme
-                        .bodyText2
-                        ?.copyWith(color: kWhite, fontSize: 16),
-                    unselectedTextStyle: Theme.of(context)
-                        .textTheme
-                        .bodyText2
-                        ?.copyWith(color: kWhite, fontSize: 16),
-                    unselectedColor: Colors.transparent,
-                    mainGroupAlignment: MainGroupAlignment.start,
-                    unselectedBorderColor: kWhite,
-                    crossGroupAlignment: CrossGroupAlignment.start,
-                    borderRadius: BorderRadius.circular(25),
-                    buttonHeight: 55,
-                    buttonWidth: 120),
-                isRadio: false,
-                onSelected: (String value, index, isSelected) {},
-                buttons: [
-                  "Single",
-                  "Married",
-                  "Divorced",
-                  "Separated",
-                  "Widowed"
-                ],
-              ),
-              const Spacer(),
-              Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Do you have dependents?",
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                        color: kWhite,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500),
-                  )),
-              const SizedBox(
-                height: 15,
-              ),
-              GroupButton(
-                options: GroupButtonOptions(
-                    selectedTextStyle: Theme.of(context)
-                        .textTheme
-                        .bodyText2
-                        ?.copyWith(color: kWhite, fontSize: 16),
-                    unselectedTextStyle: Theme.of(context)
-                        .textTheme
-                        .bodyText2
-                        ?.copyWith(color: kWhite, fontSize: 16),
-                    unselectedColor: Colors.transparent,
-                    mainGroupAlignment: MainGroupAlignment.start,
-                    unselectedBorderColor: kWhite,
-                    crossGroupAlignment: CrossGroupAlignment.start,
-                    borderRadius: BorderRadius.circular(25),
-                    selectedColor: const Color(0xff8095E0),
-                    buttonHeight: 55,
-                    buttonWidth: MediaQuery.of(context).size.width / 2.3),
-                isRadio: false,
-                enableDeselect: true,
-                onSelected: (String value, index, isSelected) {
-                  if (index == 0 && value == "Yes, I do") {
-                    setState(() {
-                      hasDependants = isSelected;
-                    });
-                  } else {
-                    setState(() {
-                      hasDependants = false;
-                    });
-                  }
-                },
-                buttons: ["Yes, I do", "No, I don’t"],
-                maxSelected: 1,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Divider(
-                color: kLightBackGroundColor,
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              hasDependants == true
-                  ? Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Do you have dependents?",
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                            color: kWhite,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500),
-                      ))
-                  : const SizedBox(),
-              const SizedBox(
-                height: 15,
-              ),
-              hasDependants == true
-                  ? GroupButton(
-                      options: GroupButtonOptions(
-                          selectedTextStyle: Theme.of(context)
-                              .textTheme
-                              .bodyText2
-                              ?.copyWith(color: kWhite, fontSize: 16),
-                          unselectedTextStyle: Theme.of(context)
-                              .textTheme
-                              .bodyText2
-                              ?.copyWith(color: kWhite, fontSize: 16),
-                          unselectedColor: Colors.transparent,
-                          mainGroupAlignment: MainGroupAlignment.start,
-                          unselectedBorderColor: kWhite,
-                          crossGroupAlignment: CrossGroupAlignment.start,
-                          borderRadius: BorderRadius.circular(25),
-                          selectedColor: const Color(0xff8095E0),
-                          buttonHeight: 55,
-                          buttonWidth: MediaQuery.of(context).size.width / 2.3),
-                      isRadio: false,
-                      onSelected: (String value, index, isSelected) {},
-                      buttons: ["1 to 2", "3 to 4", "5 & Above"],
-                    )
-                  : const SizedBox(),
-              const Spacer(
-                flex: 5,
-              ),
-              ButtonWidget(
-                  onPressed: () {
-                    Get.to(() => const QualificationScreen());
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "What is your marital status?",
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                          color: kWhite,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    )),
+                const SizedBox(
+                  height: 15,
+                ),
+                GroupButton(
+                  options: GroupButtonOptions(
+                    spacing: 20,
+                      selectedTextStyle: Theme.of(context)
+                          .textTheme
+                          .bodyText2
+                          ?.copyWith(color: kWhite, fontSize: 16),
+                      unselectedTextStyle: Theme.of(context)
+                          .textTheme
+                          .bodyText2
+                          ?.copyWith(color: kWhite, fontSize: 16),
+                      unselectedColor: Colors.transparent,
+                      mainGroupAlignment: MainGroupAlignment.start,
+                      unselectedBorderColor: kWhite,
+                      crossGroupAlignment: CrossGroupAlignment.start,
+                      borderRadius: BorderRadius.circular(25),
+                      buttonHeight: 50,
+                      buttonWidth: MediaQuery.of(context).size.width / 2.5),
+                  isRadio: false,
+                  onSelected: (String value, index, isSelected) {},
+                  buttons: [
+                    "Single",
+                    "Married",
+                    "Divorced",
+                    "Separated",
+                    "Widowed"
+                  ],
+                ),
+                const SizedBox(height: 30,),
+                Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Do you have dependents?",
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                          color: kWhite,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500),
+                    )),
+                const SizedBox(
+                  height: 15,
+                ),
+                GroupButton(
+                  options: GroupButtonOptions(
+                    spacing: 20,
+                      selectedTextStyle: Theme.of(context)
+                          .textTheme
+                          .bodyText2
+                          ?.copyWith(color: kWhite, fontSize: 16),
+                      unselectedTextStyle: Theme.of(context)
+                          .textTheme
+                          .bodyText2
+                          ?.copyWith(color: kWhite, fontSize: 16),
+                      unselectedColor: Colors.transparent,
+                      mainGroupAlignment: MainGroupAlignment.start,
+                      unselectedBorderColor: kWhite,
+                      crossGroupAlignment: CrossGroupAlignment.start,
+                      borderRadius: BorderRadius.circular(25),
+                      selectedColor: const Color(0xff8095E0),
+                      buttonHeight: 50,
+                      buttonWidth: MediaQuery.of(context).size.width / 2.5),
+                  isRadio: false,
+                  enableDeselect: true,
+                  onSelected: (String value, index, isSelected) {
+                    if (index == 0 && value == "Yes, I do") {
+                      setState(() {
+                        hasDependants = isSelected;
+                      });
+                    } else {
+                      setState(() {
+                        hasDependants = false;
+                      });
+                    }
                   },
-                  buttonColor: kGreen,
-                  borderRadius: 8,
-                  buttonText: "Next",
-                  height: 55,
-                  width: double.maxFinite),
-              const Spacer(),
-            ],
+                  buttons: ["Yes, I do", "No, I don’t"],
+                  maxSelected: 1,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Divider(
+                  color: kLightBackGroundColor,
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                hasDependants == true
+                    ? Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Do you have dependents?",
+                          style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                              color: kWhite,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500),
+                        ))
+                    : const SizedBox(),
+                const SizedBox(
+                  height: 15,
+                ),
+                hasDependants == true
+                    ? GroupButton(
+                        options: GroupButtonOptions(
+                          spacing: 20,
+                            selectedTextStyle: Theme.of(context)
+                                .textTheme
+                                .bodyText2
+                                ?.copyWith(color: kWhite, fontSize: 16),
+                            unselectedTextStyle: Theme.of(context)
+                                .textTheme
+                                .bodyText2
+                                ?.copyWith(color: kWhite, fontSize: 16),
+                            unselectedColor: Colors.transparent,
+                            mainGroupAlignment: MainGroupAlignment.start,
+                            unselectedBorderColor: kWhite,
+                            crossGroupAlignment: CrossGroupAlignment.start,
+                            borderRadius: BorderRadius.circular(25),
+                            selectedColor: const Color(0xff8095E0),
+                            buttonHeight: 50,
+                            buttonWidth: MediaQuery.of(context).size.width / 2.5),
+                        isRadio: false,
+                        onSelected: (String value, index, isSelected) {},
+                        buttons: ["1 to 2", "3 to 4", "5 & Above"],
+                      )
+                    : const SizedBox(),
+                const SizedBox(height: 50,),
+                ButtonWidget(
+                    onPressed: () {
+                      Get.to(() => const QualificationScreen());
+                    },
+                    buttonColor: kGreen,
+                    borderRadius: 8,
+                    buttonText: "Next",
+                    height: 50,
+                    width: double.maxFinite),
+                const SizedBox(height: 50,),
+              ],
+            ),
           ),
         ),
       ),

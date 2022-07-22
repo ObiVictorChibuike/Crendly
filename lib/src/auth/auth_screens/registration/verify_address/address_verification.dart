@@ -2,7 +2,6 @@ import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/src/auth/auth_screens/registration/face_scan/face_scan_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
@@ -200,7 +199,7 @@ class _AddressVerificationState extends State<AddressVerification> {
           title: Text(
             "Let’s verify your \naddress too.",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -208,7 +207,7 @@ class _AddressVerificationState extends State<AddressVerification> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 0.0),
+          padding: const EdgeInsets.fromLTRB(24.0, 35.0, 24.0, 0.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -220,9 +219,6 @@ class _AddressVerificationState extends State<AddressVerification> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 75.0,
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -237,20 +233,13 @@ class _AddressVerificationState extends State<AddressVerification> {
                               children: [
                                 Text(
                                   "Residence",
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyText2
-                                      ?.copyWith(
-                                          color: kWhite,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500),
+                                  style: Theme.of(context).textTheme
+                                      .bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),
                                 ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
+                                const SizedBox(height: 10,),
                                 FormFieldWidget(
                                   width:
-                                      MediaQuery.of(context).size.width / 2.3,
+                                      MediaQuery.of(context).size.width / 2.5,
                                   hintText: "House Number",
                                 ),
                               ],
@@ -294,11 +283,11 @@ class _AddressVerificationState extends State<AddressVerification> {
                       height: 42,
                     ),
                     Container(
-                      height: 55,
+                      height: 50,
                       width: double.maxFinite,
                       decoration: BoxDecoration(
                           border: Border.all(color: kWhite, width: 0.7),
-                          borderRadius: BorderRadius.circular(15)),
+                          borderRadius: BorderRadius.circular(8)),
                       child: TextButton(
                         style: ButtonStyle(
                             overlayColor: MaterialStateColor.resolveWith(
@@ -330,65 +319,85 @@ class _AddressVerificationState extends State<AddressVerification> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 55,
-                          width: MediaQuery.of(context).size.width / 2.3,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: kWhite, width: 0.7),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: TextButton(
-                            style: ButtonStyle(
-                                overlayColor: MaterialStateColor.resolveWith(
-                                    (states) => Colors.transparent)),
-                            onPressed: () {
-                              showAreaDialog();
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  selectedArea ?? "Select",
-                                  style: TextStyle(
-                                      color: selectedArea == null
-                                          ? const Color(0xff868484)
-                                          : kWhite,
-                                      fontSize: 18),
-                                ),
-                                const Icon(Icons.keyboard_arrow_down,
-                                    color: kWhite)
-                              ],
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "LGA",
+                              style: Theme.of(context).textTheme
+                                  .bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),
                             ),
-                          ),
+                            const SizedBox(height: 10,),
+                            Container(
+                              height: 55,
+                              width: MediaQuery.of(context).size.width / 2.5,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: kWhite, width: 0.7),
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: TextButton(
+                                style: ButtonStyle(
+                                    overlayColor: MaterialStateColor.resolveWith(
+                                        (states) => Colors.transparent)),
+                                onPressed: () {
+                                  showAreaDialog();
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      selectedArea ?? "Select",
+                                      style: TextStyle(
+                                          color: selectedArea == null
+                                              ? const Color(0xff868484)
+                                              : kWhite,
+                                          fontSize: 18),
+                                    ),
+                                    const Icon(Icons.keyboard_arrow_down,
+                                        color: kWhite)
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        Container(
-                          height: 55,
-                          width: MediaQuery.of(context).size.width / 2.3,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: kWhite, width: 0.7),
-                              borderRadius: BorderRadius.circular(15)),
-                          child: TextButton(
-                            style: ButtonStyle(
-                                overlayColor: MaterialStateColor.resolveWith(
-                                    (states) => Colors.transparent)),
-                            onPressed: () {
-                              showAreaDialog();
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  selectedArea ?? "Select",
-                                  style: TextStyle(
-                                      color: selectedArea == null
-                                          ? const Color(0xff868484)
-                                          : kWhite,
-                                      fontSize: 18),
-                                ),
-                                const Icon(Icons.keyboard_arrow_down,
-                                    color: kWhite)
-                              ],
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "State",
+                              style: Theme.of(context).textTheme
+                                  .bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),
                             ),
-                          ),
+                            const SizedBox(height: 10,),
+                            Container(
+                              height: 55,
+                              width: MediaQuery.of(context).size.width / 2.5,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: kWhite, width: 0.7),
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: TextButton(
+                                style: ButtonStyle(
+                                    overlayColor: MaterialStateColor.resolveWith(
+                                        (states) => Colors.transparent)),
+                                onPressed: () {
+                                  showAreaDialog();
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      selectedArea ?? "Select",
+                                      style: TextStyle(
+                                          color: selectedArea == null
+                                              ? const Color(0xff868484)
+                                              : kWhite,
+                                          fontSize: 18),
+                                    ),
+                                    const Icon(Icons.keyboard_arrow_down,
+                                        color: kWhite)
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -410,11 +419,9 @@ class _AddressVerificationState extends State<AddressVerification> {
                       width: double.maxFinite,
                       decoration: BoxDecoration(
                           border: Border.all(color: kWhite, width: 0.7),
-                          borderRadius: BorderRadius.circular(15)),
+                          borderRadius: BorderRadius.circular(8)),
                       child: TextButton(
-                        style: ButtonStyle(
-                            overlayColor: MaterialStateColor.resolveWith(
-                                (states) => Colors.transparent)),
+                        style: ButtonStyle(overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent)),
                         onPressed: () {
                           showLocationDescriptionDialog();
                         },
@@ -476,9 +483,9 @@ class _AddressVerificationState extends State<AddressVerification> {
                                 crossGroupAlignment: CrossGroupAlignment.start,
                                 borderRadius: BorderRadius.circular(25),
                                 selectedColor: const Color(0xff8095E0),
-                                buttonHeight: 55,
+                                buttonHeight: 50,
                                 buttonWidth:
-                                    MediaQuery.of(context).size.width / 2.3),
+                                    MediaQuery.of(context).size.width / 2.5),
                             isRadio: false,
                             onSelected: (String value, index, isSelected) {},
                             buttons: [
@@ -498,7 +505,7 @@ class _AddressVerificationState extends State<AddressVerification> {
                             },
                             buttonColor: kGreen,
                             buttonText: "Continue",
-                            height: 55,
+                            height: 50,
                             width: double.maxFinite)
                         : const SizedBox(),
                     const SizedBox(

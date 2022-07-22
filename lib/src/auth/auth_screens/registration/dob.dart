@@ -91,7 +91,7 @@ class _DateOfBirthState extends State<DateOfBirth> {
           title: Text(
             "Date of Birth & Gender",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -99,7 +99,7 @@ class _DateOfBirthState extends State<DateOfBirth> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -166,11 +166,11 @@ class _DateOfBirthState extends State<DateOfBirth> {
                 height: 10,
               ),
               Container(
-                height: 55,
+                height: 50,
                 width: double.maxFinite,
                 decoration: BoxDecoration(
                     border: Border.all(color: kWhite, width: 0.7),
-                    borderRadius: BorderRadius.circular(15)),
+                    borderRadius: BorderRadius.circular(8)),
                 child: TextButton(
                   style: ButtonStyle(
                       overlayColor: MaterialStateColor.resolveWith(
@@ -202,7 +202,7 @@ class _DateOfBirthState extends State<DateOfBirth> {
                   buttonColor: kGreen,
                   borderRadius: 8,
                   buttonText: "Next",
-                  height: 55,
+                  height: 50,
                   width: double.maxFinite),
               const Spacer(),
             ],

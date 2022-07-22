@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../constants/color_palette.dart';
 import '../../../../../shared_widgets/customButton.dart';
-import '../../../../../shared_widgets/cutom_pincode_field.dart';
+import '../../../../../shared_widgets/custom_pincode_field.dart';
 
 void showPinBottomBottomSheet({required BuildContext context, required void Function()? onPressed}){
   Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,
@@ -30,14 +30,14 @@ void showPinBottomBottomSheet({required BuildContext context, required void Func
                         const SizedBox(height: 80,),
                         PinCodeWidget(
                             obscuringCharacter: "*",
-                            length: 4, padding: 70,
+                            length: 4, padding: 50,
                             onChanged: (value){}
                         ),
-                        SizedBox(height: MediaQuery.of(context).size.height/6,),
+                        SizedBox(height: MediaQuery.of(context).size.height/12,),
                         ButtonWidget(
                             onPressed: onPressed,
                             buttonText: "Continue",
-                            height: 55, buttonColor: kGreen,
+                            height: 50, buttonColor: kGreen,
                             width: double.maxFinite
                         ),
                       ],

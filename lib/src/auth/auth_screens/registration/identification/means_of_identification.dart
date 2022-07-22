@@ -34,7 +34,7 @@ class _MeansOfIdentificationState extends State<MeansOfIdentification> {
           title: Text(
             "Means Of Identification",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -42,13 +42,13 @@ class _MeansOfIdentificationState extends State<MeansOfIdentification> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
-          child: Column(
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
+          child: Column(mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SvgPicture.asset(
                 AssetPath.id,
-                height: 300,
+                height: 200,
                 width: 300,
               ),
               const SizedBox(
@@ -98,7 +98,7 @@ class _MeansOfIdentificationState extends State<MeansOfIdentification> {
                     Get.to(() => const SelectedIDCard());
                   },
                   buttonText: "Continue",
-                  height: 55,
+                  height: 50,
                   width: double.maxFinite),
               const Spacer(),
               Align(

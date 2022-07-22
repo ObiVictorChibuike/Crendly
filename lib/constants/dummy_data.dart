@@ -4,6 +4,7 @@ import 'package:crendly/shared_widgets/shared_questionnaire_screens.dart';
 import 'package:crendly/src/intro_screens/widgets/custom_carousel_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class DummyData {
   DummyData._();
@@ -41,6 +42,7 @@ class DummyData {
 
   static final userData = [];
   static final myLoan = [];
+  static final transaction = [];
 
   static final crendlyOption = [
     {
@@ -118,6 +120,37 @@ class DummyData {
     {
       "title": "99%",
       "subTitle": "Repayment rate",
+    },
+  ];
+
+  static final quickMenu = [
+    {
+      "title": "Calculator",
+      "image": Icons.calculate_outlined,
+    },
+    {
+      "title": "Bank",
+      "image": Icons.account_balance_outlined,
+    },
+    {
+      "title": "Cards",
+      "image": Icons.credit_card,
+    },
+    {
+      "title": "Statements",
+      "image": Icons.feed_outlined,
+    },
+    {
+      "title": "Invite",
+      "image": Icons.groups,
+    },
+    {
+      "title": "Support",
+      "image": Icons.headset_mic_outlined,
+    },
+    {
+      "title": "Settings",
+      "image": Icons.feed_outlined,
     },
   ];
 

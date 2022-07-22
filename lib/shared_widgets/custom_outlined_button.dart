@@ -23,7 +23,7 @@ class _CustomOutlineButtonState extends State<CustomOutlineButton> {
       child: Text(widget.text, style:  widget.style ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: kGreen,fontSize: 16, fontWeight: FontWeight.bold,)),
       style: ButtonStyle(
         splashFactory: NoSplash.splashFactory,
-          minimumSize: MaterialStateProperty.all<Size>(Size.fromHeight(widget.height ?? 55)),
+          minimumSize: MaterialStateProperty.all<Size>(Size.fromHeight(widget.height ?? 50)),
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(
                 side: BorderSide(

@@ -32,7 +32,7 @@ class LandingPage extends StatelessWidget {
                           secondText: 'let\'s go!',
                           thirdText: "Just a few more details and you'll be set to experience the future of loans.",
                         ),
-                        const SizedBox(height: 4,),
+                        const SizedBox(height: 10,),
                         ButtonWidget(
                             onPressed: (){
                               Get.to(()=> const SignUpOption());
@@ -46,7 +46,7 @@ class LandingPage extends StatelessWidget {
                             onPressed: () {
                               Get.to(()=> const SignIn());
                             }),
-                        const SizedBox(height: 40,),
+                        const SizedBox(height: 30,),
                         TextButton(
                           onPressed: () {
                             Get.to(()=> const PlayGroundHomeScreen());

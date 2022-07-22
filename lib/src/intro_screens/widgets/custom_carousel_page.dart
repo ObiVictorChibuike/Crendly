@@ -14,10 +14,10 @@ class CarouselPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
-        margin: const EdgeInsets.only(top: 99),
-        child: SvgPicture.asset(image, width: double.maxFinite, height: MediaQuery.of(context).size.height/2,),),
+        margin: const EdgeInsets.only(top: 88),
+        child: SvgPicture.asset(image, width: double.maxFinite, height: MediaQuery.of(context).size.height/2.5,),),
       Container(
-        margin: const EdgeInsets.only(top: 99, left: 30, right: 162), width: 198, height: 65,
+        margin: const EdgeInsets.only(top: 66, left: 30, right: 162), width: 198, height: 65,
         child: RichText(
           text: TextSpan(text: firstText, style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 27,color: Colors.white,fontWeight: FontWeight.bold),
               children: [

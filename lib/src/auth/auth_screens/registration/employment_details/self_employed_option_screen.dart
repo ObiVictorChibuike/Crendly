@@ -108,7 +108,7 @@ class _SelfEmployedOptionScreenState extends State<SelfEmployedOptionScreen> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -147,11 +147,11 @@ class _SelfEmployedOptionScreenState extends State<SelfEmployedOptionScreen> {
                     height: 10,
                   ),
                   Container(
-                    height: 55,
+                    height: 50,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
                         border: Border.all(color: kWhite, width: 0.7),
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(8)),
                     child: TextButton(
                       style: ButtonStyle(
                           overlayColor: MaterialStateColor.resolveWith(
@@ -192,6 +192,7 @@ class _SelfEmployedOptionScreenState extends State<SelfEmployedOptionScreen> {
                   ),
                   GroupButton(
                     options: GroupButtonOptions(
+                      spacing: 20,
                         selectedTextStyle: Theme.of(context)
                             .textTheme
                             .bodyText2
@@ -207,7 +208,7 @@ class _SelfEmployedOptionScreenState extends State<SelfEmployedOptionScreen> {
                         borderRadius: BorderRadius.circular(25),
                         selectedColor: const Color(0xff8095E0),
                         buttonHeight: 50,
-                        buttonWidth: MediaQuery.of(context).size.width / 2.3),
+                        buttonWidth: MediaQuery.of(context).size.width / 2.5),
                     isRadio: false,
                     enableDeselect: true,
                     onSelected: (String value, index, isSelected) {},
@@ -224,7 +225,7 @@ class _SelfEmployedOptionScreenState extends State<SelfEmployedOptionScreen> {
                       buttonColor: kGreen,
                       borderRadius: 8,
                       buttonText: "Next",
-                      height: 55,
+                      height: 50,
                       width: double.maxFinite),
                   const Spacer(),
                 ],

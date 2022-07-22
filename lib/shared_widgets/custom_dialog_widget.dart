@@ -7,7 +7,7 @@ class MyDialog {
         builder: (BuildContext context){
           return Dialog(
             backgroundColor: const Color(0xff081952),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: SizedBox(height: height, width: width,
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
                   children: children!,

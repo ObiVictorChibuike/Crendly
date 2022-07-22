@@ -34,7 +34,7 @@ class _OtpVerificationState extends State<OtpVerification> {
           title: Text(
             "OTP Verification",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -42,7 +42,7 @@ class _OtpVerificationState extends State<OtpVerification> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -53,7 +53,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                           "Enter verification code sent to your phone number ",
                       style: TextStyle(
                         color: kWhite,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w400,
                         fontSize: 16,
                       ),
                       children: [
@@ -64,13 +64,14 @@ class _OtpVerificationState extends State<OtpVerification> {
                                 .bodyText2
                                 ?.copyWith(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.w400,
                                     color: kOrange)),
                       ])),
               const SizedBox(
                 height: 80,
               ),
-              PinCodeWidget(onChanged: (String value) {}),
+              PinCodeWidget(padding: 0.0,
+                  onChanged: (String value) {}),
               const SizedBox(
                 height: 10,
               ),
@@ -98,29 +99,14 @@ class _OtpVerificationState extends State<OtpVerification> {
                         ])),
               ),
               const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                      child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Didn’t get the code? ",
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                            color: kWhite,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      Text(
-                        "Resend Code",
-                        style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                            color: kGreen,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                            decoration: TextDecoration.underline),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Didn’t get the code? ", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w400),),
+                          Text("Resend Code", style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                            color: kGreen, fontSize: 14, fontWeight: FontWeight.w700, decoration: TextDecoration.underline),
                       ),
                     ],
                   )),
@@ -139,7 +125,7 @@ class _OtpVerificationState extends State<OtpVerification> {
                   buttonColor: kGreen,
                   borderRadius: 8,
                   buttonText: "Next",
-                  height: 55,
+                  height: 50,
                   width: double.maxFinite),
               const Spacer(
                 flex: 5,

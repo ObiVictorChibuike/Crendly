@@ -8,8 +8,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../../constants/asset_path.dart';
+import '../../../../../shared_widgets/custom_appBar.dart';
 import '../../../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../../../shared_widgets/cutom_appBar.dart';
+
 class ScanSignature extends StatefulWidget {
   const ScanSignature({Key? key}) : super(key: key);
 
@@ -36,7 +37,7 @@ class _ScanSignatureState extends State<ScanSignature> {
                     Get.to(()=> const ConfirmSignature());
                   },
                     child: Container(
-                      height: 100, width: MediaQuery.of(context).size.width/ 4,
+                      height: 80, width: 80,
                       decoration: BoxDecoration(color: Color(0xff2E4DBD),),
                       child: Padding(
                         padding: const EdgeInsets.all(25.0),
@@ -56,7 +57,7 @@ class _ScanSignatureState extends State<ScanSignature> {
                     Get.to(()=> const ConfirmSignature());
                   },
                     child: Container(
-                      height: 100, width: MediaQuery.of(context).size.width/ 4,
+                      height: 80, width: 80,
                       decoration: BoxDecoration(color: Color(0xff2E4DBD),),
                       child: Padding(
                         padding: const EdgeInsets.all(25.0),
@@ -80,14 +81,14 @@ class _ScanSignatureState extends State<ScanSignature> {
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
             flexibleSpace: const Padding(padding: EdgeInsets.only(top: 35.0, bottom: 10), child: LinearProgressIndicator(color: kGreen, value: 0.5,),),
-            title: Text("Signature", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
+            title: Text("Signature", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.pngLemonHead,
             onBackPressed: (){
               Get.back();
             },
           ),
           body: Padding(
-            padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+            padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
             child: Column( crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 DottedBorder(color: Color(0xffC1CDF6), dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
@@ -102,7 +103,7 @@ class _ScanSignatureState extends State<ScanSignature> {
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w400, color: kWhite),),
                 const Spacer(flex: 3,),
                 CustomOutlineButton(
-                  color: kGreen,
+                  color: kGreen, height: 50,
                     text: "Upload Signature", onPressed: (){
                   showSignatureSelectionOptionBottomSheet(context);
 

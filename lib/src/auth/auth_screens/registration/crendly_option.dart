@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../constants/dummy_data.dart';
-import '../../../../shared_widgets/cutom_appBar.dart';
 
 
 class CrendlyOption extends StatelessWidget {
@@ -31,7 +30,7 @@ class CrendlyOption extends StatelessWidget {
               Image.asset(AssetPath.logo),
               const Spacer(),
               Align(alignment: Alignment.centerLeft,
-                child: ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 1.5, minHeight: 50),
+                child: ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 1.3, minHeight: 50),
                     child: Text('What would you like  to do on Crendly?',
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 32,color: kOrange, fontWeight: FontWeight.w700),)),
               ),
@@ -48,7 +47,7 @@ class CrendlyOption extends StatelessWidget {
                             chooseOption(index);
                             //Get.toNamed('/bvn');
                           },
-                          child: Container(height: 285,width: MediaQuery.of(context).size.width / 2.3,
+                          child: Container(height: 282,width: 164,
                             padding: const EdgeInsets.fromLTRB(15.0, 19.0, 15.0, 20.0),
                             decoration: BoxDecoration(gradient: LinearGradient(
                                 colors: options[index]["color"]), borderRadius: BorderRadius.circular(12)),
@@ -62,14 +61,14 @@ class CrendlyOption extends StatelessWidget {
                                         Container(height: 70, width: 70,
                                           decoration: const BoxDecoration(shape: BoxShape.circle, color: kDarkBackGroundColor),
                                           child: Center(
-                                            child: SvgPicture.asset(options[index]["asset"], height: 50, width: 50, theme: const SvgTheme(fontSize: 25),),
+                                            child: SvgPicture.asset(options[index]["asset"], height: 65, width: 65, theme: const SvgTheme(fontSize: 25),),
                                           ),
                                         ),
                                         const SizedBox(height: 27.0,),
                                         ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 4, minHeight: 50),
                                             child: Text(options[index]["title"],
                                               style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 28, fontWeight: FontWeight.w700),)),
-                                        ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 5, minHeight: 50),
+                                        ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 4, minHeight: 50),
                                             child: Text(options[index]["description"],
                                               style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w500),)),
                                       ],
@@ -85,7 +84,7 @@ class CrendlyOption extends StatelessWidget {
                   ],
                 ),
               ),
-              const Spacer(),
+              const SizedBox(height: 20,),
               Text('Either way, we’ll be having a \ngood time together.',
                 style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w400),),
 

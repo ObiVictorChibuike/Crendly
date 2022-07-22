@@ -36,7 +36,7 @@ class _EmploymentStatusOptionsState extends State<EmploymentStatusOptions> {
           title: Text(
             "Employment Status",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -44,7 +44,7 @@ class _EmploymentStatusOptionsState extends State<EmploymentStatusOptions> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -67,7 +67,7 @@ class _EmploymentStatusOptionsState extends State<EmploymentStatusOptions> {
                         fontWeight: FontWeight.bold,
                       ),
                   text: "Employed",
-                  height: 55,
+                  height: 50,
                   color: Color(0xff2E4DBD),
                   buttonBorderRadius: 30,
                   onPressed: () {
@@ -83,7 +83,7 @@ class _EmploymentStatusOptionsState extends State<EmploymentStatusOptions> {
                         fontWeight: FontWeight.bold,
                       ),
                   text: "Self- Employed",
-                  height: 55,
+                  height: 50,
                   color: Color(0xff2E4DBD),
                   buttonBorderRadius: 30,
                   onPressed: () {
@@ -99,7 +99,7 @@ class _EmploymentStatusOptionsState extends State<EmploymentStatusOptions> {
                         fontWeight: FontWeight.bold,
                       ),
                   text: "Unemployed",
-                  height: 55,
+                  height: 50,
                   color: Color(0xff2E4DBD),
                   buttonBorderRadius: 30,
                   onPressed: () {

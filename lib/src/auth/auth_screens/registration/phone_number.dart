@@ -38,10 +38,9 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
               value: 0.3,
             ),
           ),
-          title: Text(
-            "Phone Number",
+          title: Text("Phone Number",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -49,7 +48,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -66,7 +65,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                 height: 10,
               ),
               Container(
-                height: 55,
+                height: 50,
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 decoration: BoxDecoration(

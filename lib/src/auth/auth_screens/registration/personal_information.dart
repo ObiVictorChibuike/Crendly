@@ -90,7 +90,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
           title: Text(
             "Your Personal \nInformation",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -98,7 +98,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -136,7 +136,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                             height: 10,
                           ),
                           FormFieldWidget(
-                            width: MediaQuery.of(context).size.width / 2.3,
+                            width: MediaQuery.of(context).size.width / 2.5,
                             hintText: "Emmanuel",
                           ),
                         ],
@@ -159,7 +159,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                             height: 10,
                           ),
                           FormFieldWidget(
-                            width: MediaQuery.of(context).size.width / 2.3,
+                            width: MediaQuery.of(context).size.width / 2.5,
                             hintText: "David",
                           ),
                         ],
@@ -184,11 +184,11 @@ class _PersonalInformationState extends State<PersonalInformation> {
                 height: 10,
               ),
               Container(
-                height: 55,
+                height: 50,
                 width: double.maxFinite,
                 decoration: BoxDecoration(
                     border: Border.all(color: kWhite, width: 0.7),
-                    borderRadius: BorderRadius.circular(15)),
+                    borderRadius: BorderRadius.circular(8)),
                 child: TextButton(
                   style: ButtonStyle(
                       overlayColor: MaterialStateColor.resolveWith(
@@ -243,7 +243,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                   buttonColor: kGreen,
                   borderRadius: 8,
                   buttonText: "My info is correct",
-                  height: 55,
+                  height: 50,
                   width: double.maxFinite),
               const SizedBox(
                 height: 60,

@@ -4,16 +4,17 @@ import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/shared_widgets/custom_pincode_field.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:dotted_line/dotted_line.dart';
-import '../../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../shared_widgets/custom_outlined_button.dart';
-import '../../../../shared_widgets/cutom_pincode_field.dart';
+import '../../../../../shared_widgets/custom_buttom_sheet.dart';
+import '../../../../../shared_widgets/custom_dialog_widget.dart';
+import '../../../../../shared_widgets/custom_outlined_button.dart';
+import 'acquire-a_loan_section/get_a_loan.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -118,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             const SizedBox(height: 13,),
                             Container(
                               decoration: BoxDecoration(border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(8)),
-                              height: 55, width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 6),
+                              height: 55, width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 4),
                               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Expanded(
@@ -133,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               color: isCardSelected == true ? Colors.black : kWhite
                                           ),
                                               buttonColor: isCardSelected == true ? kOrange : Colors.transparent, buttonText: "Card",
-                                              width: MediaQuery.of(context).size.width / 2.4, height: 45
+                                              width: MediaQuery.of(context).size.width / 2.5, height: 45
                                           ),
                                           ButtonWidget(
                                               onPressed: (){
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 });
                                               },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: isCardSelected == false ? Colors.black : kWhite),
                                               buttonColor: isCardSelected == false ? kOrange : Colors.transparent, buttonText: "Bank Transfer",
-                                              width: MediaQuery.of(context).size.width / 2.4, height: 45
+                                              width: MediaQuery.of(context).size.width / 2.5, height: 45
                                           ),
                                         ],
                                       )
@@ -170,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Text("Expiry date", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
                                                 const SizedBox(height: 10,),
                                                 FormFieldWidget(
-                                                  width: MediaQuery.of(context).size.width / 2.3,
+                                                  width: MediaQuery.of(context).size.width / 2.5,
                                                   hintText: "MM/YY",
                                                 ),
                                               ],
@@ -180,7 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Text("CVV", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
                                                 const SizedBox(height: 10,),
                                                 FormFieldWidget(
-                                                  width: MediaQuery.of(context).size.width / 2.3,
+                                                  width: MediaQuery.of(context).size.width / 2.5,
                                                   hintText: "123",
                                                 ),
                                               ],
@@ -274,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void showFundWithdrawalBottomSheet(){
-    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.6,
         child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
           constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
           child: Column(
@@ -320,7 +321,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 50,),
+                            const SizedBox(height: 35,),
                             ButtonWidget(
                                 onPressed: (){
                                   Get.back();
@@ -363,24 +364,24 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(flex: 2,),
             Align(
               alignment: Alignment.center,
-              child: Container(height: 80, width: 80,
+              child: Container(height: 70, width: 70,
                 decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
                 child: const Center(child: Icon(Icons.lock, color: kOrange, size: 45,)),
               ),
             ),
             Container(height: 65, width:2, color: kGreen,),
-            const SizedBox(height: 50,),
-            Text("Transaction PIN Set", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
             const SizedBox(height: 20,),
+            Text("Transaction PIN Set", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            const SizedBox(height: 5,),
             Text("Transaction PIN set successfully", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
-            const SizedBox(height: 50,),
+            const SizedBox(height: 20,),
             Container(height: 65, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              padding: const EdgeInsets.symmetric(horizontal:60.0),
               child: CustomOutlineButton(
                   backGroundColor: const Color(0xff081952),
-                  text: "Ok", height: 60,
+                  text: "Ok", height: 50,
                   onPressed: (){
                     Get.back();
                   }
@@ -440,27 +441,33 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(flex: 2,),
             Align(
               alignment: Alignment.center,
-              child: Container(height: 80, width: 80,
+              child: Container(height: 70, width: 70,
                 decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
                 child: const Center(child: Icon(Icons.print_outlined, color: kOrange, size: 45,)),
               ),
             ),
             Container(height: 65, width:2, color: kGreen,),
-            const SizedBox(height: 50,),
-            Text("Withdrawal successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
             const SizedBox(height: 20,),
+            Text("Withdrawal successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            const SizedBox(height: 5,),
             Text("Your withdrawal was successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
-            const SizedBox(height: 50,),
+            const SizedBox(height: 20,),
             Container(height: 65, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: ButtonWidget(
                   onPressed: (){
-                    Get.back();
+                   setState(() {
+                     Get.back();
+                     userData.add({
+                       "amount":"N 20,000",
+                       "name":"Obi Victor"
+                     });
+                   });
                   },
                   buttonText: "Go to Home",
-                  height: 55, buttonColor: kGreen,
+                  height: 50, buttonColor: kGreen,
                   width: double.maxFinite,
               ),
             ),
@@ -477,10 +484,10 @@ class _HomeScreenState extends State<HomeScreen> {
       Expanded(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 30,),
+            const Spacer(flex: 2,),
             Text("Create Transaction PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
             Text("Create your very own transaction PIN ", textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400)),
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w400)),
             const Spacer(flex: 2,),
             Text("Enter New PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
             const SizedBox(height: 20,),
@@ -488,25 +495,25 @@ class _HomeScreenState extends State<HomeScreen> {
               onChanged: (value) {},
               length: 4, padding: 45,
             ),
-            const SizedBox(height: 50,),
-            Text("Confirm New PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w400),),
             const SizedBox(height: 20,),
+            Text("Confirm New PIN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w400),),
+            const SizedBox(height: 10,),
             PinCodeWidget(
               onChanged: (value) {},
               length: 4, padding: 45,
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 20,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              padding: const EdgeInsets.symmetric(horizontal:60.0),
               child: ButtonWidget(
                   onPressed: (){
                     Get.back();
                     showTransactionPinSetDialog();
                   }, buttonText: "Set PIN", buttonColor: kGreen,
-                  height: 55, width: double.maxFinite
+                  height: 50, width: double.maxFinite
               ),
             ),
-            const Spacer(),
+            const Spacer(flex: 2,),
           ],
         ),
       )
@@ -521,10 +528,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Get.back();
             }, icon: Icon(Icons.clear, color: kOrange,),),
           ),
-          const SizedBox(height: 10,),
           Align(alignment: Alignment.center,
-              child: CircleAvatar(backgroundColor: kBlue, radius: 45, child: Icon(Icons.print_outlined, color: kWhite, size: 45,))),
-          const SizedBox(height: 50,),
+              child: CircleAvatar(backgroundColor: kBlue, radius: 35, child: Icon(Icons.print_outlined, color: kWhite, size: 40,))),
+          const SizedBox(height: 30,),
           Align(alignment: Alignment.center,
             child: Text("You have no funds to \nwithdraw yet.", textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700),),
@@ -545,26 +551,135 @@ class _HomeScreenState extends State<HomeScreen> {
 
     }else if(index == 1 && userData.isEmpty){
       showFundWithdrawalBottomSheet();
+      //showEmptyWithdrawalWalletBottomSheet(context);
     }else if(index == 1 && userData.isNotEmpty){
-      showEmptyWithdrawalWalletBottomSheet(context);
+      //showFundWithdrawalBottomSheet();
     }else if(index == 2 && userData.isEmpty){
-
+      _scaffoldKey.currentState?.openEndDrawer();
     }else if(index == 2 && userData.isNotEmpty){
 
     }
   }
 
+  drawerContent(){
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(25.0,28.0,25.0,0.0),
+      child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Others", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.bold),),
+              IconButton(onPressed: (){
+                Get.back();
+              },
+                  icon: Icon(Icons.clear, color: kOrange, size: 20,)
+              )
+            ],
+          ),
+          const SizedBox(height: 5,),
+          DottedBorder(color: Color(0xff2E4DBD),
+              dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
+              child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(height: 64, width: 64,
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: kWhite),
+                      child: Center(
+                        child: SvgPicture.asset(AssetPath.orangeHead, height: 55, width: 55, theme: const SvgTheme(fontSize: 25),),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(height: 10,),
+                            Text("Damilare Martins", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.bold, fontSize: 16,),),
+                            const SizedBox(height: 10,),
+                            LinearProgressIndicator(
+                              value: 0.7, backgroundColor: Color(0xff040F35), color: kGreen,
+                              minHeight: 8,
+                            ),
+                            const SizedBox(height: 10,),
+                            Text("Your profile is 80% complete", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+                            const SizedBox(height: 10,),
+                            TextButton(
+                                onPressed: (){},
+                                child: Text("Complete your profile",
+                                  style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kGreen, decoration: TextDecoration.underline, fontSize: 14),)
+                            )
+                          ],
+                        ),
+                      )
+                  )
+                ],
+              )
+          ),
+          const SizedBox(height: 20,),
+          Row(
+            children: [
+              Text("Quick menu", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+              Divider(
+                color: Colors.blue, height: 4,
+              ),
+            ],
+          ),
+         Expanded(
+           child: SingleChildScrollView(
+             controller: scrollController,
+             physics: const BouncingScrollPhysics(),
+             child: Column(
+               children: [
+                 GridView.count(
+                   controller: scrollController,
+                   crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (1/0.8),
+                   shrinkWrap: true, crossAxisCount: 2, 
+                   children: List.generate(quickMenu.length, (index){
+                     return Container(
+                       decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(4)),
+                       child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                         children: [
+                           CircleAvatar(backgroundColor: Color(0xff6219FF), radius: 16, child: Icon(quickMenu[index]["image"], size: 20, color: kWhite,)),
+                           Text(quickMenu[index]["title"],
+                             style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14,color: kWhite, fontWeight: FontWeight.w700,),),
+                         ],
+                       ),
+                     );
+                   }),
+                 ),
+                 const SizedBox(height: 20,),
+               ],
+             ),
+           ),
+         )
+        ],
+      ),
+    );
+  }
+
+  final List quickMenu = DummyData.quickMenu;
+  final scrollController = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,
       child: Scaffold(backgroundColor: kDarkBackGroundColor,
+          endDrawer: Container(
+            width: MediaQuery.of(context).size.width / 1.2, height: MediaQuery.of(context).size.height,
+            child: Drawer(
+              backgroundColor: Color(0xff081952),
+              child: drawerContent(),
+            ),
+          ),
           key: _scaffoldKey,
           endDrawerEnableOpenDragGesture: false,
           // endDrawer: More(),
           body: Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: MediaQuery.of(context).size.height / 2.8,
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: MediaQuery.of(context).size.height / 2.5,
                 decoration: BoxDecoration(color: kLightBackGroundColor, border: Border.all(color: kLightBackGroundColor),
                     borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))),
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center,
@@ -586,7 +701,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 50,),
+                    SizedBox(height: userData.isEmpty ? 20 :50,),
                     userData.isEmpty ? const SizedBox() :
                     Container(
                       height: 56, width: double.maxFinite, decoration: BoxDecoration(color: const Color(0xff4700E0), borderRadius: BorderRadius.circular(8)),
@@ -607,10 +722,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 28,),
+                    SizedBox(height: userData.isEmpty ? 20 : 28,),
                     Center(child: Text(userData.isEmpty ? "₦0": '₦350,000.00',
                       style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),),),
-                    const SizedBox(height: 54,),
+                    SizedBox(height: userData.isEmpty ? 40 : 54,),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ...List.generate(rowButtonItem.length, (index){
@@ -774,7 +889,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               //                     ),
                               //               ));
                               //     });
-                              //_scaffoldKey.currentState?.openEndDrawer();
                             },
                             child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -899,16 +1013,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const Spacer(),
-                              userData.isEmpty ? Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
-                                  border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
-                                width: double.maxFinite, height: 55,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(AssetPath.takenLoanIcon),
-                                    const SizedBox(width: 5,),
-                                    const Text('Take Loan')
-                                  ],
+                              userData.isEmpty ? InkWell(
+                                onTap: (){
+                                  Get.to(()=> const GetALoan());
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
+                                    border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
+                                  width: double.maxFinite, height: 50,
+                                  child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(AssetPath.takenLoanIcon),
+                                      const SizedBox(width: 5,),
+                                      const Text('Take Loan')
+                                    ],
+                                  ),
                                 ),
                               ) :
                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1121,11 +1240,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                             Expanded(
                                               child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
                                                 children: [
-                                                  const SizedBox(height: 90,),
-                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 4, minHeight: 50),
+                                                  const SizedBox(height: 40,),
+                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
                                                       child: Text(browseOptions[index]["description"],
                                                         style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
-                                                  const SizedBox(height: 30,),
+                                                  const SizedBox(height:15,),
                                                   ButtonWidget(
                                                     onPressed: (){}, borderRadius: 8,
                                                     buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
@@ -1146,9 +1265,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: 43,),
                         Container(width: double.maxFinite, height: MediaQuery.of(context).size.height / 7,
-                          padding: const EdgeInsets.only(left: 18.0, top: 18.0, bottom: 18.0, right: 0.0),
+                          padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 0.0),
                           decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(8.0)),
-                          child: Row(
+                          child: Row(crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -1159,9 +1278,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: Text("Advert board", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w400),)),
                                           const Spacer(),
                                           ButtonWidget(
-                                            onPressed: (){},
+                                            onPressed: (){}, buttonTextStyle: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 16, color: Color(0xff00071F), fontWeight: FontWeight.bold),
                                             buttonText: "Sign Up",
-                                            height: 40, buttonColor: kGreen,
+                                            height: 38, buttonColor: kGreen,
                                             width: 126, borderRadius: 8,
                                           )
                                         ],

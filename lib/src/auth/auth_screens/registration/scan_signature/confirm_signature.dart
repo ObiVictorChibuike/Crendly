@@ -6,11 +6,11 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
 import '../../../../../constants/asset_path.dart';
+import '../../../../../shared_widgets/custom_appBar.dart';
 import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
-import '../../../../../shared_widgets/cutom_appBar.dart';
+
 
 class ConfirmSignature extends StatefulWidget {
   const ConfirmSignature({Key? key}) : super(key: key);
@@ -28,25 +28,29 @@ class _ConfirmSignatureState extends State<ConfirmSignature> {
             const Spacer(flex: 3,),
             Align(
               alignment: Alignment.center,
-              child: Container(height: 80, width: 80,
+              child: Container(height: 70, width: 70,
                 decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
                 child: Center(child: Icon(Icons.person, color: kOrange, size: 50,)),
               ),
             ),
             Container(height: 55, width:2, color: kGreen,),
-            const SizedBox(height: 30,),
-            Align(alignment: Alignment.center,
-                child: Text("Your signature has been secured in our database.", textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),)),
-            const SizedBox(height: 30,),
+            const SizedBox(height: 20,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
+              child: Align(alignment: Alignment.center,
+                  child: Text("Your signature has been secured in our database.", textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),)),
+            ),
+            const SizedBox(height: 20,),
             Container(height: 55, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal:99.0),
+              padding: const EdgeInsets.symmetric(horizontal:60.0),
               child: CustomOutlineButton(
                   backGroundColor: const Color(0xff081952),
-                  text: "Ok", height: 60,
+                  text: "Ok", height: 50,
                   onPressed: (){
+                    Get.back();
                     Get.to(()=> const AddBankAccount());
                   }
               ),
@@ -64,14 +68,14 @@ class _ConfirmSignatureState extends State<ConfirmSignature> {
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
             flexibleSpace: const Padding(padding: EdgeInsets.only(top: 35.0, bottom: 10), child: LinearProgressIndicator(color: kGreen, value: 0.5,),),
-            title: Text("Signature", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
+            title: Text("Signature", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.pngLemonHead,
             onBackPressed: (){
               Get.back();
             },
           ),
           body: Padding(
-            padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+            padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
             child: Column( crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 DottedBorder(color: Color(0xffC1CDF6), dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
@@ -87,7 +91,7 @@ class _ConfirmSignatureState extends State<ConfirmSignature> {
                       showMyDialog();
                     },
                     buttonText: "Continue",
-                    height: 55, buttonColor: kGreen,
+                    height: 50, buttonColor: kGreen,
                     width: double.maxFinite
                 ),
                 const Spacer(flex: 2,),

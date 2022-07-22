@@ -34,7 +34,7 @@ class _BVNVerificationState extends State<BVNVerification> {
           title: Text(
             "BVN",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
@@ -42,7 +42,7 @@ class _BVNVerificationState extends State<BVNVerification> {
           },
         ),
         body: Padding(
-          padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+          padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
           child: Column(
             children: [
               Align(
@@ -70,7 +70,7 @@ class _BVNVerificationState extends State<BVNVerification> {
                   },
                   buttonColor: kGreen,
                   buttonText: "Next",
-                  height: 55,
+                  height: 50,
                   width: double.maxFinite),
               const SizedBox(
                 height: 20,

@@ -3,10 +3,9 @@ import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/src/auth/auth_screens/registration/create_a_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../constants/asset_path.dart';
 import '../../../../constants/color_palette.dart';
-import '../../../../shared_widgets/cutom_appBar.dart';
+import '../../../../shared_widgets/custom_appBar.dart';
 class AddBankAccount extends StatefulWidget {
   const AddBankAccount({Key? key}) : super(key: key);
 
@@ -22,14 +21,14 @@ class _AddBankAccountState extends State<AddBankAccount> {
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
             flexibleSpace: const Padding(padding: EdgeInsets.only(top: 35.0, bottom: 10), child: LinearProgressIndicator(color: kGreen, value: 0.5,),),
-            title: Text("Add your bank account", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
+            title: Text("Add your bank account", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.pngLemonHead,
             onBackPressed: (){
               Get.back();
             },
           ),
           body: Padding(
-            padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+            padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
             child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(alignment: Alignment.centerLeft,
@@ -58,7 +57,7 @@ class _AddBankAccountState extends State<AddBankAccount> {
                       Get.to(()=> const CreatePassword());
                     },
                     buttonText: "Continue",
-                    height: 55, buttonColor: kGreen,
+                    height: 50, buttonColor: kGreen,
                     width: double.maxFinite
                 ),
                 const Spacer(),

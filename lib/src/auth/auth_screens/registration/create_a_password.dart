@@ -1,14 +1,11 @@
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
 import '../../../../constants/asset_path.dart';
 import '../../../../constants/color_palette.dart';
+import '../../../../shared_widgets/custom_appBar.dart';
 import '../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../shared_widgets/custom_outlined_button.dart';
-import '../../../../shared_widgets/cutom_appBar.dart';
-import '../../../../shared_widgets/cutom_pincode_field.dart';
+import '../../../../shared_widgets/custom_pincode_field.dart';
 import 'crendly_option.dart';
 
 class CreatePassword extends StatefulWidget {
@@ -65,14 +62,14 @@ class _CreatePasswordState extends State<CreatePassword> {
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
             flexibleSpace: const Padding(padding: EdgeInsets.only(top: 35.0, bottom: 10), child: LinearProgressIndicator(color: kGreen, value: 0.8,),),
-            title: Text("Finally, create a \npassword", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
+            title: Text("Finally, create a \npassword", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.pngLemonHead,
             onBackPressed: (){
               Get.back();
             },
           ),
           body: Padding(
-            padding: const EdgeInsets.only(top: 75, left: 24, right: 24),
+            padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
             child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
@@ -92,7 +89,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                       showMyDialog();
                     },
                     buttonText: "Continue",
-                    height: 55,buttonColor: kGreen,
+                    height: 50,buttonColor: kGreen,
                     width: double.maxFinite
                 ),
                 const Spacer(),
