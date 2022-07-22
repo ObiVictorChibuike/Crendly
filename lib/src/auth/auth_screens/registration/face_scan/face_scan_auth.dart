@@ -1,5 +1,6 @@
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/src/auth/auth_screens/registration/face_scan/scanning_face.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -61,8 +62,8 @@ class _FaceScanAuthState extends State<FaceScanAuth> {
                         alignment: Alignment.center,
                         child: SvgPicture.asset(
                           AssetPath.faceScan,
-                          height: 300,
-                          width: 300,
+                          height: 200,
+                          width: 200,
                         )),
                     const SizedBox(
                       height: 50,
@@ -93,11 +94,13 @@ class _FaceScanAuthState extends State<FaceScanAuth> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 5.5,
+                      height: MediaQuery.of(context).size.height /8,
                     ),
-                    CustomOutlineButton(text: "Scan Face", onPressed: () {}),
+                    CustomOutlineButton(text: "Scan Face", onPressed: () {
+                      Get.to(()=> const ScanningFace());
+                    }),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 13,
+                      height: MediaQuery.of(context).size.height / 15,
                     ),
                     Align(
                       alignment: Alignment.center,
@@ -114,7 +117,8 @@ class _FaceScanAuthState extends State<FaceScanAuth> {
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700),
                           )),
-                    )
+                    ),
+                    const SizedBox(height: 30,)
                   ],
                 ),
               ))

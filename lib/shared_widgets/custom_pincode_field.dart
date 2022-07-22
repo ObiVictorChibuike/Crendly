@@ -30,7 +30,7 @@ class PinCodeWidget extends StatelessWidget {
           animationType: AnimationType.fade,
           validator: validator,
           pinTheme: PinTheme(
-            fieldHeight: 55, fieldWidth: 55, borderRadius: BorderRadius.circular(8),
+            fieldHeight: 50, fieldWidth: 45, borderRadius: BorderRadius.circular(8),
             shape: PinCodeFieldShape.box, errorBorderColor: kWhite,
             selectedColor: kWhite, selectedFillColor: Colors.transparent,
             activeColor: kWhite, activeFillColor: Colors.transparent,

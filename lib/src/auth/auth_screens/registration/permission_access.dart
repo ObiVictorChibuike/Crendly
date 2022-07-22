@@ -1,7 +1,7 @@
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/home_screen.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -57,14 +57,14 @@ class PermissionAccess extends StatelessWidget {
                 child: ButtonWidget(onPressed: (){
                   Get.to(()=> const BottomNavigationBarScreen());},
                     buttonText: "Allow Location Access",
-                    height: 55, buttonColor: kGreen,
+                    height: 50, buttonColor: kGreen,
                     width: double.maxFinite
                 ),
               ),
               const SizedBox(height: 40,),
               TextButton(
                   onPressed: (){
-                    Get.to(()=> const PlayGroundHomeScreen());
+                    Get.to(()=> const BottomNavigationBarScreen());
                   },
                   child: Text("Do this Later",
                     style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kGreen, fontSize: 16, fontWeight: FontWeight.w700, decoration: TextDecoration.underline),)),

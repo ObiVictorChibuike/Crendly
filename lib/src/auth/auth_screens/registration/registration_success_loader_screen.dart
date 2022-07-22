@@ -21,7 +21,7 @@ class RegistrationSuccessLoaderScreen extends StatefulWidget {
 class _RegistrationSuccessLoaderScreenState
     extends State<RegistrationSuccessLoaderScreen> {
   showMyDialog() {
-    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height / 2.5,
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height / 2,
         MediaQuery.of(context).size.width / 1.3, [
       Expanded(
         child: Column(
@@ -34,8 +34,8 @@ class _RegistrationSuccessLoaderScreenState
             Align(
               alignment: Alignment.center,
               child: Container(
-                height: 80,
-                width: 80,
+                height: 65,
+                width: 65,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(color: kGreen, width: 2),
@@ -49,7 +49,7 @@ class _RegistrationSuccessLoaderScreenState
               ),
             ),
             Container(
-              height: 55,
+              height: 60,
               width: 2,
               color: kGreen,
             ),
@@ -65,7 +65,7 @@ class _RegistrationSuccessLoaderScreenState
               height: 30,
             ),
             Container(
-              height: 55,
+              height: 60,
               width: 2,
               color: kGreen,
             ),
@@ -73,11 +73,11 @@ class _RegistrationSuccessLoaderScreenState
               height: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 99.0),
+              padding: const EdgeInsets.symmetric(horizontal: 60.0),
               child: CustomOutlineButton(
                   backGroundColor: const Color(0xff081952),
                   text: "Ok",
-                  height: 60,
+                  height: 50,
                   onPressed: () {
                     Get.to(() => const PersonalInformation());
                   }),
