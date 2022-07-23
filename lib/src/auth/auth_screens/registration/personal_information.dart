@@ -1,7 +1,6 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/src/auth/auth_screens/registration/email_address.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,6 +19,7 @@ class PersonalInformation extends StatefulWidget {
 class _PersonalInformationState extends State<PersonalInformation> {
   String? selectedGender;
   List<String> gender = ["Male", "Female"];
+
 
   void showGenderBottomSheet(BuildContext context) {
     MyBottomSheet().showDismissibleBottomSheet(
@@ -42,22 +42,10 @@ class _PersonalInformationState extends State<PersonalInformation> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          gender[index],
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText2
-                              ?.copyWith(
-                                  color: kWhite,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 16),
+                        Text(gender[index], style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),
                         ),
                         selectedGender == gender[index]
-                            ? const Icon(
-                                Icons.check,
-                                size: 12,
-                                color: kOrange,
-                              )
+                            ? const Icon(Icons.check, size: 12, color: kOrange,)
                             : const SizedBox()
                       ],
                     ),
@@ -103,13 +91,8 @@ class _PersonalInformationState extends State<PersonalInformation> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Please confirm the perosnal information below is correct.",
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                      color: kWhite,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400)),
-              const SizedBox(
-                height: 25,
-              ),
+                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400)),
+              const SizedBox(height: 25,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
