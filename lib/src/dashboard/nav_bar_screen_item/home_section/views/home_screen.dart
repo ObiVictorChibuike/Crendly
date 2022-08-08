@@ -15,6 +15,7 @@ import '../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
 import 'acquire-a_loan_section/get_a_loan.dart';
+import 'browse_loan_category_option/loan_option_process/loan_options.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -732,163 +733,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           return InkWell(
                             onTap: (){
                               selectBetweenTopWithDrawAndMoreOption(index);
-                              // showModalBottomSheet(
-                              //     context: context,
-                              //     enableDrag: false,
-                              //     isDismissible: false,
-                              //     isScrollControlled: true,
-                              //     shape: const RoundedRectangleBorder(
-                              //         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-                              //     backgroundColor: Colors.transparent,
-                              //     builder: (context) {
-                              //       int currentIndex = 0;
-                              //       return StatefulBuilder(
-                              //           builder:
-                              //               (context, setState) =>
-                              //               DraggableScrollableSheet(
-                              //                 initialChildSize: 0.7,
-                              //                 builder: (_,
-                              //                     controller) =>
-                              //                     DefaultTabController(
-                              //                       initialIndex:
-                              //                       currentIndex,
-                              //                       length: 2,
-                              //                       child: ListView(
-                              //                         children: [
-                              //                           Container(
-                              //                             padding: const EdgeInsets
-                              //                                 .symmetric(
-                              //                                 horizontal:
-                              //                                 22,
-                              //                                 vertical: 28),
-                              //                             // color:
-                              //                             // backgroundColor,
-                              //                             child: Column(
-                              //                               crossAxisAlignment:
-                              //                               CrossAxisAlignment
-                              //                                   .start,
-                              //                               children: [
-                              //                                 Row(
-                              //                                   mainAxisAlignment:
-                              //                                   MainAxisAlignment
-                              //                                       .spaceBetween,
-                              //                                   children: [
-                              //                                     const Text(
-                              //                                       'Topup wallet',
-                              //                                     ),
-                              //                                     IconButton(
-                              //                                         onPressed:
-                              //                                             () {
-                              //                                           Get.back();
-                              //                                         },
-                              //                                         icon:
-                              //                                         const Icon(
-                              //                                           Icons.cancel_outlined,
-                              //                                           // color:
-                              //                                           // iconColor,
-                              //                                         ))
-                              //                                   ],
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 35,
-                              //                                 ),
-                              //                                 const Text('How much do you want to fund',),
-                              //                                 const SizedBox(
-                              //                                   height: 13,
-                              //                                 ),
-                              //                                 const TextField(
-                              //                                   style:
-                              //                                   TextStyle(
-                              //                                     color: Color(
-                              //                                         0xff797979),
-                              //                                     fontSize:
-                              //                                     14,
-                              //                                     fontFamily:
-                              //                                     'KumbhSans',
-                              //                                   ),
-                              //                                   decoration: InputDecoration(
-                              //                                       //enabledBorder: inputBorder,
-                              //                                       hintStyle: TextStyle(
-                              //                                         color:
-                              //                                         Color(0xff797979),
-                              //                                         fontSize:
-                              //                                         14,
-                              //                                         fontFamily:
-                              //                                         'KumbhSans',
-                              //                                       ),
-                              //                                       hintText: 'Enter amount',
-                              //                                       contentPadding: EdgeInsets.all(8)),
-                              //                                   keyboardType:
-                              //                                   TextInputType
-                              //                                       .text,
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 43,
-                              //                                 ),
-                              //                                 const Text(
-                              //                                   'Fund your wallet using',
-                              //
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 8,
-                              //                                 ),
-                              //                                 Container(
-                              //                                   decoration:
-                              //                                   BoxDecoration(
-                              //                                     border: Border.all(
-                              //                                         color:
-                              //                                         const Color(0xffFED0B7)),
-                              //                                     borderRadius: const BorderRadius
-                              //                                         .all(
-                              //                                         Radius.circular(
-                              //                                             6)),
-                              //                                   ),
-                              //                                   height: 39,
-                              //                                   child: TabBar(
-                              //                                       onTap: (int index) {
-                              //                                         setState(
-                              //                                                 () {
-                              //                                               currentIndex =
-                              //                                                   index;
-                              //                                             });
-                              //                                       },
-                              //                                       labelColor: const Color(0xff00071F),
-                              //                                       unselectedLabelColor: Colors.white,
-                              //                                       labelStyle: const TextStyle(fontFamily: 'KumbhSans', fontWeight: FontWeight.bold),
-                              //                                       unselectedLabelStyle: const TextStyle(
-                              //                                         fontFamily:
-                              //                                         'KumbhSans',
-                              //                                         fontSize:
-                              //                                         14,
-                              //                                       ),
-                              //                                       indicator: BoxDecoration(
-                              //                                           color: const Color(0xffFED0B7),
-                              //                                           borderRadius: const BorderRadius.all(Radius.circular(6)),
-                              //                                           border: Border.all(
-                              //                                             color: const Color(0xffFED0B7),
-                              //                                           )),
-                              //                                       tabs: const [
-                              //                                         Text(
-                              //                                           'Card',
-                              //                                         ),
-                              //                                         Text(
-                              //                                           'Bank Transfer',
-                              //                                         ),
-                              //                                       ]),
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 25,
-                              //                                 ),
-                              //                                 // getViewTabBar(
-                              //                                 //     currentIndex)
-                              //                               ],
-                              //                             ),
-                              //                           ),
-                              //                         ],
-                              //                       ),
-                              //                     ),
-                              //               ));
-                              //     });
                             },
                             child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -1250,7 +1094,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
                                                   const SizedBox(height:15,),
                                                   ButtonWidget(
-                                                    onPressed: (){}, borderRadius: 8,
+                                                    onPressed: (){
+                                                      Get.to(()=> QuickLoans(data: browseOptions[index],));
+                                                    }, borderRadius: 8,
                                                     buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
                                                     height: 37, width: 87, buttonColor: kWhite,
                                                   ),

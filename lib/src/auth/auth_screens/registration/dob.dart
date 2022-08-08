@@ -81,14 +81,11 @@ class _DateOfBirthState extends State<DateOfBirth> {
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.2,
-            ),
-          ),
-          title: Text(
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.2,
+          ), centerTitle: false,
+          appBarLabel: Text(
             "Date of Birth & Gender",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),

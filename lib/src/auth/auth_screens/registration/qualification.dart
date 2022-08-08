@@ -88,14 +88,11 @@ class _QualificationScreenState extends State<QualificationScreen> {
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.4,
-            ),
-          ),
-          title: Text(
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.4,
+          ), centerTitle: false,
+          appBarLabel: Text(
             "Educational Background",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
@@ -138,14 +135,7 @@ class _QualificationScreenState extends State<QualificationScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        selectedQualification ?? "Qualification",
-                        style: TextStyle(
-                            color: selectedQualification == null
-                                ? const Color(0xff868484)
-                                : kWhite,
-                            fontSize: 18),
-                      ),
+                      Text(selectedQualification ?? "Qualification", style: TextStyle(color: selectedQualification == null ? const Color(0xff868484) : kWhite, fontSize: 18),),
                       const Icon(Icons.keyboard_arrow_down, color: kWhite)
                     ],
                   ),

@@ -25,7 +25,7 @@ class CarouselPage extends StatelessWidget {
               ]),
         ),
       ),
-      Container(width: 257, height: 53, margin: const EdgeInsets.only(top: 8, left: 30, right: 103),
+      Container(width: 257, height: 70, margin: const EdgeInsets.only(top: 8, left: 30, right: 103),
           child: Text(thirdText, style: Theme.of(context).textTheme.bodyText2?.copyWith(fontWeight: FontWeight.w400, color: kWhite, fontSize: 16))),
     ]);
   }

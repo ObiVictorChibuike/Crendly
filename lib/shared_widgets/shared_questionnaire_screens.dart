@@ -66,7 +66,7 @@ class _SharedQuestionnaireState extends State<SharedQuestionnaire> {
                   color: kWhite, fontSize: 20, fontFamily: "KumbhSans"),
             ),
             const SizedBox(
-              height: 62,
+              height: 42,
             ),
             ListView.builder(
               shrinkWrap: true,

@@ -99,12 +99,9 @@ class _RegistrationSuccessLoaderScreenState
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.5,
-            ),
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.5,
           ),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {

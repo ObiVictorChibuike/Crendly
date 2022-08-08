@@ -1,11 +1,8 @@
 import 'dart:async';
-
 import 'package:crendly/constants/asset_path.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../constants/color_palette.dart';
-import '../../questionnaire/trust_questions/personality_questions.dart';
 import '../onboarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {

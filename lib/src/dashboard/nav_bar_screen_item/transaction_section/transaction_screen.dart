@@ -20,9 +20,9 @@ class _TransactionScreenState extends State<TransactionScreen> {
         child: Scaffold(
           appBar: CustomAppbar(centerTitle: true,
             flexibleSpace: const SizedBox(),
-            title: Column(
+            appBarLabel: Column(
               children: [
-                Text("My Loan", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
+                Text("My Transaction", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
                 const SizedBox(height: 15,),
                 Text("See all your transaction activities",
                   style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),

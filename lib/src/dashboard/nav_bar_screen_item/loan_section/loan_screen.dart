@@ -22,8 +22,7 @@ class _LoanScreenState extends State<LoanScreen> {
     return SafeArea(top: false, bottom: false,
         child: Scaffold(
           appBar: CustomAppbar(centerTitle: true,
-            flexibleSpace: const SizedBox(),
-            title: Column(
+            appBarLabel: Column(
               children: [
                 Text("My Loan", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),),
                 const SizedBox(height: 15,),

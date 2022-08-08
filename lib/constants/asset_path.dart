@@ -34,6 +34,10 @@ class AssetPath{
   static const String loanIcon = "$_svgImageBaseUrl/loan_icon.svg";
   static const String transactionIcon = "$_svgImageBaseUrl/transaction_icon.svg";
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
+  static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
+  static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
+  static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
+  static const String carbonMoney = "$_svgImageBaseUrl/carbon_money.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";
@@ -49,4 +53,5 @@ class AssetPath{
   static const String radioLight = '$_pngImageBaseUrl/radioLight_orange.png';
   static const String driverLicense = '$_pngImageBaseUrl/drivers_license.png';
   static const String face = "$_pngImageBaseUrl/face.png";
+  static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
 }

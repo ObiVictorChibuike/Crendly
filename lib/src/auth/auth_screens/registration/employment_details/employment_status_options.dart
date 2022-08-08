@@ -26,14 +26,11 @@ class _EmploymentStatusOptionsState extends State<EmploymentStatusOptions> {
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.5,
-            ),
-          ),
-          title: Text(
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.5,
+          ),centerTitle: false,
+          appBarLabel: Text(
             "Employment Status",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),

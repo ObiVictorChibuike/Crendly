@@ -1,17 +1,19 @@
+import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/src/questionnaire/trust_questions/personality_questions.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/questionnaire/trust_questions/personality_questions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class PersonalityQuestion extends StatefulWidget {
-  const PersonalityQuestion({Key? key}) : super(key: key);
+class MoveToPersonalityQuestion extends StatefulWidget {
+  const MoveToPersonalityQuestion({Key? key}) : super(key: key);
 
   @override
-  State<PersonalityQuestion> createState() => _PersonalityQuestionState();
+  State<MoveToPersonalityQuestion> createState() => _MoveToPersonalityQuestionState();
 }
 
-class _PersonalityQuestionState extends State<PersonalityQuestion> {
+class _MoveToPersonalityQuestionState extends State<MoveToPersonalityQuestion> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,
@@ -27,11 +29,12 @@ class _PersonalityQuestionState extends State<PersonalityQuestion> {
               children: [
                 CircleAvatar(
                     backgroundColor: kBlue,
-                    radius: 50, child: Icon(Icons.person, color: kWhite, size: 50,)
+                    radius: 50, child: SvgPicture.asset(AssetPath.starredPerson),
                 ),
                 const SizedBox(height: 40,),
                 Text("Personality Question", textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.bold, fontSize: 20),),
+                const SizedBox(height: 10,),
                 Text("Let’s know the kind of person you are. ", textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.bold, fontSize: 14),),
                 const SizedBox(height: 50,),
