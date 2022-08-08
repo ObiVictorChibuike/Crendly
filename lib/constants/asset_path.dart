@@ -34,6 +34,10 @@ class AssetPath {
   static const String loanIcon = "$_svgImageBaseUrl/loan_icon.svg";
   static const String transactionIcon = "$_svgImageBaseUrl/transaction_icon.svg";
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
+  static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
+  static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
+  static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
+  static const String carbonMoney = "$_svgImageBaseUrl/carbon_money.svg";
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
   static const String copy = "$_svgImageBaseUrl/copy.svg";

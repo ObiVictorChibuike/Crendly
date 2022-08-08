@@ -351,7 +351,7 @@ class _LoanRequestDetailsState extends State<LoanRequestDetails> {
         ]
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,

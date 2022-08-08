@@ -27,15 +27,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String? selectedBankAccount;
-  final List<String> bankAccount = ["Access Bank 0437193638", "GTBank 0213111726", "FirstBank 3819361374"];
+  final List<String> bankAccount = [
+    "Access Bank 0437193638",
+    "GTBank 0213111726",
+    "FirstBank 3819361374"
+  ];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List rowButtonItem = DummyData.rowButtonIcon;
   List browseOptions = DummyData.browseOptions;
   List userData = DummyData.userData;
   List community = DummyData.crendlyCommunity;
 
-  showMyBankAccountDialog(){
-    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2.8, MediaQuery.of(context).size.width /1.2, [
+  showMyBankAccountDialog() {
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height / 2.8,
+        MediaQuery.of(context).size.width / 1.2, [
       Expanded(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -301,25 +306,67 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }, icon: Icon(Icons.clear, color: kOrange,))
                               ],
                             ),
-                            const SizedBox(height: 50,),
-                            Text("Amount", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 50,
+                            ),
+                            Text(
+                              "Amount",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  ?.copyWith(
+                                      color: kWhite,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             FormFieldWidget(
                               hintText: "Enter amount",
                             ),
                             SizedBox(height: 30),
-                            Text("Select Bank Account", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
-                            const SizedBox(height: 10,),
-                            Container(height: 55, width: double.maxFinite, decoration: BoxDecoration(border: Border.all(color: kWhite, width: 0.7), borderRadius: BorderRadius.circular(8)),
+                            Text(
+                              "Select Bank Account",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  ?.copyWith(
+                                      color: kWhite,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              height: 55,
+                              width: double.maxFinite,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: kWhite, width: 0.7),
+                                  borderRadius: BorderRadius.circular(8)),
                               child: TextButton(
-                                style: ButtonStyle(overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent)),
-                                onPressed: (){
-                                 showMyBankAccountDialog();
+                                style: ButtonStyle(
+                                    overlayColor:
+                                        MaterialStateColor.resolveWith(
+                                            (states) => Colors.transparent)),
+                                onPressed: () {
+                                  showMyBankAccountDialog();
                                 },
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(selectedBankAccount ?? "Bank Account", style: TextStyle(color: selectedBankAccount == null ? const Color(0xff868484) : kWhite, fontSize: 18),),
-                                    const Icon(Icons.keyboard_arrow_down, color: kWhite)
+                                    Text(
+                                      selectedBankAccount ?? "Bank Account",
+                                      style: TextStyle(
+                                          color: selectedBankAccount == null
+                                              ? const Color(0xff868484)
+                                              : kWhite,
+                                          fontSize: 18),
+                                    ),
+                                    const Icon(Icons.keyboard_arrow_down,
+                                        color: kWhite)
                                   ],
                                 ),
                               ),
@@ -638,7 +685,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  GridView.count(
                    controller: scrollController,
                    crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (1/0.8),
-                   shrinkWrap: true, crossAxisCount: 2, 
+                   shrinkWrap: true, crossAxisCount: 2,
                    children: List.generate(quickMenu.length, (index){
                      return Container(
                        decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(4)),
@@ -1011,7 +1058,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const Spacer(),
-                             
+
                               userData.isEmpty ? Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
                                   border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
