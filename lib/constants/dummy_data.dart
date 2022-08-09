@@ -42,7 +42,107 @@ class DummyData {
 
   static final userData = [];
   static final myLoan = [];
-  static final transaction = [];
+
+  static final oldTransaction = [
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Funds Withdrawal",
+      "amount": "₦70,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Funded Wallet",
+      "amount": "₦750,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Credit"
+    },
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+  ];
+  static final todayTransaction = [
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Funds Withdrawal",
+      "amount": "₦70,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Funded Wallet",
+      "amount": "₦750,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Credit"
+    },
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit"
+    },
+  ];
 
   static final crendlyOption = [
     {

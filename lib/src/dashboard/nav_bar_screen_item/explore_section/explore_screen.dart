@@ -45,7 +45,7 @@ class _ExploreState extends State<Explore> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 150),
+                const SizedBox(height: 30),
                Expanded(
                    child: SingleChildScrollView(
                      physics: const BouncingScrollPhysics(),

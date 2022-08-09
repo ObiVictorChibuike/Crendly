@@ -5,6 +5,7 @@ import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/shared_widgets/custom_pincode_field.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool? isCardSelected = true;
 
   void showTopUPWalletBottomSheet(){
-    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.65,
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.75,
       child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
         constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
         child: StatefulBuilder(builder: (context, mySetState){
@@ -403,18 +404,18 @@ class _HomeScreenState extends State<HomeScreen> {
             const Spacer(flex: 2,),
             Align(
               alignment: Alignment.center,
-              child: Container(height: 80, width: 80,
+              child: Container(height: 65, width: 80,
                 decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
                 child: const Center(child: Icon(Icons.add, color: kOrange, size: 45,)),
               ),
             ),
-            Container(height: 65, width:2, color: kGreen,),
-            const SizedBox(height: 50,),
+            Container(height: 45, width:2, color: kGreen,),
+            const SizedBox(height: 40,),
             Text("TopUp successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 15,),
             Text("Your wallet topup was successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
-            const SizedBox(height: 50,),
-            Container(height: 65, width:2, color: kGreen,),
+            const SizedBox(height: 40,),
+            Container(height: 45, width:2, color: kGreen,),
             const SizedBox(height: 10,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -698,7 +699,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text("Hi, Damilare", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 15, fontWeight: FontWeight.w700, color: kOrange),),
                           const Spacer(),
                           userData.isEmpty ? const SizedBox() : IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
-                          IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none, color: kWhite,)),
+                          IconButton(onPressed: (){
+                            Get.to(()=> const NotificationPage());
+                          }, icon: const Icon(Icons.notifications_none, color: kWhite,)),
                         ],
                       ),
                     ),

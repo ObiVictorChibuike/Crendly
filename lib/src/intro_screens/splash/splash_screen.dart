@@ -18,8 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
         const Duration(seconds: 3),
-        () => Get.to(() =>
-            //PersonalityQuestionsScreen()
+        () => Get.offAll(()=>
             const MainOnBoardingScreen()
             ));
   }
@@ -37,15 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
             const Spacer(),
             Stack(children: [
               Image.asset(AssetPath.splashImage),
-              Positioned(
-                bottom: 20,
-                left: 80,
-                child: Text(
-                  ' Made with love by people who care',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      ?.copyWith(color: kWhite, fontSize: 16),
+              Positioned(bottom: 20, left: 80,
+                child: Text(' Made with love by people who care', style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),
                 ),
               )
             ])
