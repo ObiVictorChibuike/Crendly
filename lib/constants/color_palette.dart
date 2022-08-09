@@ -30,6 +30,7 @@ const kGrey = Color(0xffAAAAAA);
 
 const kRadioBlue = Color(0xff8095E0);
 const kLightOrange = Color(0xffF5B070);
+const kLighterOrange = Color(0xffF2EAE0);
 const kLoanBackGroundColor = Color(0xff000926);
 const kCtaColor = const Color(0xff1B034F);
 const kDisableColor = Color(0xff666666);
