@@ -4,7 +4,6 @@ import 'package:crendly/shared_widgets/shared_questionnaire_screens.dart';
 import 'package:crendly/src/intro_screens/widgets/custom_carousel_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class DummyData {
   DummyData._();
@@ -48,7 +47,8 @@ class DummyData {
     {
       "asset": "assets/svg_assets/orange_head.svg",
       "title": "Give Loan",
-      "description": "Invest in the needs of real people and earn interests monthly.",
+      "description":
+          "Invest in the needs of real people and earn interests monthly.",
       "color": orangeGradient,
     },
     {
@@ -442,6 +442,11 @@ class DummyData {
       "title": "Proofing her business idea with Crendly",
       "buttonLabel": "Interview"
     },
+  ];
+
+  static final portfolioGraphs = [
+    AssetPath.portfolioBarChart,
+    AssetPath.portfolioLineGraph
   ];
 
   static final reportDataList = [

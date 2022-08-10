@@ -1,16 +1,19 @@
-class AssetPath{
+class AssetPath {
   static const String _svgImageBaseUrl = "assets/svg_assets";
   static const String _jpgImageBaseUrl = "assets/jpg_assets";
   static const String _pngImageBaseUrl = "assets/png_assets";
 
   //Svg Assets
   static const String orangeHead = '$_svgImageBaseUrl/orange_head.svg';
-  static const String search =  '$_svgImageBaseUrl/search.svg';
+  static const String search = '$_svgImageBaseUrl/search.svg';
   static const String fabIcon = '$_svgImageBaseUrl/fab_icon.svg';
   static const String calcIcon = '$_svgImageBaseUrl/calc_button_icon.svg';
-  static const String onBoardingImage1 = "$_svgImageBaseUrl/onboarding_image1.svg";
-  static const String onBoardingImage2 = "$_svgImageBaseUrl/onboarding_image2.svg";
-  static const String onBoardingImage3 = "$_svgImageBaseUrl/onboarding_image3.svg";
+  static const String onBoardingImage1 =
+      "$_svgImageBaseUrl/onboarding_image1.svg";
+  static const String onBoardingImage2 =
+      "$_svgImageBaseUrl/onboarding_image2.svg";
+  static const String onBoardingImage3 =
+      "$_svgImageBaseUrl/onboarding_image3.svg";
   static const String nextButtonLogo = "$_svgImageBaseUrl/next_button_logo.svg";
   static const String landPageImage = "$_svgImageBaseUrl/ready.svg";
   static const String lemonHead = "$_svgImageBaseUrl/lemon_head.svg";
@@ -26,14 +29,18 @@ class AssetPath{
   static const String faceScan = "$_svgImageBaseUrl/face_scan.svg";
   static const String faceIcon = "$_svgImageBaseUrl/face_icon.svg";
   static const String signature = "$_svgImageBaseUrl/signature.svg";
-  static const String confirmSignature = "$_svgImageBaseUrl/confirm_signature.svg";
+  static const String confirmSignature =
+      "$_svgImageBaseUrl/confirm_signature.svg";
   static const String world = "$_svgImageBaseUrl/world.svg";
   static const String darkBgCircle = "$_svgImageBaseUrl/dark_gb_circle.svg";
   static const String ellipse = "$_svgImageBaseUrl/ellipse.svg";
   static const String homeIcon = "$_svgImageBaseUrl/home_icon.svg";
   static const String loanIcon = "$_svgImageBaseUrl/loan_icon.svg";
-  static const String transactionIcon = "$_svgImageBaseUrl/transaction_icon.svg";
+  static const String transactionIcon =
+      "$_svgImageBaseUrl/transaction_icon.svg";
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
+  static const String send = "$_svgImageBaseUrl/send.svg";
+  static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";
@@ -49,4 +56,9 @@ class AssetPath{
   static const String radioLight = '$_pngImageBaseUrl/radioLight_orange.png';
   static const String driverLicense = '$_pngImageBaseUrl/drivers_license.png';
   static const String face = "$_pngImageBaseUrl/face.png";
+  static const String chartGraph = "$_pngImageBaseUrl/chart_graph.png";
+  static const String portfolioBarChart =
+      "$_pngImageBaseUrl/portfolio_bar_chart.png";
+  static const String portfolioLineGraph =
+      "$_pngImageBaseUrl/portfolio_graph.png";
 }

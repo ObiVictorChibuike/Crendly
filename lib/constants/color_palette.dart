@@ -6,14 +6,20 @@ const kBlue = Color(0xff4700E0);
 const kLighterBackGroundColor = Color(0xFF2E4DBD);
 const kBrightBackGroundColor = Color(0xFF8095E0);
 const kBrighterBackGroundColor = Color(0xFFC1CDF6);
+const kIndicatorColor = Color(0xff193180);
+const kCircularProgressBackgroundColor = Color(0xff340697);
 const kGreen = Color(0xFF6DE7B4);
 const kOrange = Color(0xFFFED0B7);
 const kPurple = Color(0xFF4700E0);
+const kLightPurple = Color(0xffA380EF);
 const kRedPink = Color(0xFFFF0062);
 const kWhite = Color(0xFFFFFFFF);
+const kWhiteWithOpacity = Color.fromRGBO(255, 255, 255, 0.5);
 const kGrey = Color(0xFFEEEEEE);
 const kRadioBlue = Color(0xff8095E0);
-
+const kLightOrange = Color(0xffF5B070);
+const kLoanBackGroundColor = Color(0xff000926);
+const kCtaColor = const Color(0xff1B034F);
 const List<Color> orangeGradient = [
   Color(0xFFFD5454),
   Color(0xFFFF9061),
