@@ -2,7 +2,6 @@ import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/explore_section/explore_search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants/asset_path.dart';
@@ -46,7 +45,7 @@ class _ExploreState extends State<Explore> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 150),
+                const SizedBox(height: 30),
                Expanded(
                    child: SingleChildScrollView(
                      physics: const BouncingScrollPhysics(),

@@ -1,17 +1,17 @@
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/complete_profile_details.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
-import 'package:tuna_flutter_range_slider/tuna_flutter_range_slider.dart';
-
 import '../../../../../../shared_widgets/custom_appBar.dart';
+import '../../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../widget/custom_slider.dart';
+import '../../widget/key_and_value_widget.dart';
 import '../../widget/widget_utils.dart';
+import 'complete_profile_details.dart';
 class LoanDuration extends StatefulWidget {
   const LoanDuration({Key? key}) : super(key: key);
 
@@ -20,7 +20,100 @@ class LoanDuration extends StatefulWidget {
 }
 
 class _LoanDurationState extends State<LoanDuration> {
+
+  void showInstallmentDetailLoanSummaryBottomShoot(BuildContext context) {
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height / 1.3,
+        children: [
+          Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Text("Loan Summary", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700),),
+              const Spacer(),
+              IconButton(onPressed: () {Get.back();},
+                icon: Icon(Icons.clear, color: kOrange,size: 20,),),
+            ],
+          ),
+          Text("Fusce lacinia vulputate gravida massa nibh faucibus lorem vel etiam. ", textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
+          const SizedBox(height: 30,),
+          DottedBorder(color: Color(0xffC1CDF6), dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
+              child: Column(
+                children: [
+                  KeyAndValueWidget(
+                    loanType: "Payday ",
+                    loanAmount: "₦125,000",
+                    duration: "12 Months",
+                    interestRate: "15%",
+                    monthlyRepayment: "₦25,500",
+                    repaymentMethod: "Installment",
+                    interestAmount: "₦50,000",
+                  ),
+                ],
+              )),
+          const SizedBox(height: 10,),
+          Align(alignment: Alignment.centerLeft,
+              child: Text("You will be charged a fee of ₦100 +1.5% \nof the total amount.",
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),)),
+          const SizedBox(height: 20,),
+          ButtonWidget(onPressed: (){
+            Get.back();
+            Get.to(()=> const CompleteProfileDetails());
+          },
+              buttonText: "Get this Loan", buttonColor: kGreen,
+              height: 50, width: double.maxFinite
+          ),
+          const SizedBox(height: 30,),
+        ]
+    );
+  }
+
+  void showOneOffDetailLoanSummaryBottomShoot(BuildContext context) {
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height / 1.3,
+        children: [
+          Row(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Spacer(),
+              Text("Loan Summary", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700),),
+              const Spacer(),
+              IconButton(onPressed: () {Get.back();},
+                icon: Icon(Icons.clear, color: kOrange,size: 20,),),
+            ],
+          ),
+          Text("Fusce lacinia vulputate gravida massa nibh faucibus lorem vel etiam. ", textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
+          const SizedBox(height: 30,),
+          DottedBorder(color: Color(0xffC1CDF6), dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
+              child: Column(
+                children: [
+                  KeyAndValueWidget(
+                    loanType: "Payday ",
+                    loanAmount: "₦125,000",
+                    duration: "12 Months",
+                    interestRate: "15%",
+                    monthlyRepayment: "₦25,500",
+                    repaymentMethod: "Installment",
+                    interestAmount: "₦50,000",
+                  ),
+                ],
+              )),
+          const SizedBox(height: 10,),
+          Align(alignment: Alignment.centerLeft,
+              child: Text("You will be charged a fee of ₦100 +1.5% \nof the total amount.",
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),)),
+          const SizedBox(height: 20,),
+          ButtonWidget(onPressed: (){
+            Get.back();
+            Get.to(()=> const CompleteProfileDetails());
+          },
+              buttonText: "Get this Loan", buttonColor: kGreen,
+              height: 50, width: double.maxFinite
+          ),
+          const SizedBox(height: 30,),
+        ]
+    );
+  }
   bool? isInstallment;
+  String? selectedValue;
   List<String> loanOptions = ["7 Days", "15 Days", "1 Month", "3 Months", "6 Months", "9 Months", "12 Months", "18 Months"];
   @override
   Widget build(BuildContext context) {
@@ -28,17 +121,8 @@ class _LoanDurationState extends State<LoanDuration> {
         child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
-            flexibleSpace: const Padding(
-              padding: EdgeInsets.only(top: 35.0, bottom: 10),
-              child: LinearProgressIndicator(
-                color: kGreen,
-                value: 0.5,
-              ),
-            ),
-            title: Text("Get a Loan",
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                  color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
-            ),
+            title: LinearProgressIndicator(color: kGreen, value: 0.5,),
+            appBarLabel: Text("Get a Loan", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.fullTag,
             onBackPressed: () {
               Get.back();
@@ -54,13 +138,8 @@ class _LoanDurationState extends State<LoanDuration> {
                   GroupButton(
                     options: GroupButtonOptions(
                         spacing: 8,
-                        selectedTextStyle: Theme.of(context)
-                            .textTheme
-                            .bodyText2
-                            ?.copyWith(color: kWhite, fontSize: 16),
-                        unselectedTextStyle: Theme.of(context)
-                            .textTheme
-                            .bodyText2
+                        selectedTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16),
+                        unselectedTextStyle: Theme.of(context).textTheme.bodyText2
                             ?.copyWith(color: kWhite, fontSize: 16),
                         unselectedColor: Colors.transparent,
                         mainGroupAlignment: MainGroupAlignment.start,
@@ -101,10 +180,12 @@ class _LoanDurationState extends State<LoanDuration> {
                       if (index == 0 && value == "Installment") {
                         setState(() {
                           isInstallment = isSelected;
+                          selectedValue = value;
                         });
                       } else {
                         setState(() {
                           isInstallment = false;
+                          selectedValue = null;
                         });
                       }
                     },
@@ -142,7 +223,7 @@ class _LoanDurationState extends State<LoanDuration> {
                         onSelected: (String value, index, isSelected) {
                           if (index == 0 && value == "Installment") {
                             setState(() {
-                              isInstallment = isSelected;
+                              isInstallment = true;
                             });
                           } else {
                             setState(() {
@@ -156,7 +237,7 @@ class _LoanDurationState extends State<LoanDuration> {
                       Text("How much interest is fine by you?", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 12),),
                       const SizedBox(height: 35,),
                     ],
-                  ) : Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start,
+                  ) : isInstallment == false ? Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Divider(
                         color: kBlue,
@@ -185,7 +266,7 @@ class _LoanDurationState extends State<LoanDuration> {
                       Text("How much interest is fine by you?", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 12),),
                       const SizedBox(height: 35,),
                     ],
-                  ),
+                  ) : const SizedBox(),
                   const SizedBox(height: 10,),
                   Text("Interest rate", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 12, fontWeight: FontWeight.w400),),
                   Text("${initialPercentage}%", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 40, fontWeight: FontWeight.bold),),
@@ -201,19 +282,17 @@ class _LoanDurationState extends State<LoanDuration> {
                           width: MediaQuery.of(context).size.width / 5, buttonColor: kDarkBackGroundColor,
                       ),
                       isInstallment == true? ButtonWidget(onPressed: (){
-                        Get.to(()=> const CompleteProfileDetails());
+                        showInstallmentDetailLoanSummaryBottomShoot(context);
                       },
                           buttonText: "Continue", height: 50, buttonColor: kGreen,
                           width: MediaQuery.of(context).size.width / 3
                       ) : isInstallment == false ? ButtonWidget(onPressed: (){
-                        Get.to(()=> const CompleteProfileDetails());
+                        showOneOffDetailLoanSummaryBottomShoot(context);
                       },
                           buttonText: "Continue", height: 50, buttonColor: kGreen,
                           width: MediaQuery.of(context).size.width / 3
-                      ) : ButtonWidget(onPressed: (){
-
-                      },
-                          buttonText: "Next", height: 50, buttonColor: kGreen,
+                      ) : ButtonWidget(onPressed: (){},
+                          buttonText: "Next", height: 50, buttonColor: const Color(0xff383838),
                           width: MediaQuery.of(context).size.width / 3
                       )
                     ],

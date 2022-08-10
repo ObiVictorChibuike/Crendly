@@ -90,14 +90,11 @@ class _SelfEmployedOptionScreenState extends State<SelfEmployedOptionScreen> {
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
           centerTitle: true,
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.6,
-            ),
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.6,
           ),
-          title: Text(
+          appBarLabel: Text(
             "Self Employed",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),

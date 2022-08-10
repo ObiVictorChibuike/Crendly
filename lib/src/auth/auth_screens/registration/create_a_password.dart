@@ -1,4 +1,5 @@
 import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/src/auth/auth_screens/registration/permission_access.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../constants/asset_path.dart';
@@ -6,7 +7,6 @@ import '../../../../constants/color_palette.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
 import '../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../shared_widgets/custom_pincode_field.dart';
-import 'crendly_option.dart';
 
 class CreatePassword extends StatefulWidget {
   const CreatePassword({Key? key}) : super(key: key);
@@ -25,9 +25,9 @@ class _CreatePasswordState extends State<CreatePassword> {
             const Spacer(flex: 3,),
             Align(
               alignment: Alignment.center,
-              child: Container(height: 80, width: 80,
+              child: Container(height:70, width: 70,
                 decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
-                child: Center(child: Icon(Icons.check_circle, color: kOrange, size: 50,)),
+                child: Center(child: Icon(Icons.check_circle, color: kOrange, size: 40,)),
               ),
             ),
             Container(height: 55, width:2, color: kGreen,),
@@ -42,10 +42,10 @@ class _CreatePasswordState extends State<CreatePassword> {
               child: ButtonWidget(
                   onPressed: (){
                     Get.back();
-                    Get.to(()=> const CrendlyOption());
+                    Get.to(()=> const PermissionAccess());
                   },
                   buttonText: "Continue",
-                  height: 55,buttonColor: kGreen,
+                  height: 50,buttonColor: kGreen,
                   width: double.maxFinite
               ),
             ),
@@ -61,8 +61,8 @@ class _CreatePasswordState extends State<CreatePassword> {
         child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
-            flexibleSpace: const Padding(padding: EdgeInsets.only(top: 35.0, bottom: 10), child: LinearProgressIndicator(color: kGreen, value: 0.8,),),
-            title: Text("Finally, create a \npassword", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
+            title: LinearProgressIndicator(color: kGreen, value: 0.8,), centerTitle: false,
+            appBarLabel: Text("Finally, create a \npassword", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.pngLemonHead,
             onBackPressed: (){
               Get.back();
