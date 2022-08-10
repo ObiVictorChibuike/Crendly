@@ -2,7 +2,6 @@ import 'package:crendly/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-
 import '../../../../constants/dummy_data.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
 
@@ -50,41 +49,23 @@ class _EmptyLoanScreenState extends State<EmptyLoanScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              userLoan.isEmpty
-                  ? Align(
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CircleAvatar(
-                              backgroundColor: kBlue,
-                              radius: 50,
-                              child: Icon(
-                                MdiIcons.handCoinOutline,
-                                color: kWhite,
-                                size: 50,
-                              )),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          Text(
-                            "You haven't take or \ngiven any Loan yet.",
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .textTheme
-                                .displaySmall
-                                ?.copyWith(
-                                    color: kWhite,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                          )
-                        ],
-                      ),
-                    )
-                  : Column(
-                      children: [],
-                    )
+              Align(
+                alignment: Alignment.center,
+                child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                        backgroundColor: kBlue, radius: 50,
+                        child: Icon(MdiIcons.handCoinOutline,
+                          color: kWhite, size: 50,
+                        )),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Text("You haven't take or \ngiven any Loan yet.",
+                      textAlign: TextAlign.center, style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.bold, fontSize: 20),)
+                  ],
+                ),
+              )
             ],
           ),
         ));

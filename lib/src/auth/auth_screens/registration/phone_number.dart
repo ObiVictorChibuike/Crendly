@@ -31,14 +31,11 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.3,
-            ),
-          ),
-          title: Text("Phone Number",
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.3,
+          ), centerTitle: false,
+          appBarLabel: Text("Phone Number",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
           ),

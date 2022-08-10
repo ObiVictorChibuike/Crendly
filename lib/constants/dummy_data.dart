@@ -41,7 +41,205 @@ class DummyData {
 
   static final userData = [];
   static final myLoan = [];
-  static final transaction = [];
+
+  static final oldTransaction = [
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Funds Withdrawal",
+      "amount": "₦70,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Funded Wallet",
+      "amount": "₦750,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Credit",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+  ];
+
+  static final List <PopupMenuItem> transactionFilterOption = [
+    PopupMenuItem(
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("All transactions", style: TextStyle(color: kWhite, fontSize: 16)),
+                Icon(Icons.check, color: kOrange,),
+              ],
+            ),
+            Divider(color: kDivider,)
+          ],
+        )
+    ),
+    PopupMenuItem(
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Loan disbursed", style: TextStyle(color: kWhite, fontSize: 16)),
+                Icon(Icons.check, color: kOrange,),
+              ],
+            ),
+            Divider(color: kDivider,)
+          ],
+        )
+    ),
+    PopupMenuItem(
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Portfolio created", style: TextStyle(color: kWhite, fontSize: 16)),
+                Icon(Icons.check, color: kOrange,),
+              ],
+            ),
+            Divider(color: kDivider,)
+          ],
+        )
+    ),
+    PopupMenuItem(
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Withdrawals", style: TextStyle(color: kWhite, fontSize: 16)),
+                Icon(Icons.check, color: kOrange,),
+              ],
+            ),
+            Divider(color: kDivider,)
+          ],
+        )
+    ),
+    PopupMenuItem(
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("TopUps", style: TextStyle(color: kWhite, fontSize: 16)),
+                Icon(Icons.check, color: kOrange,),
+              ],
+            ),
+            Divider(color: kDivider,)
+          ],
+        )
+    )
+  ];
+  static final todayTransaction = [
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Funds Withdrawal",
+      "amount": "₦70,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Funded Wallet",
+      "amount": "₦750,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Credit",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Disbursed",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+    {
+      "status": "Loan Repayment",
+      "amount": "₦50,000",
+      "date": "20 Jan 2022, 3:33 pm",
+      "type": "Debit",
+      "loanType": "Payday Loan",
+      "time": "3:33pm"
+    },
+  ];
 
   static final crendlyOption = [
     {
@@ -56,6 +254,70 @@ class DummyData {
       "title": "Collect Loan",
       "description": "Get money for what you need at an incredible speed. ",
       "color": greenGradient
+    },
+  ];
+
+  static final selectedLoanDetails = [
+    {
+      "requestAvailable": "100",
+      "loanRange": "₦0 - ₦50,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N30,000"
+    },
+    {
+      "requestAvailable": "112",
+      "loanRange": "₦50,001 - ₦100,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N70,000"
+    },
+    {
+      "requestAvailable": "75",
+      "loanRange": "₦100,001 - ₦200,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N10,000"
+    },
+    {
+      "requestAvailable": "20",
+      "loanRange": "₦200,001 - ₦400,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N50,000"
+    },
+    {
+      "requestAvailable": "100",
+      "loanRange": "₦400,001 - ₦800,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N20,000"
+    },
+    {
+      "requestAvailable": "7",
+      "loanRange": "₦800,001 - ₦1,000,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N270,000"
+    },
+    {
+      "requestAvailable": "Gadget Loans",
+      "loanRange": "₦800,001 - ₦1,000,000",
+      "date": "Requests 12th Feburary, 2022",
+      "amount": "N200,000"
+    },
+  ];
+
+  static final quickLoan = [
+    {
+      "title": "Payday Loans",
+      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+    },
+    {
+      "title": "Personal Loans",
+      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+    },
+    {
+      "title": "Travel Loans",
+      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+    },
+    {
+      "title": "Gadget Loans",
+      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
     },
   ];
 
@@ -283,8 +545,7 @@ class DummyData {
     ),
     SharedQuestionnaire(
       options: ["Can't listen enough because you're tired", "Hear them out"],
-      question:
-          "You're busy after your nights out nd someone is telling you their life story",
+      question: "You're busy after your nights out nd someone is telling you their life story",
       questionNumber: 3,
       totalNumberOfQuestions: 5,
     ),
@@ -306,41 +567,25 @@ class DummyData {
     ),
     SharedQuestionnaire(
       options: [
-        "Drained and tired even if I had fun",
-        "Pumped and can't wait to do it again"
-      ],
-      question: "How do you feel after a night out",
-      questionNumber: 1,
-      totalNumberOfQuestions: 5,
-    ),
-    SharedQuestionnaire(
-      options: [
-        "Get my work done before taking a break",
-        "Listen to music, work, take small breks"
-      ],
-      question: "What's your routine like, when you're working?",
-      questionNumber: 5,
-      totalNumberOfQuestions: 5,
-    ),
-    SharedQuestionnaire(
-      options: [
-        "No, School is all theories and no practical",
-        "Yes, it's very important and helpful"
+        "No. School is all theories and no practical.",
+        "Yes. It’s very important & helpful."
       ],
       question: "If you had the power, would school exist?",
       questionNumber: 1,
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
-      options: ["Getting things done", "Thinking of solutions"],
-      question:
-          "You have one choice in an exam. which would you say you're better at?",
+      options: [
+        "Getting things done",
+        "Thinking of solutions"
+      ],
+      question: "You have one choice in an exam. Which would you say you're better at?",
       questionNumber: 2,
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
       options: [
-        "Do things one after the other",
+        "Do things one after the other.",
         "Start big, fills in the details later"
       ],
       question: "If you had lots of tasks to do today, how would you begin?",
@@ -348,33 +593,57 @@ class DummyData {
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
-      options: [
-        "Results, I believe in what I see",
-        "Process, I believe the results will roll in"
-      ],
+      options: ["Results. I believe in what I see.", "Process. I believe the results will roll in."],
       question: "What keeps you going in work and life?",
       questionNumber: 4,
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
-      options: ["Not really, Things change, that's life", "Absolutely"],
+      options: [
+        "Not really. Things change, that’s life.",
+        "Absolutely"
+      ],
       question: "Can you think of one life goal you will never compromise on?",
       questionNumber: 5,
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
       options: [
-        "The task-oriented working from an outline",
-        "The task-oriented who goes with th flow"
+        "Look for logical explanations or solutions.",
+        "Express what is important at the moment"
       ],
-      question: "In your opinion, who will win a competition?",
+      question: "What’s the key to giving great advice to your friend?",
+      questionNumber: 1,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: ["Head, of course.", "Heart wins."],
+      question: "In making decisions, which do you go with?Your head or your heart?",
+      questionNumber: 2,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "Nope. I always follow the standard.",
+        "Of course. I adjust to make people happy."
+      ],
+      question: "Are rules meant to be broken?",
+      questionNumber: 3,
+      totalNumberOfQuestions: 5,
+    ),
+    SharedQuestionnaire(
+      options: [
+        "The task-oriented working from an outline",
+        "The task oriented who goes with the flow"
+      ],
+      question: "In your opinion who will win in a competition?",
       questionNumber: 4,
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
       options: [
-        "Analyze to make logical decisions",
-        "Consider others points_of_view"
+        "Analyze to make logical decisions.",
+        "Consider others points-of-view "
       ],
       question: "Before you make decisions, you?",
       questionNumber: 5,
@@ -382,10 +651,10 @@ class DummyData {
     ),
     SharedQuestionnaire(
       options: [
-        "Detailed, organized & proper planner",
+        "Detailed, organised & proper planner",
         "Flexible and spontaneous"
       ],
-      question: "Which best describes you?",
+      question: "Which best describes you",
       questionNumber: 1,
       totalNumberOfQuestions: 5,
     ),
@@ -394,14 +663,14 @@ class DummyData {
         "Spend time thinking through my decision",
         "Jump to my decisions"
       ],
-      question: "How quick do you make decisions",
+      question: "How quick do you make decisions?",
       questionNumber: 2,
       totalNumberOfQuestions: 5,
     ),
     SharedQuestionnaire(
       options: [
-        "Proactive- i like to plan ahead",
-        "Reactive- We cross when we get there"
+        "Proactive – I like to plan ahead",
+        "Reactive – We cross when we get there."
       ],
       question: "How do you approach challenges?",
       questionNumber: 3,
@@ -409,8 +678,8 @@ class DummyData {
     ),
     SharedQuestionnaire(
       options: [
-        "I get work done before a deadline",
-        "Stimulated by an approaching deadline"
+        "I get work done before a deadline.",
+        "Stimulated by an approaching deadline."
       ],
       question: "What's your second superpower?",
       questionNumber: 4,
@@ -419,9 +688,9 @@ class DummyData {
     SharedQuestionnaire(
       options: [
         "Get my work done before taking a break",
-        "Listen to music, work, take small breks"
+        "Listen to music, work, take small breaks"
       ],
-      question: "What's your routine like, when you're working?",
+      question: "What’s your routine like, when you’re working",
       questionNumber: 5,
       totalNumberOfQuestions: 5,
     ),
@@ -449,58 +718,7 @@ class DummyData {
     AssetPath.portfolioLineGraph
   ];
 
-  static final reportDataList = [
-    ReportData(
-        reportText: "Vital Signs", reportData: ReportDataIndex.vitalSigns),
-    ReportData(
-        reportText: "Medical Conditions",
-        reportData: ReportDataIndex.medicalConditions),
-    ReportData(
-        reportText: "Pregnancy Details",
-        reportData: ReportDataIndex.pregnancyDetails),
-    ReportData(
-        reportText: "Routine Investigations",
-        reportData: ReportDataIndex.routineInvestigations),
-    ReportData(
-        reportText: "Medications", reportData: ReportDataIndex.medications),
-    ReportData(
-        reportText: "Follow-up Appointment",
-        reportData: ReportDataIndex.followUpAppointment),
-    ReportData(
-        reportText: "Doctor’s Comment",
-        reportData: ReportDataIndex.doctorComment),
-  ];
 }
 
-enum ReportDataIndex {
-  vitalSigns,
-  medicalConditions,
-  pregnancyDetails,
-  routineInvestigations,
-  medications,
-  followUpAppointment,
-  doctorComment
-}
 
-class ReportData {
-  String reportText;
-  ReportDataIndex reportData;
 
-  ReportData({required this.reportText, required this.reportData});
-}
-
-class BabiesRedAlertModel {
-  BabiesRedAlertModel({required this.alertType, required this.alertDesc});
-
-  String alertType;
-  String alertDesc;
-  bool selected = false;
-}
-
-class PregnancyRedAlertModel {
-  PregnancyRedAlertModel({required this.alertType, required this.alertDesc});
-
-  String alertType;
-  String alertDesc;
-  bool selected = false;
-}

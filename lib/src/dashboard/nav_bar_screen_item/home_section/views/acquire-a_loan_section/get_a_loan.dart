@@ -23,14 +23,11 @@ class _GetALoanState extends State<GetALoan> {
         child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
-            flexibleSpace: const Padding(
-              padding: EdgeInsets.only(top: 35.0, bottom: 10),
-              child: LinearProgressIndicator(
-                color: kGreen,
-                value: 0.0,
-              ),
+            title: LinearProgressIndicator(
+              color: kGreen,
+              value: 0.0,
             ),
-            title: Text("Get a Loan",
+            appBarLabel: Text("Get a Loan",
               style: Theme.of(context).textTheme.bodyText2?.copyWith(
                   color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
             ),
@@ -45,16 +42,8 @@ class _GetALoanState extends State<GetALoan> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GroupButton(
-                  options: GroupButtonOptions(
-                      spacing: 8,
-                      selectedTextStyle: Theme.of(context)
-                          .textTheme
-                          .bodyText2
-                          ?.copyWith(color: kWhite, fontSize: 16),
-                      unselectedTextStyle: Theme.of(context)
-                          .textTheme
-                          .bodyText2
-                          ?.copyWith(color: kWhite, fontSize: 16),
+                  options: GroupButtonOptions(spacing: 8, selectedTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16),
+                      unselectedTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16),
                       unselectedColor: Colors.transparent,
                       mainGroupAlignment: MainGroupAlignment.start,
                       unselectedBorderColor: Color(0xff2E4DBD),

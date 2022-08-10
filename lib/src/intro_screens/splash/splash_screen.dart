@@ -1,13 +1,11 @@
 import 'dart:async';
-
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../constants/color_palette.dart';
-import '../../questionnaire/trust_questions/personality_questions.dart';
 import '../onboarding/onboarding.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,12 +18,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Get.to(() =>
-            //PersonalityQuestionsScreen()
-            const BottomNavigationBarScreen() //MainOnBoardingScreen()
-            ));
+    Timer(const Duration(seconds: 3),
+        //const BottomNavigationBarScreen() //MainOnBoardingScreen()
+            () => Get.offAll(()=> const MainOnBoardingScreen()));
   }
 
   @override
@@ -41,15 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
             const Spacer(),
             Stack(children: [
               Image.asset(AssetPath.splashImage),
-              Positioned(
-                bottom: 20,
-                left: 80,
-                child: Text(
-                  ' Made with love by people who care',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText2
-                      ?.copyWith(color: kWhite, fontSize: 16),
+              Positioned(bottom: 20, left: 80,
+                child: Text(' Made with love by people who care', style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),
                 ),
               )
             ])

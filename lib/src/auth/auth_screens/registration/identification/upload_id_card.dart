@@ -124,8 +124,8 @@ class _UploadIDCardState extends State<UploadIDCard> {
             Align(
               alignment: Alignment.center,
               child: Container(
-                height: 80,
-                width: 80,
+                height: 70,
+                width: 70,
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(color: kGreen, width: 2),
@@ -169,7 +169,7 @@ class _UploadIDCardState extends State<UploadIDCard> {
                   backGroundColor: const Color(0xff081952),
                   color: kGreen,
                   text: "Ok",
-                  height: 55,
+                  height: 50,
                   onPressed: () {
                     Get.back();
                     Get.to(() => AddressVerification());
@@ -194,18 +194,15 @@ class _UploadIDCardState extends State<UploadIDCard> {
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.5,
-            ),
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.5,
           ),
-          title: Text(
+          appBarLabel: Text(
             "Select ID Card",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
                 color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
-          ),
+          ), centerTitle: false,
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
             Get.back();
