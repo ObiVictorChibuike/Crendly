@@ -1,8 +1,10 @@
+import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/values_manager.dart';
-import 'package:crendly/shared_widgets/loan_type_info_card.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_and_portfolio_info_tile.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_type_info_card.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoanTypeInfo extends StatelessWidget {
   const LoanTypeInfo({Key? key}) : super(key: key);
@@ -25,19 +27,19 @@ class LoanTypeInfo extends StatelessWidget {
                       Icons.arrow_back_ios,
                       color: kGreen,
                     )),
-                Text("Payday Loan",
-                style: Theme.of(context).textTheme
-                .bodyText2!.copyWith(
-                  fontSize: 16,
-                  color: kWhite,
-                  fontWeight: FontWeight.bold
-                ),),
-                Text("View Details",  style: TextStyle(
-                  decoration: TextDecoration.underline,
-                    fontSize: 14,
-                    color: kGreen,
-                    fontWeight: FontWeight.bold
-                ), )
+                Text(
+                  "Payday Loan",
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      fontSize: 16, color: kWhite, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "View Details",
+                  style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 14,
+                      color: kGreen,
+                      fontWeight: FontWeight.bold),
+                )
               ],
             ),
             LoanTypeInfoCard(
@@ -51,7 +53,82 @@ class LoanTypeInfo extends StatelessWidget {
                 capital: "N350,000",
                 interest: "N150,000",
                 status: "Running",
-                statusColor: kLightOrange)
+                statusColor: kLightOrange),
+            const SizedBox(
+              height: 38,
+            ),
+            LoanAndPortfolioInfoTile(
+                leading: CircleAvatar(
+                  radius: 16,
+                  backgroundColor: kRedPink,
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: kLightBackGroundColor,
+                    child: SvgPicture.asset(AssetPath.send, color: kRedPink),
+                  ),
+                ),
+                titleText: "Loan Repayment",
+                subTitleText: "20 jan 2022 3:33pm",
+                amount: "N52,500",
+                trailingText: "Scheduled",
+                trailingTextStyle: Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 10,
+                        color: kRedPink)),
+            const SizedBox(
+              height: 8,
+            ),
+            LoanAndPortfolioInfoTile(
+                leading: CircleAvatar(
+                  radius: 16,
+                  backgroundColor: kRedPink,
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: kLightBackGroundColor,
+                    child: SvgPicture.asset(AssetPath.send, color: kRedPink),
+                  ),
+                ),
+                titleText: "Loan Repayment",
+                subTitleText: "20 jan 2022 3:33pm",
+                amount: "N52,500",
+                trailingText: "Scheduled",
+                trailingTextStyle: Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 10,
+                        color: kRedPink)),
+            const SizedBox(
+              height: 8,
+            ),
+            LoanAndPortfolioInfoTile(
+                leading: CircleAvatar(
+                  radius: 16,
+                  backgroundColor: kRedPink,
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: kLightBackGroundColor,
+                    child: SvgPicture.asset(AssetPath.send, color: kRedPink),
+                  ),
+                ),
+                titleText: "Loan Repayment",
+                subTitleText: "20 jan 2022 3:33pm",
+                amount: "N52,500",
+                trailingText: "Scheduled",
+                trailingTextStyle: Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 10,
+                        color: kRedPink)),
+            const SizedBox(
+              height: 8,
+            ),
           ],
         ),
       ),

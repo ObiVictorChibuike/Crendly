@@ -1,12 +1,13 @@
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/portfolio_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/values_manager.dart';
 import '../../../../shared_widgets/call_to_action.dart';
-import '../../../../shared_widgets/loan_and_portfolio_card.dart';
+import 'widget/loan_and_portfolio_card.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({Key? key}) : super(key: key);
@@ -131,7 +132,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
               ),
               const SizedBox(height: 16),
               LoanAndPortfolioCard(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (builder) => PortfolioInfo()));
+                },
                 loanType: "Portfolio Amount",
                 totalAmount: "N450,000.00",
                 loanAmount: "Payday",
@@ -147,7 +151,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
                 height: 13,
               ),
               LoanAndPortfolioCard(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (builder) => PortfolioInfo()));
+                },
                 loanType: "Portfolio Amount",
                 totalAmount: "N450,000.00",
                 loanAmount: "Payday",

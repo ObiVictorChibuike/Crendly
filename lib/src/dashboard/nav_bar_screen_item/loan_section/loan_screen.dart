@@ -2,7 +2,7 @@ import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/values_manager.dart';
 import 'package:crendly/shared_widgets/call_to_action.dart';
-import 'package:crendly/shared_widgets/loan_and_portfolio_card.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_and_portfolio_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
