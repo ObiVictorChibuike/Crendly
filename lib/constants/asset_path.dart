@@ -39,8 +39,19 @@ class AssetPath {
   static const String transactionIcon =
       "$_svgImageBaseUrl/transaction_icon.svg";
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
+
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
+
+  static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
+  static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
+  static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
+  static const String carbonMoney = "$_svgImageBaseUrl/carbon_money.svg";
+  static const String loanDisbursed = "$_svgImageBaseUrl/loan_disbursed.svg";
+  static const String fundsWithdrawal = "$_svgImageBaseUrl/funds_withdrawal.svg";
+  static const String fundedWallet = "$_svgImageBaseUrl/funded_wallet.svg";
+  static const String loanRepayment = "$_svgImageBaseUrl/loan_repayment.svg";
+
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";
@@ -56,9 +67,16 @@ class AssetPath {
   static const String radioLight = '$_pngImageBaseUrl/radioLight_orange.png';
   static const String driverLicense = '$_pngImageBaseUrl/drivers_license.png';
   static const String face = "$_pngImageBaseUrl/face.png";
+
   static const String chartGraph = "$_pngImageBaseUrl/chart_graph.png";
   static const String portfolioBarChart =
       "$_pngImageBaseUrl/portfolio_bar_chart.png";
   static const String portfolioLineGraph =
       "$_pngImageBaseUrl/portfolio_graph.png";
 }
+
+  static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
+  static const String warning = "$_pngImageBaseUrl/warning.png";
+
+}
+

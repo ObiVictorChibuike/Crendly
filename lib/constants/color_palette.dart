@@ -14,8 +14,12 @@ const kPurple = Color(0xFF4700E0);
 const kLightPurple = Color(0xffA380EF);
 const kRedPink = Color(0xFFFF0062);
 const kWhite = Color(0xFFFFFFFF);
+
 const kWhiteWithOpacity = Color(0xffE2E2E2);
-const kGrey = Color(0xFFEEEEEE);
+
+const kAlmostGrey = Color(0xFFEEEEEE);
+const kGrey = Color(0xffAAAAAA);
+
 const kRadioBlue = Color(0xff8095E0);
 const kLightOrange = Color(0xffF5B070);
 const kLighterOrange = Color(0xffF2EAE0);

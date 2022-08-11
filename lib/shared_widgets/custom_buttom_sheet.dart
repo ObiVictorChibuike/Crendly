@@ -54,7 +54,6 @@ class MyBottomSheet{
               const SizedBox(height: 10,),
               Container(height: 5, width: 50,
                 decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
-              const SizedBox(height: 30,),
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
