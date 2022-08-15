@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import '../../../constants/color_palette.dart';
 import '../onboarding/onboarding.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
