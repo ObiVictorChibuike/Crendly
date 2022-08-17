@@ -1,20 +1,20 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/browse_loan_category_option/loan_option_process/selected_loan_details.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/browse_loan_category_option/loan_option_process/loan_request_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_stack/image_stack.dart';
 import '../widgets/quick_loan_details_tile.dart';
 
-class QuickLoans extends StatefulWidget {
+class LoanOptions extends StatefulWidget {
   final data;
-  const QuickLoans({Key? key, this.data}) : super(key: key);
+  const LoanOptions({Key? key, this.data}) : super(key: key);
 
   @override
-  State<QuickLoans> createState() => _QuickLoansState();
+  State<LoanOptions> createState() => _LoanOptionsState();
 }
 
-class _QuickLoansState extends State<QuickLoans> {
+class _LoanOptionsState extends State<LoanOptions> {
   List<dynamic> quickLoanItem = DummyData.quickLoan;
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,9 @@ class _QuickLoansState extends State<QuickLoans> {
         physics: const BouncingScrollPhysics(),
         slivers: <Widget>[
           SliverAppBar(
+            actions: [
+              IconButton(onPressed: (){}, icon: Icon(Icons.filter_list, color: kWhite,))
+            ],
             leading:  IconButton(onPressed: (){
               Get.back();
               }, icon: Icon(Icons.arrow_back_ios, size: 30, color: kGreen,)),
@@ -39,6 +42,29 @@ class _QuickLoansState extends State<QuickLoans> {
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
                     image: DecorationImage(image: AssetImage(widget.data["asset"]), fit: BoxFit.cover,),
                   ),
+                ),
+              ),
+              titlePadding: EdgeInsets.fromLTRB(24.0, 0.0,0.0, 120),
+              title:  FittedBox(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(widget.data["title"],
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 32,color: kWhite, fontWeight: FontWeight.w700,),),
+                    const SizedBox(height: 2,),
+                    Text(widget.data["description"], textAlign: TextAlign.start,
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w400,),),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SingleChildScrollView(
+                    physics: const BouncingScrollPhysics(),
                 ),
               ),
               titlePadding: EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 80),
@@ -68,11 +94,15 @@ class _QuickLoansState extends State<QuickLoans> {
                         ...List.generate(quickLoanItem.length, (index){
                           return InkWell(
                             onTap: (){
-                              Get.to(()=> SelectedQuickLoanDetails(data: quickLoanItem[index],));
+                             Get.to(()=> const LoanRequestDetails());
                             },
                             child: QuickLoanDetailsTile(
-                              title: quickLoanItem[index]["title"],
-                              description: quickLoanItem[index]["description"],
+                              title: widget.data["title"],
+                              paymentType: quickLoanItem[index]["paymentType"],
+                              amount: quickLoanItem[index]["amount"],
+                              percentage: quickLoanItem[index]["percentage"],
+                              rating: quickLoanItem[index]["rating"],
+                              duration: quickLoanItem[index]["duration"],
                               bottomWidget:  Row(mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   ImageStack(

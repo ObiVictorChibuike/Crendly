@@ -2,6 +2,7 @@ import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_appBar.dart';
+import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -26,13 +27,9 @@ class _SignInState extends State<SignIn> {
       bottom: false,
       child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
-          appBar: CustomAppbar(
-            title: Text(
-              "Sign In",
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                  color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
-            ),
-            decorationImagePath: AssetPath.fullTag,
+          appBar: CustomAppbar(centerTitle: false,
+            appBarLabel: Text("Sign In", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
+            ), decorationImagePath: AssetPath.fullTag,
             onBackPressed: () {
               Get.back();
             },
@@ -61,7 +58,7 @@ class _SignInState extends State<SignIn> {
                 ),
                 ButtonWidget(
                     onPressed: () {
-                      Get.to(() => const HomeScreen());
+                      Get.to(() => const BottomNavigationBarScreen());
                     },
                     buttonColor: kGreen,
                     buttonText: "Sign In",

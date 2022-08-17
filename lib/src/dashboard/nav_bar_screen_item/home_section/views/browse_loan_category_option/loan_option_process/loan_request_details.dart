@@ -2,17 +2,13 @@ import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/browse_loan_category_option/widgets/custom_loan_request_details_widget.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/home_screen.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import '../../../../../../../constants/asset_path.dart';
-import '../../../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../../../shared_widgets/custom_form_field_widget.dart';
-import '../../../widget/transaction_pin_bottomsheet.dart';
+
+
 
 class LoanRequestDetails extends StatefulWidget {
   const LoanRequestDetails({Key? key}) : super(key: key);
@@ -22,252 +18,7 @@ class LoanRequestDetails extends StatefulWidget {
 }
 
 class _LoanRequestDetailsState extends State<LoanRequestDetails> {
-
-  bool? isCardSelected = true;
-  showTopUpSuccessDialog(){
-    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
-      Expanded(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Spacer(flex: 2,),
-            Align(
-              alignment: Alignment.center,
-              child: Container(height: 65, width: 80,
-                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
-                child: const Center(child: Icon(Icons.add, color: kOrange, size: 45,)),
-              ),
-            ),
-            Container(height: 45, width:2, color: kGreen,),
-            const SizedBox(height: 40,),
-            Text("TopUp successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
-            const SizedBox(height: 15,),
-            Text("Your wallet topup was successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
-            const SizedBox(height: 40,),
-            Container(height: 45, width:2, color: kGreen,),
-            const SizedBox(height: 10,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: ButtonWidget(
-                onPressed: (){
-                  Get.to(()=> const BottomNavigationBarScreen());
-                },
-                buttonText: "Go to Home",
-                height: 55, buttonColor: kGreen,
-                width: double.maxFinite,
-              ),
-            ),
-            const Spacer(flex: 2,),
-          ],
-        ),
-      )
-    ]);
-  }
-
-  void showTopUPWalletBottomSheet(){
-    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.75,
-      child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-          constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
-          child: StatefulBuilder(builder: (context, mySetState){
-            return Column(
-              children: [
-                const SizedBox(height: 10,),
-                Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
-                const SizedBox(height: 30,),
-                Expanded(
-                  child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
-                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children:[
-                          Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text("TopUp Wallet", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.bold),),
-                                        IconButton(
-                                            onPressed: (){
-                                              Get.back();
-                                            },
-                                            icon: Icon(Icons.clear, color: kOrange, size: 25,)
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 20,),
-                              Text("How much do you want to fund?",
-                                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
-                              const SizedBox(height: 13,),
-                              FormFieldWidget(
-                                hintText: "Enter amount",
-                              ),
-                              const SizedBox(height: 24,),
-                              DottedLine(
-                                dashColor: Color(0xff163393),
-                              ),
-                              const SizedBox(height: 24,),
-                              Text("Fund your wallet using",
-                                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
-                              const SizedBox(height: 13,),
-                              Container(
-                                decoration: BoxDecoration(border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(8)),
-                                height: 55, width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 4),
-                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            ButtonWidget(
-                                                onPressed: (){
-                                                  mySetState(() {
-                                                    isCardSelected = true;
-                                                  });
-                                                },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
-                                                color: isCardSelected == true ? Colors.black : kWhite
-                                            ),
-                                                buttonColor: isCardSelected == true ? kOrange : Colors.transparent, buttonText: "Card",
-                                                width: MediaQuery.of(context).size.width / 2.5, height: 45
-                                            ),
-                                            ButtonWidget(
-                                                onPressed: (){
-                                                  mySetState(() {
-                                                    isCardSelected = false;
-                                                  });
-                                                },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: isCardSelected == false ? Colors.black : kWhite),
-                                                buttonColor: isCardSelected == false ? kOrange : Colors.transparent, buttonText: "Bank Transfer",
-                                                width: MediaQuery.of(context).size.width / 2.5, height: 45
-                                            ),
-                                          ],
-                                        )
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 30,),
-                              isCardSelected == true ? Column(
-                                children: [
-                                  Text("Enter Card Number",
-                                    style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
-                                  const SizedBox(height: 13,),
-                                  FormFieldWidget(
-                                    hintText: "Card number",
-                                  ),
-                                  const SizedBox(height: 24,),
-                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("Expiry date", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
-                                                  const SizedBox(height: 10,),
-                                                  FormFieldWidget(
-                                                    width: MediaQuery.of(context).size.width / 2.5,
-                                                    hintText: "MM/YY",
-                                                  ),
-                                                ],
-                                              ),
-                                              Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("CVV", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
-                                                  const SizedBox(height: 10,),
-                                                  FormFieldWidget(
-                                                    width: MediaQuery.of(context).size.width / 2.5,
-                                                    hintText: "123",
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          )
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 30,),
-                                  Text("You will be charged a sum of N200,000.",
-                                    style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16, fontWeight: FontWeight.w500, color: kWhite),),
-                                  const SizedBox(height: 50,),
-                                  ButtonWidget(
-                                      onPressed: (){
-                                        Get.back();
-                                        showPinBottomBottomSheet(context: context,
-                                            onPressed: () {
-                                              Get.back();
-                                              showTopUpSuccessDialog();
-                                            });
-                                      }, buttonText: "Pay N200,000",buttonColor: kGreen,
-                                      height: 55, width: double.maxFinite
-                                  ),
-                                  const SizedBox(height: 50,),
-                                ],
-                              ) :
-                              Column(
-                                children: [
-                                  DottedBorder(color: Color(0xffC1CDF6), dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(25.0),
-                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Align(alignment: Alignment.center,
-                                              child: Text("Make payment using this bank details.",
-                                                style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
-                                            ),
-                                            const SizedBox(height: 20,),
-                                            const Divider(
-                                              color: Color(0xffC1CDF6),
-                                            ),
-                                            const SizedBox(height: 20,),
-                                            Row(mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                                                      children: [
-                                                        Text("Account Name: ", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
-                                                        Text("WEMA", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
-                                                      ],
-                                                    )
-                                                )
-                                              ],
-                                            ),
-                                            Row(mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Expanded(
-                                                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                                                      children: [
-                                                        Text("Account Number: ", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
-                                                        Text("588291782882", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w400),),
-                                                        IconButton(onPressed: (){
-
-                                                        }, icon: Icon(Icons.file_copy_outlined, color: kOrange,))
-                                                      ],
-                                                    )
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      )
-                                  ),
-                                ],
-                              )
-                            ],
-                          )
-                        ]
-                    ),
-                  ),
-                ),
-              ],
-            );
-          })
-      ),
-    ),
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20),),),
-        isScrollControlled: true, isDismissible: false
-    );
-  }
-
+  bool? inSufficientFund = true;
   void showMyDialog() {
     MyDialog().showMyDialog(context, MediaQuery.of(context).size.height / 2,
         MediaQuery.of(context).size.width / 1.3, [
@@ -285,17 +36,22 @@ class _LoanRequestDetailsState extends State<LoanRequestDetails> {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: Container(height: 75, width: 75,
+                      child: Container(height: 73, width: 73,
                         decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 3), color: const Color(0xff081952)),
-                        child: Center(child: Icon(Icons.warning_rounded, color: kOrange, size: 40,)),
+                        child: Center(child:  inSufficientFund == true ? Icon(Icons.warning_rounded, color: kOrange, size: 40,) :
+                        Icon(Icons.check_circle, color: kOrange, size: 40,)),
                       ),
                     ),
                     Container(height: 40, width: 3, color: kGreen,),
                     const SizedBox(height: 20,),
-                    Text("Low on Funds", textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 26),),
+                    inSufficientFund == true ? Text("Low on Funds", textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),)
+                    : Text("You have accepted this loan request. ", textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
                     const SizedBox(height: 20,),
-                    Text("Sorry, you don't have enough funds in your Crendly wallet to grand a loan at the moment. Kindly top up your wallet and try again.", textAlign: TextAlign.center,
+                    inSufficientFund == true ? Text("Sorry, you don't have enough funds in your Crendly wallet to grand a loan at the moment. Kindly top up your wallet and try again.", textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),)
+                    :Text("Nice. You accepted this loan request. A notification will be sent to the borrower immediately.", textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
                     const Spacer(flex: 2,),
                     Padding(
@@ -320,6 +76,7 @@ class _LoanRequestDetailsState extends State<LoanRequestDetails> {
               ))
         ]);
   }
+
 
   void showActionBottomSheet(BuildContext context){
     MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/3,
@@ -429,10 +186,8 @@ class _LoanRequestDetailsState extends State<LoanRequestDetails> {
                   Row(
                     children: [
                       CircleAvatar(
-                        backgroundColor: Color(0xffFF3A5A).withOpacity(0.5),
-                        radius: 8,
-                        child: const CircleAvatar(
-                          radius: 5,
+                        backgroundColor: Color(0xffFF3A5A).withOpacity(0.5), radius: 8,
+                        child: const CircleAvatar(radius: 5,
                           backgroundColor: const Color(0xffFF3A5A),
                         ),
                       ),
@@ -447,8 +202,10 @@ class _LoanRequestDetailsState extends State<LoanRequestDetails> {
                   Text("21/02/2021 3:45pm", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: almostGrey, fontSize: 16),),
                   const SizedBox(height: 50,),
                   ButtonWidget(onPressed: (){
-                    showActionBottomSheet(context);
-                  }, buttonText: "Take Action", height: 50, width: double.maxFinite, buttonColor: kGreen,)
+                    inSufficientFund = !inSufficientFund!;
+                    Get.to(()=> BottomNavigationBarScreen());
+                    showMyDialog();
+                  }, buttonText: "Accept Request", height: 50, width: double.maxFinite, buttonColor: kGreen,)
                 ],
               ),
             ),

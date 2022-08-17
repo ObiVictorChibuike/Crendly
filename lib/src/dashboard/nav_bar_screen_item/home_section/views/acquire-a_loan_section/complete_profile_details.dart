@@ -85,7 +85,9 @@ class _CompleteProfileDetailsState extends State<CompleteProfileDetails> {
                 ),
                 const Spacer(flex: 6,),
                 ButtonWidget(
-                    onPressed: (){},
+                    onPressed: (){
+
+                    },
                     buttonText: "Continue",  buttonColor: _controller.isSecondOptionSelected == false || _controller.isFirstOptionSelected == false ?  Color(0xff383838) : kGreen,
                     height: 50, width: double.maxFinite
                 ),

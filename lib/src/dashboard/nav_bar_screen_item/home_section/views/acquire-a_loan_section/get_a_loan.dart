@@ -6,8 +6,9 @@ import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acq
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
-
 import '../../../../../../shared_widgets/custom_appBar.dart';
+
+
 class GetALoan extends StatefulWidget {
   const GetALoan({Key? key}) : super(key: key);
 

@@ -17,6 +17,7 @@ import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
 import 'acquire-a_loan_section/get_a_loan.dart';
 import 'browse_loan_category_option/loan_option_process/loan_options.dart';
+import 'notification_section/loan_offer_and_agreement.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -79,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void showTopUPWalletBottomSheet(){
     Get.bottomSheet(FractionallySizedBox(heightFactor: 0.75,
-      child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+      child: Container(decoration: BoxDecoration(color: kLightBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
         constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
         child: StatefulBuilder(builder: (context, mySetState){
           return Column(
@@ -166,6 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
                                 const SizedBox(height: 13,),
                                 FormFieldWidget(
+                                  filledColor: kLightBackGroundColor,
                                   hintText: "Card number",
                                 ),
                                 const SizedBox(height: 24,),
@@ -179,6 +181,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Text("Expiry date", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
                                                 const SizedBox(height: 10,),
                                                 FormFieldWidget(
+                                                  filledColor: kLightBackGroundColor,
                                                   width: MediaQuery.of(context).size.width / 2.5,
                                                   hintText: "MM/YY",
                                                 ),
@@ -284,7 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void showFundWithdrawalBottomSheet(){
     Get.bottomSheet(FractionallySizedBox(heightFactor: 0.6,
-        child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+        child: Container(decoration: BoxDecoration(color: kLightBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
           constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
           child: Column(
             children: [
@@ -323,6 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 10,
                             ),
                             FormFieldWidget(
+                              filledColor: kLightBackGroundColor,
                               hintText: "Enter amount",
                             ),
                             SizedBox(height: 30),
@@ -607,7 +611,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }else if(index == 2 && userData.isEmpty){
       _scaffoldKey.currentState?.openEndDrawer();
     }else if(index == 2 && userData.isNotEmpty){
-
+      _scaffoldKey.currentState?.openEndDrawer();
     }
   }
 
@@ -757,7 +761,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     userData.isEmpty ? const SizedBox() :
                     Container(
                       height: 56, width: double.maxFinite, decoration: BoxDecoration(color: const Color(0xff4700E0), borderRadius: BorderRadius.circular(8)),
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.only(left: 16, right: 16),
                       child: Row(
                         children: [
                           Expanded(
@@ -767,7 +771,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(width: 5,),
                                 Text("My Requests", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kWhite)),
                                 const Spacer(),
-                                Text("View all", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kGreen, decoration: TextDecoration.underline)),
+                                TextButton(onPressed: (){
+                                  Get.to(()=> const LoanOfferAndAgreement());
+                                },
+                                    child: Text("View all", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kGreen, decoration: TextDecoration.underline)),
+                                ),
                               ],
                             ),
                           )
@@ -1128,12 +1136,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       shaderCallback: (rect) => LinearGradient(
                                           begin: Alignment.topCenter,
                                           end: Alignment.center,
-                                          colors:[Colors.black87,Colors.black38.withOpacity(0.1)]
+                                          colors:[Colors.black87,Colors.black38.withOpacity(0.3)]
                                       ).createShader(rect),
                                       blendMode: BlendMode.darken,
-                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2.3,
+                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
                                         padding: const EdgeInsets.all(13.0),
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(browseOptions[index]["asset"]))),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(browseOptions1[index]["asset"]))),
                                         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Expanded(
@@ -1141,7 +1149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 children: [
                                                   const SizedBox(height: 40,),
                                                   ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
-                                                      child: Text(browseOptions[index]["description"],
+                                                      child: Text(browseOptions1[index]["title"],
                                                         style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
                                                   const SizedBox(height:15,),
                                                   ButtonWidget(
@@ -1164,7 +1172,71 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 43,),
+                        const SizedBox(height: 20,),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal, physics: const BouncingScrollPhysics(),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ...List.generate(browseOptions2.length, (index){
+                                return Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: ShaderMask(
+                                      shaderCallback: (rect) => LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.center,
+                                          colors:[Colors.black87,Colors.black38.withOpacity(0.3)]
+                                      ).createShader(rect),
+                                      blendMode: BlendMode.darken,
+                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
+                                        padding: const EdgeInsets.all(13.0),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(browseOptions2[index]["asset"]))),
+                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const SizedBox(height: 40,),
+                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
+                                                      child: Text(browseOptions2[index]["title"],
+                                                        style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
+                                                  ButtonWidget(
+                                                    onPressed: (){
+                                                      Get.to(()=> LoanOptions(data: browseOptions2[index],));
+                                                    }, borderRadius: 8,
+                                                    buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                                    height: 37, width: 87, buttonColor: kWhite,
+                                                  ),
+
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                );
+                              })
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 20,),
+                        Container(height: MediaQuery.of(context).size.height / 2, width: double.maxFinite,
+                          padding: const EdgeInsets.fromLTRB(34.0, 40.0, 30.0, 27.0),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), image: DecorationImage(image: AssetImage(AssetPath.others))),
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text("Others", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 20),
+                              ButtonWidget(
+                                onPressed: (){},
+                                borderRadius: 8,
+                                buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                height: 37, width: 87, buttonColor: kWhite,
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 24,),
                         Container(width: double.maxFinite, height: MediaQuery.of(context).size.height / 7,
                           padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 0.0),
                           decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(8.0)),

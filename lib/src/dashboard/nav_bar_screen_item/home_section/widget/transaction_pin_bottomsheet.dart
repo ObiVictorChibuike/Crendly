@@ -6,7 +6,7 @@ import '../../../../../shared_widgets/custom_pincode_field.dart';
 
 void showPinBottomBottomSheet({required BuildContext context, required void Function()? onPressed}){
   Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,
-    child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+    child: Container(decoration: BoxDecoration(color: kLightBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
       constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
       child: Column(
         children: [

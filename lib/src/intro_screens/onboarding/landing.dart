@@ -46,7 +46,7 @@ class LandingPage extends StatelessWidget {
                             onPressed: () {
                               Get.to(()=> const SignIn());
                             }),
-                        const SizedBox(height: 30,),
+                        const SizedBox(height: 20,),
                         TextButton(
                           onPressed: () {
                             Get.to(()=> const PlayGroundHomeScreen());
@@ -54,7 +54,6 @@ class LandingPage extends StatelessWidget {
                           child: Text('Do this later', style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kGreen, fontSize: 16, fontWeight: FontWeight.w700, decoration: TextDecoration.underline),
                           ),
                         ),
-                        const SizedBox(height: 80,),
                       ],
                     ),
                   )

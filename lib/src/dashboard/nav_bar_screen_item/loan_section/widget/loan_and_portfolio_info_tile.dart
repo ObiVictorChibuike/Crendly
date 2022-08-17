@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../constants/color_palette.dart';
 
 class LoanAndPortfolioInfoTile extends StatelessWidget {
@@ -47,7 +46,7 @@ class LoanAndPortfolioInfoTile extends StatelessWidget {
           Text(
             amount,
             style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                color: kLighterOrange,
+                color: kLightOrange,
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
           ),

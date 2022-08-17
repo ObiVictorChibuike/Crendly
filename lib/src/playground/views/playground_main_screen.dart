@@ -18,7 +18,7 @@ class PlayGroundHomeScreen extends StatefulWidget {
 
 class _PlayGroundHomeScreenState extends State<PlayGroundHomeScreen> {
   List buttonOption = DummyData.optionButton;
-  List browseOptions = DummyData.browseOptions;
+  List browseOptions = DummyData.browseOptions1;
   List achievements = DummyData.achievementDetails;
   List community = DummyData.crendlyCommunity;
   final controller = ScrollController();

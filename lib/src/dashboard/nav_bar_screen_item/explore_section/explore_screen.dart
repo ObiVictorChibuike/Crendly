@@ -1,5 +1,6 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/explore_section/explore_search_screen.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -41,7 +42,9 @@ class _ExploreState extends State<Explore> {
                       IconButton(onPressed: (){
                         Get.to(()=> const ExploreSearchScreen());
                       }, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
-                      IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none, color: kWhite,)),
+                      IconButton(onPressed: (){
+                        Get.to(()=> const NotificationPage());
+                      }, icon: const Icon(Icons.notifications_none, color: kWhite,)),
                     ],
                   ),
                 ),

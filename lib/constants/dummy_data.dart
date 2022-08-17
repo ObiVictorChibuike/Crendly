@@ -41,6 +41,59 @@ class DummyData {
 
   static final userData = [];
   static final myLoan = [];
+  static final todayNotification = [
+    {
+      "title": "Loan Request has been approved",
+      "msg": "Amet rhoncus habitant amet quis egestas morbi tempus. Bibendum proin facilisi mattis sem qual.",
+      "btnText": "Finish Loan process",
+      "time": "10 hours ago"
+    },
+    {
+      "title": "Loan Request has been approved",
+      "msg": "Amet rhoncus habitant amet quis egestas morbi tempus. Bibendum proin facilisi mattis sem qual.",
+      "btnText": "Finish Loan process",
+      "time": "10 hours ago"
+    },
+  ];
+
+  static final yesterdayNotification = [
+    {
+      "title": "Loan negotiation request",
+      "msg": "Et id tellus, ultrices tellus praesent tempus mauris est dolor. Feugiat porttitor nisl lorem libero blandit ut mauris amet.",
+      "btnText": "View negotiation request",
+      "time": "10 hours ago"
+    },
+    {
+      "title": "Few days to Loan repayment",
+      "msg": "Et id tellus, ultrices tellus praesent tempus mauris est dolor. Feugiat porttitor nisl lorem libero blandit ut mauris amet.",
+      "btnText": "Topup Wallet",
+      "time": "10 hours ago"
+    },
+    {
+      "title": "Loan request from a Borrower",
+      "msg": "Et id tellus, ultrices tellus praesent tempus mauris est dolor. Feugiat porttitor nisl lorem libero blandit ut mauris amet.",
+      "btnText": "View Request",
+      "time": "10 hours ago"
+    },
+  ];
+
+  static final appMaintenanceNotification = [
+    {
+      "title": "Application Maintenance",
+      "msg": "We are currently maintaining our app and you won’t be able to make transactions from 20 Feb 2020, 12:00am to 20 Feb 2020, 11:59pm",
+      "time": "10 hours ago"
+    },
+    {
+      "title": "Application Maintenance",
+      "msg": "We are currently maintaining our app and you won’t be able to make transactions from 20 Feb 2020, 12:00am to 20 Feb 2020, 11:59pm",
+      "time": "10 hours ago"
+    },
+    {
+      "title": "Application Maintenance",
+      "msg": "We are currently maintaining our app and you won’t be able to make transactions from 20 Feb 2020, 12:00am to 20 Feb 2020, 11:59pm",
+      "time": "10 hours ago"
+    },
+  ];
 
   static final oldTransaction = [
     {
@@ -304,39 +357,108 @@ class DummyData {
 
   static final quickLoan = [
     {
-      "title": "Payday Loans",
-      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+      "amount": "N50,000",
+      "percentage": "2%p.a",
+      "duration": "6 Months",
+      "rating": "4.7",
+      "paymentType" : "Installment"
     },
     {
-      "title": "Personal Loans",
-      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+      "amount": "N50,000",
+      "percentage": "2%p.a",
+      "duration": "6 Months",
+      "rating": "4.0",
+      "paymentType" : "Installment"
     },
     {
-      "title": "Travel Loans",
-      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+      "amount": "N50,000",
+      "percentage": "2%p.a",
+      "duration": "6 Months",
+      "rating": "4.0",
+      "paymentType" : "Installment"
     },
     {
-      "title": "Gadget Loans",
-      "description": "Nibh cursus eget laoreet in. In justo, cras blandit etiam amet in.",
+      "amount": "N50,000",
+      "percentage": "2%p.a",
+      "duration": "6 Months",
+      "rating": "3.9",
+      "paymentType" : "Installment"
+    },
+    {
+      "amount": "N50,000",
+      "percentage": "2%p.a",
+      "duration": "6 Months",
+      "rating": "2.1",
+      "paymentType" : "Installment"
     },
   ];
 
-  static final browseOptions = [
+  static final browseOptions1 = [
     {
       "asset": "assets/png_assets/category_image1.png",
-      "description": "Quick Loans to take care of your needs",
+      "title": "Payday Loans",
+      "description": "See borrowers requesting for payday loans \non crendly."
     },
     {
       "asset": "assets/png_assets/category_image2.png",
-      "description": "Loan you can repay in no time.",
+      "title": "Personal Loans",
+      "description": "See borrowers requesting for loans to sort \npersonal business on crendly.",
     },
     {
       "asset": "assets/png_assets/category_image3.png",
-      "description": "Best Loan rate offerings",
+      "title": "Rent Loans",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
     },
     {
       "asset": "assets/png_assets/category_image4.png",
-      "description": "Easy Loan Repayments",
+      "title": "Gadget Loans",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+  ];
+
+  static final browseOptions2 = [
+    {
+      "asset": "assets/png_assets/category_image5.png",
+      "title": "School Fees Loan",
+      "description": "See borrowers requesting for payday loans \non crendly."
+    },
+    {
+      "asset": "assets/png_assets/category_image6.png",
+      "title": "Medical Loans",
+      "description": "See borrowers requesting for loans to sort \npersonal business on crendly.",
+    },
+    {
+      "asset": "assets/png_assets/category_image7.png",
+      "title": "Grants",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+    {
+      "asset": "assets/png_assets/category_image8.png",
+      "title": "Travel Loans",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+  ];
+
+  static final loanOffersAndRequest = [
+    {
+      "asset": "assets/png_assets/category_image5.png",
+      "title": "School Fees Loan",
+      "description": "See borrowers requesting for payday loans \non crendly."
+    },
+    {
+      "asset": "assets/png_assets/category_image6.png",
+      "title": "Medical Loans",
+      "description": "See borrowers requesting for loans to sort \npersonal business on crendly.",
+    },
+    {
+      "asset": "assets/png_assets/category_image7.png",
+      "title": "Grants",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+    {
+      "asset": "assets/png_assets/category_image8.png",
+      "title": "Travel Loans",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
     },
   ];
 

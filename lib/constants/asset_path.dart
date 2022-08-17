@@ -37,7 +37,6 @@ class AssetPath {
   static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
   static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
   static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
-  static const String carbonMoney = "$_svgImageBaseUrl/carbon_money.svg";
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
   static const String copy = "$_svgImageBaseUrl/copy.svg";
@@ -67,6 +66,8 @@ class AssetPath {
 
   //Png Assets
   static const String logo = '$_pngImageBaseUrl/logo.png';
+  static const String others = '$_pngImageBaseUrl/others.png';
+  static const String carbonMoney = "$_pngImageBaseUrl/carbon_money.png";
   static const String tag = "$_pngImageBaseUrl/tag.png";
   static const String fullTag = "$_pngImageBaseUrl/full_tag.png";
   static const String splashImage = '$_pngImageBaseUrl/splash_image.png';

@@ -13,11 +13,12 @@ class CarouselPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
+      const SizedBox(height: 50,),
       Container(
-        margin: const EdgeInsets.only(top: 88),
-        child: SvgPicture.asset(image, width: double.maxFinite, height: MediaQuery.of(context).size.height/2.5,),),
+        margin: const EdgeInsets.only(top: 10),
+        child: SvgPicture.asset(image, width: double.maxFinite, height: MediaQuery.of(context).size.height/2.1,),),
       Container(
-        margin: const EdgeInsets.only(top: 66, left: 30, right: 162), width: 198, height: 65,
+        margin: const EdgeInsets.only(top: 20, left: 30, right: 162), width: 198,
         child: RichText(
           text: TextSpan(text: firstText, style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 27,color: Colors.white,fontWeight: FontWeight.bold),
               children: [
