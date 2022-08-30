@@ -3,6 +3,7 @@ import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../constants/color_palette.dart';
 import '../onboarding/onboarding.dart';
 

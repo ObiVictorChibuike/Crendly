@@ -61,8 +61,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Divider(color: kLighterBackGroundColor,)
                     ],
                   ),
-                ),);
-            },)
+                );
+              },
+            )
           ],
         ),
       )
@@ -72,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool? isCardSelected = true;
 
   void showTopUPWalletBottomSheet(){
-    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.75,
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.65,
       child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
         constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
         child: StatefulBuilder(builder: (context, mySetState){
