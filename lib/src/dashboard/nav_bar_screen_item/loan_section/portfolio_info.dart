@@ -7,7 +7,6 @@ import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/po
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 class PortfolioInfo extends StatelessWidget {
   const PortfolioInfo({Key? key}) : super(key: key);

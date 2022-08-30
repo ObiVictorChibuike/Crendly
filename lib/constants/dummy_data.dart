@@ -393,7 +393,7 @@ class DummyData {
     },
   ];
 
-  static final browseOptions1 = [
+  static final lenderLoans = [
     {
       "asset": "assets/png_assets/category_image1.png",
       "title": "Payday Loans",
@@ -416,7 +416,7 @@ class DummyData {
     },
   ];
 
-  static final browseOptions2 = [
+  static final lenderLoans1 = [
     {
       "asset": "assets/png_assets/category_image5.png",
       "title": "School Fees Loan",
@@ -439,26 +439,148 @@ class DummyData {
     },
   ];
 
-  static final loanOffersAndRequest = [
+
+  static final borrowLoans = [
     {
-      "asset": "assets/png_assets/category_image5.png",
+      "asset": "assets/png_assets/borrower_1.png",
+      "title": "Payday Loans",
+      "description": "See borrowers requesting for payday loans \non crendly."
+    },
+    {
+      "asset": "assets/png_assets/borrower_2.png",
+      "title": "Personal Loans",
+      "description": "See borrowers requesting for loans to sort \npersonal business on crendly.",
+    },
+    {
+      "asset": "assets/png_assets/borrower_3.png",
+      "title": "Rent Loans",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+    {
+      "asset": "assets/png_assets/borrower_4.png",
+      "title": "Gadget Loans",
+      "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+  ];
+
+  static final loanOfferDetails = [
+    {
+      "loan_type": "Payday",
+      "loan_amount": "₦50,000 - ₦125,000",
+      "interest_rate": "3%",
+      "interest_type": "Monthly",
+      "loan_tenor": "180 days",
+      "repayment_amount": " ₦35,000 - ₦35,500",
+      "total_repayment_amount": "₦55,000 - ₦130,000",
+      "repayment_type": "Installments",
+      "repayment_occurance": "Installments",
+      "repayment_start_date": "21 Mar 2021",
+      "repayment_end_date": "21 Jun 2021",
+      "negotiation": "YES",
+      "loan_extension": "YES",
+      "loan_extension_time": "30 days",
+      "status": "Pending Approval"
+    }
+  ];
+
+  static final borrowerLoans1 = [
+    {
+      "asset": "assets/png_assets/borrower_5.png",
       "title": "School Fees Loan",
       "description": "See borrowers requesting for payday loans \non crendly."
     },
     {
-      "asset": "assets/png_assets/category_image6.png",
+      "asset": "assets/png_assets/borrower_6.png",
       "title": "Medical Loans",
       "description": "See borrowers requesting for loans to sort \npersonal business on crendly.",
     },
     {
-      "asset": "assets/png_assets/category_image7.png",
+      "asset": "assets/png_assets/borrower_7.png",
       "title": "Grants",
       "description": "See borrowers requesting for loans for \nrent on crendly.",
     },
     {
-      "asset": "assets/png_assets/category_image8.png",
+      "asset": "assets/png_assets/borrower_8.png",
       "title": "Travel Loans",
       "description": "See borrowers requesting for loans for \nrent on crendly.",
+    },
+  ];
+
+  static final conditions = [
+    {
+      "nos": "1.",
+      "conditions": "Acceptance of loan offer from the lender"
+    },
+    {
+      "nos": "2.",
+      "conditions": "Receipt of the Offer Letter duly signed by the Borrower;"
+    },
+    {
+      "nos": "3.",
+      "conditions": "Receipt of the Loan Agreement duly signed by the Borrower"
+    },
+    {
+      "nos": "4.",
+      "conditions": "Payment of the upfront fee and any other applicable fee."
+    }
+  ];
+
+  static final requestReceived = [
+    {
+      "titleName": "Loan request From",
+      "body": "You have 59 minutes and 23 seconds to attend to this loan request. Please try to attend to this request as soon as possible.",
+      "date": "21/02/2021 3:45pm",
+      "time": "00:59:23",
+      "timeout": false,
+    },
+    {
+      "titleName": "Loan request From",
+      "body": "You have 59 minutes and 23 seconds to attend to this loan request. Please try to attend to this request as soon as possible.",
+      "date": "21/02/2021 3:45pm",
+      "time": "00:30:23",
+      "timeout": false,
+    },
+    {
+      "titleName": "Loan request From",
+      "body": "You have 59 minutes and 23 seconds to attend to this loan request. Please try to attend to this request as soon as possible.",
+      "date": "21/02/2021 3:45pm",
+      "time": "00:30:23",
+      "timeout": false,
+    },
+    {
+      "titleName": "Loan request From",
+      "body": "You have 59 minutes and 23 seconds to attend to this loan request. Please try to attend to this request as soon as possible.",
+      "date": "21/02/2021 3:45pm",
+      "time":"00:9:23",
+      "timeout": true,
+    },
+  ];
+
+
+  static final offerRequests = [
+    {
+      "title": "You showed interesting in a Loan offer",
+      "body": "You showed interest in this loan offer. Offer will expire if no action is taken on your request.",
+      "date": "21/02/2021 3:45pm",
+      "action": "Pending Approval",
+    },
+    {
+      "title": "You showed interesting in a Loan offer",
+      "body": "You showed interest in this loan offer. Offer will expire if no action is taken on your request.",
+      "date": "21/02/2021 3:45pm",
+      "action": "Pending Approval",
+    },
+    {
+      "title": "You showed interesting in a Loan offer",
+      "body": "You showed interest in this loan offer. Offer will expire if no action is taken on your request.",
+      "date": "21/02/2021 3:45pm",
+      "action": "Pending Approval",
+    },
+    {
+      "title": "You showed interesting in a Loan offer",
+      "body": "You showed interest in this loan offer. Offer will expire if no action is taken on your request.",
+      "date": "21/02/2021 3:45pm",
+      "action": "Pending Approval",
     },
   ];
 

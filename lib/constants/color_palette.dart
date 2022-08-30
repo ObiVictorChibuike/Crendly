@@ -21,12 +21,14 @@ const kRed = Color(0xffE54B4D);
 const kDarkRed = Color(0xffFF3A5A);
 const kWhite = Color(0xFFFFFFFF);
 const kDivider = Color(0xff192B68);
+const kPaleBlue = Color(0xff8095E0);
 
 const kWhiteWithOpacity = Color.fromRGBO(255, 255, 255, 0.5);
 const almostGrey = Color(0xFFEEEEEE);
 
 const kAlmostGrey = Color(0xFFEEEEEE);
 const kGrey = Color(0xffAAAAAA);
+const kOffWhite = Color(0xffE2E2E2);
 
 const kRadioBlue = Color(0xff8095E0);
 const kLightOrange = Color(0xffF5B070);

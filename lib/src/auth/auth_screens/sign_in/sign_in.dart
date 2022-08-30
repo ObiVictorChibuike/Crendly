@@ -72,7 +72,7 @@ class _SignInState extends State<SignIn> {
                       text: 'Do you have an account? ',
                       style: Theme.of(context).textTheme.bodyText2?.copyWith(
                           color: kWhite,
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w400),
                       children: [
                         TextSpan(
@@ -82,7 +82,7 @@ class _SignInState extends State<SignIn> {
                                 .bodyText2
                                 ?.copyWith(
                                     color: kGreen,
-                                    fontSize: 16,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                     decoration: TextDecoration.underline))
                       ]),

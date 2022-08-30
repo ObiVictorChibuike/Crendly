@@ -21,6 +21,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
   List userOldTransaction = DummyData.oldTransaction;
   List userTodayTransaction = DummyData.todayTransaction;
   List<PopupMenuItem> filterOptions = DummyData.transactionFilterOption;
+  final scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,
@@ -40,6 +41,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
           backgroundColor: kDarkBackGroundColor,
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
+            controller: scrollController,
             child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
               children: [
               userOldTransaction.isEmpty || userTodayTransaction.isEmpty ?
@@ -83,6 +85,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                             Expanded(
                                 child: SingleChildScrollView(
                                   physics: const BouncingScrollPhysics(),
+                                  controller: scrollController,
                                   child: Column(
                                     children: [
                                       ...List.generate(userTodayTransaction.length, (index){
@@ -158,6 +161,7 @@ class _TransactionScreenState extends State<TransactionScreen> {
                             Expanded(
                                 child: SingleChildScrollView(
                                   physics: const BouncingScrollPhysics(),
+                                  controller: scrollController,
                                   child: Column(
                                     children: [
                                       ...List.generate(userOldTransaction.length, (index){

@@ -6,6 +6,7 @@ import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/shared_widgets/custom_pincode_field.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,7 @@ import '../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
 import 'acquire-a_loan_section/get_a_loan.dart';
-import 'browse_loan_category_option/loan_option_process/loan_options.dart';
-import 'notification_section/loan_offer_and_agreement.dart';
+import 'lender/lender_loans/lender_loan_options.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -28,20 +28,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String? selectedBankAccount;
-  final List<String> bankAccount = [
-    "Access Bank 0437193638",
-    "GTBank 0213111726",
-    "FirstBank 3819361374"
-  ];
+  final List<String> bankAccount = ["Access Bank 0437193638", "GTBank 0213111726", "FirstBank 3819361374"];
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   List rowButtonItem = DummyData.rowButtonIcon;
-  List browseOptions = DummyData.browseOptions;
+  List lender = DummyData.lenderLoans;
+  List lender1 = DummyData.lenderLoans1;
+  List borrower = DummyData.borrowLoans;
+  List borrower1 = DummyData.borrowerLoans1;
   List userData = DummyData.userData;
   List community = DummyData.crendlyCommunity;
+  bool isLender = true;
 
-  showMyBankAccountDialog() {
-    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height / 2.8,
-        MediaQuery.of(context).size.width / 1.2, [
+  showMyBankAccountDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2.8, MediaQuery.of(context).size.width /1.2, [
       Expanded(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -116,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w500, fontSize: 16),),
                             const SizedBox(height: 13,),
                             FormFieldWidget(
+                              filledColor: kLightBackGroundColor,
                               hintText: "Enter amount",
                             ),
                             const SizedBox(height: 24,),
@@ -192,6 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 Text("CVV", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w500),),
                                                 const SizedBox(height: 10,),
                                                 FormFieldWidget(
+                                                  filledColor: kLightBackGroundColor,
                                                   width: MediaQuery.of(context).size.width / 2.5,
                                                   hintText: "123",
                                                 ),
@@ -212,6 +213,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                       showPinBottomBottomSheet(context: context,
                                           onPressed: () {
                                             Get.back();
+                                            setState(() {
+                                              userData.add({
+                                                "amount":"N 20,000",
+                                                "name":"Obi Victor"
+                                              });
+                                            });
                                             showTopUpSuccessDialog();
                                           });
                                     }, buttonText: "Pay N200,000",buttonColor: kGreen,
@@ -285,6 +292,56 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void showRepayLoanBottomSheet(){
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.4,
+      child: Container(decoration: BoxDecoration(color: kLightBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+        constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
+        child: Column(
+          children: [
+            const SizedBox(height: 10,),
+            Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Repay Loan", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700),),
+                IconButton(onPressed: (){
+                  Get.back();
+                }, icon: Icon(Icons.clear, size: 20, color: kOrange,))
+              ],
+            ),
+            Expanded(
+              child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    children:[
+                      const SizedBox(height: 36,),
+                      Text("Loan Amount", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14),),
+                      const SizedBox(height: 10,),
+                      FormFieldWidget(
+                        hintText: "Enter Amount",
+                        filledColor: kLightBackGroundColor,
+                      ),
+                      const SizedBox(height: 34,),
+                      ButtonWidget(
+                          onPressed: (){
+                            Get.back();
+                            showRepaymentSuccessDialog();
+                          },
+                          buttonText: "Make repayment", height: 50,
+                          width: double.maxFinite, buttonColor: kGreen,
+                      ),
+                      const SizedBox(height: 31,),
+                    ]
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ), shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(20),),
+      ),
+      isScrollControlled: true,
+    );
+  }
+
   void showFundWithdrawalBottomSheet(){
     Get.bottomSheet(FractionallySizedBox(heightFactor: 0.6,
         child: Container(decoration: BoxDecoration(color: kLightBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
@@ -330,47 +387,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               hintText: "Enter amount",
                             ),
                             SizedBox(height: 30),
-                            Text(
-                              "Select Bank Account",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2
-                                  ?.copyWith(
-                                      color: kWhite,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              height: 55,
-                              width: double.maxFinite,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: kWhite, width: 0.7),
-                                  borderRadius: BorderRadius.circular(8)),
+                            Text("Select Bank Account", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                            const SizedBox(height: 10,),
+                            Container(height: 55, width: double.maxFinite, decoration: BoxDecoration(border: Border.all(color: kWhite, width: 0.7), borderRadius: BorderRadius.circular(8)),
                               child: TextButton(
-                                style: ButtonStyle(
-                                    overlayColor:
-                                        MaterialStateColor.resolveWith(
-                                            (states) => Colors.transparent)),
-                                onPressed: () {
-                                  showMyBankAccountDialog();
+                                style: ButtonStyle(overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent)),
+                                onPressed: (){
+                                 showMyBankAccountDialog();
                                 },
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      selectedBankAccount ?? "Bank Account",
-                                      style: TextStyle(
-                                          color: selectedBankAccount == null
-                                              ? const Color(0xff868484)
-                                              : kWhite,
-                                          fontSize: 18),
-                                    ),
-                                    const Icon(Icons.keyboard_arrow_down,
-                                        color: kWhite)
+                                    Text(selectedBankAccount ?? "Bank Account", style: TextStyle(color: selectedBankAccount == null ? const Color(0xff868484) : kWhite, fontSize: 18),),
+                                    const Icon(Icons.keyboard_arrow_down, color: kWhite)
                                   ],
                                 ),
                               ),
@@ -443,6 +471,39 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Spacer(flex: 2,),
           ],
+        ),
+      )
+    ]);
+  }
+
+  showRepaymentSuccessDialog(){
+    MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /2, MediaQuery.of(context).size.width /1.3, [
+      Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 29.0),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Spacer(flex: 3,),
+              Align(
+                alignment: Alignment.center,
+                child: SvgPicture.asset(AssetPath.sendIcon)
+              ),
+              const SizedBox(height: 13,),
+              Text("Loan repayment successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+              const SizedBox(height: 19,),
+              Text("You successfully repaid your loan", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+              const SizedBox(height: 90,),
+              ButtonWidget(
+                onPressed: (){
+                  Get.back();
+                },
+                buttonText: "Go to Home",
+                height: 55, buttonColor: kGreen,
+                width: double.maxFinite,
+              ),
+              const Spacer(flex: 2,),
+            ],
+          ),
         ),
       )
     ]);
@@ -602,12 +663,12 @@ class _HomeScreenState extends State<HomeScreen> {
     if(index == 0 && userData.isEmpty){
       showTopUPWalletBottomSheet();
     }else if(index == 0 && userData.isNotEmpty){
-
+      showTopUPWalletBottomSheet();
     }else if(index == 1 && userData.isEmpty){
-      showFundWithdrawalBottomSheet();
-      //showEmptyWithdrawalWalletBottomSheet(context);
+      // showFundWithdrawalBottomSheet();
+      showEmptyWithdrawalWalletBottomSheet(context);
     }else if(index == 1 && userData.isNotEmpty){
-      //showFundWithdrawalBottomSheet();
+      showFundWithdrawalBottomSheet();
     }else if(index == 2 && userData.isEmpty){
       _scaffoldKey.currentState?.openEndDrawer();
     }else if(index == 2 && userData.isNotEmpty){
@@ -689,7 +750,7 @@ class _HomeScreenState extends State<HomeScreen> {
                  GridView.count(
                    controller: scrollController,
                    crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (1/0.8),
-                   shrinkWrap: true, crossAxisCount: 2,
+                   shrinkWrap: true, crossAxisCount: 2, 
                    children: List.generate(quickMenu.length, (index){
                      return Container(
                        decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(4)),
@@ -733,7 +794,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: userData.isEmpty ? MediaQuery.of(context).size.height / 2.5 : MediaQuery.of(context).size.height / 2.2,
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: userData.isEmpty ? MediaQuery.of(context).size.height / 1.6 : MediaQuery.of(context).size.height / 2.2,
                 decoration: BoxDecoration(color: kLightBackGroundColor, border: Border.all(color: kLightBackGroundColor),
                     borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))),
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center,
@@ -758,7 +819,47 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     SizedBox(height: userData.isEmpty ? 20 :20,),
-                    userData.isEmpty ? const SizedBox() :
+                    userData.isEmpty ?
+                    DottedBorder(color: Color(0xff2E4DBD),
+                        dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
+                        child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(height: 64, width: 64,
+                                decoration: const BoxDecoration(shape: BoxShape.circle, color: kWhite),
+                                child: Center(
+                                  child: SvgPicture.asset(AssetPath.orangeHead, height: 55, width: 55, theme: const SvgTheme(fontSize: 25),),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                  child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(height: 10,),
+                                      Text("Damilare Martins", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.bold, fontSize: 16,),),
+                                      const SizedBox(height: 10,),
+                                      LinearProgressIndicator(
+                                        value: 0.7, backgroundColor: Color(0xff040F35), color: kGreen,
+                                        minHeight: 8,
+                                      ),
+                                      const SizedBox(height: 10,),
+                                      Text("Your profile is 80% complete", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+                                      const SizedBox(height: 10,),
+                                      TextButton(
+                                          onPressed: (){},
+                                          child: Text("Complete your profile",
+                                            style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kGreen, decoration: TextDecoration.underline, fontSize: 14),)
+                                      )
+                                    ],
+                                  ),
+                                )
+                            )
+                          ],
+                        )
+                    ) :
                     Container(
                       height: 56, width: double.maxFinite, decoration: BoxDecoration(color: const Color(0xff4700E0), borderRadius: BorderRadius.circular(8)),
                       padding: const EdgeInsets.only(left: 16, right: 16),
@@ -782,10 +883,28 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: userData.isEmpty ? 20 : 25,),
-                    Center(child: Text(userData.isEmpty ? "₦0": '₦350,000.00',
-                      style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),),),
-                    SizedBox(height: userData.isEmpty ? 40 : 20,),
+                    SizedBox(height: userData.isEmpty ? 35 : 25,),
+                    Center(child: userData.isEmpty ? Row(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text('Accessible Balance', style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.w400, fontSize: 12),),
+                            Text("₦0", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 24),),
+                          ],
+                        ),
+                        const SizedBox(width: 28,),
+                        Container(height: 50, width: 2, color: kWhite,),
+                        const SizedBox(width: 28,),
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Total Balance", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kGrey, fontFamily: 'KumbhSans', fontWeight: FontWeight.w400, fontSize: 12),),
+                            Text("₦0", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kGrey, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 24),)
+                          ],
+                        )
+                      ],
+                    ) : Text("₦350,000.00", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),)
+                    ),
+                    SizedBox(height: userData.isEmpty ? 60 : 20,),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ...List.generate(rowButtonItem.length, (index){
@@ -936,31 +1055,39 @@ class _HomeScreenState extends State<HomeScreen> {
                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Expanded(
-                                      child: Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                                          decoration: BoxDecoration(color: kWhite, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)),
-                                          height: 48,
-                                          child: Row(
-                                            children: [
-                                              SvgPicture.asset(AssetPath.takenLoanIcon),
-                                              const SizedBox(width: 5,),
-                                              Text('Take Loan', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12))
-                                            ],
-                                          )
+                                      child: InkWell(onTap: (){
+                                        Get.to(()=> const GetALoan());
+                                      },
+                                        child: Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                                            decoration: BoxDecoration(color: kWhite, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)),
+                                            height: 48,
+                                            child: Row(
+                                              children: [
+                                                SvgPicture.asset(AssetPath.takenLoanIcon),
+                                                const SizedBox(width: 5,),
+                                                Text('Take Loan', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12))
+                                              ],
+                                            )
+                                        ),
                                       ),
                                   ),
                                   const SizedBox(width: 10,),
                                   Expanded(
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 10), decoration: BoxDecoration(color: Colors.white,
-                                        border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)), height: 48,
-                                      child: Row(
-                                        children: [
-                                          SvgPicture.asset(AssetPath.repaidLoanIcon),
-                                          const SizedBox(width: 5,),
-                                          Text('Repay Loan', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
-                                        ],
-                                      )
+                                    child: InkWell(onTap: (){
+                                      showRepayLoanBottomSheet();
+                                    },
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 10), decoration: BoxDecoration(color: Colors.white,
+                                          border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)), height: 48,
+                                        child: Row(
+                                          children: [
+                                            SvgPicture.asset(AssetPath.repaidLoanIcon),
+                                            const SizedBox(width: 5,),
+                                            Text('Repay Loan', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
+                                          ],
+                                        )
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(width: 10,),
@@ -1066,7 +1193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const Spacer(),
-
+                             
                               userData.isEmpty ? Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
                                   border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
@@ -1123,61 +1250,52 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        const SizedBox(height: 58,),
-                        Text("Browse Our Loan Category", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20,fontWeight: FontWeight.w700, color: kWhite),),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal, physics: const BouncingScrollPhysics(),
-                          child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                        const SizedBox(height: 32,),
+                        Container(
+                          decoration: BoxDecoration(color: kLightBackGroundColor,
+                              border: Border.all(color: kLightBackGroundColor), borderRadius: BorderRadius.circular(30)),
+                          height: 40, width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              ...List.generate(browseOptions.length, (index){
-                                return Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: ShaderMask(
-                                      shaderCallback: (rect) => LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.center,
-                                          colors:[Colors.black87,Colors.black38.withOpacity(0.3)]
-                                      ).createShader(rect),
-                                      blendMode: BlendMode.darken,
-                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
-                                        padding: const EdgeInsets.all(13.0),
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(browseOptions1[index]["asset"]))),
-                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  const SizedBox(height: 40,),
-                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
-                                                      child: Text(browseOptions1[index]["title"],
-                                                        style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
-                                                  const SizedBox(height:15,),
-                                                  ButtonWidget(
-                                                    onPressed: (){
-                                                      Get.to(()=> QuickLoans(data: browseOptions[index],));
-                                                    }, borderRadius: 8,
-                                                    buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
-                                                    height: 37, width: 87, buttonColor: kWhite,
-                                                  ),
-
-                                                ],
-                                              ),
-                                            )
-                                          ],
-                                        ),
+                              Expanded(
+                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ButtonWidget(
+                                          onPressed: (){
+                                            setState((){
+                                              isLender = true;
+                                            });
+                                          },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(
+                                          color: isLender == true ? Colors.black : kWhite
                                       ),
-                                    )
-                                );
-                              })
+                                          buttonColor: isLender == true ? kPaleBlue : Colors.transparent, buttonText: "Lender",
+                                          width: MediaQuery.of(context).size.width / 2.3, height: 45, borderRadius: 20,
+                                      ),
+                                      ButtonWidget(
+                                          onPressed: (){
+                                            setState(() {
+                                              isLender = false;
+                                            });
+                                          },buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: isLender == false ? Colors.black : kWhite),
+                                          buttonColor: isLender == false ? kPaleBlue : Colors.transparent, buttonText: "Borrower",
+                                          width: MediaQuery.of(context).size.width / 2.3, height: 45, borderRadius: 20,
+                                      ),
+                                    ],
+                                  )
+                              ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 20,),
+                        const SizedBox(height: 25,),
+                        Text("Browse Loans as a Lender", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20,fontWeight: FontWeight.w700, color: kWhite),),
+                        Text("As a Lender, easily see borrowers loan request and give out loans.",
+                          style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                        const SizedBox(height: 16,),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal, physics: const BouncingScrollPhysics(),
-                          child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                          child: isLender == true ? Row(mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              ...List.generate(browseOptions2.length, (index){
+                              ...List.generate(lender.length, (index){
                                 return Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: ShaderMask(
@@ -1189,7 +1307,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       blendMode: BlendMode.darken,
                                       child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
                                         padding: const EdgeInsets.all(13.0),
-                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(browseOptions2[index]["asset"]))),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(lender[index]["asset"]))),
                                         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Expanded(
@@ -1197,11 +1315,143 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 children: [
                                                   const SizedBox(height: 40,),
                                                   ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
-                                                      child: Text(browseOptions2[index]["title"],
+                                                      child: Text(lender[index]["title"],
+                                                        style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
+                                                  const SizedBox(height:15,),
+                                                  ButtonWidget(
+                                                    onPressed: (){
+                                                      Get.to(()=> LoanOptions(data: lender[index],));
+                                                    }, borderRadius: 8,
+                                                    buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                                    height: 37, width: 87, buttonColor: kWhite,
+                                                  ),
+
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                );
+                              })
+                            ],
+                          ) : Row(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ...List.generate(borrower.length, (index){
+                                return Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: ShaderMask(
+                                      shaderCallback: (rect) => LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.center,
+                                          colors:[Colors.black87,Colors.black38.withOpacity(0.3)]
+                                      ).createShader(rect),
+                                      blendMode: BlendMode.darken,
+                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
+                                        padding: const EdgeInsets.all(13.0),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(borrower[index]["asset"]))),
+                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const SizedBox(height: 40,),
+                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
+                                                      child: Text(borrower[index]["title"],
+                                                        style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
+                                                  const SizedBox(height:15,),
+                                                  ButtonWidget(
+                                                    onPressed: (){
+                                                      Get.to(()=> LoanOptions(data: borrower[index],));
+                                                    }, borderRadius: 8,
+                                                    buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                                    height: 37, width: 87, buttonColor: kWhite,
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                );
+                              })
+                            ],
+                          ),
+                        ),
+                        const SizedBox(height: 20,),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal, physics: const BouncingScrollPhysics(),
+                          child: isLender == true ? Row(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ...List.generate(lender1.length, (index){
+                                return Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: ShaderMask(
+                                      shaderCallback: (rect) => LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.center,
+                                          colors:[Colors.black87,Colors.black38.withOpacity(0.3)]
+                                      ).createShader(rect),
+                                      blendMode: BlendMode.darken,
+                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
+                                        padding: const EdgeInsets.all(13.0),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(lender1[index]["asset"]))),
+                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const SizedBox(height: 40,),
+                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
+                                                      child: Text(lender1[index]["title"],
                                                         style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
                                                   ButtonWidget(
                                                     onPressed: (){
-                                                      Get.to(()=> LoanOptions(data: browseOptions2[index],));
+                                                      Get.to(()=> LoanOptions(data: lender1[index],));
+                                                    }, borderRadius: 8,
+                                                    buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                                    height: 37, width: 87, buttonColor: kWhite,
+                                                  ),
+
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                );
+                              })
+                            ],
+                          ) : Row(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ...List.generate(borrower1.length, (index){
+                                return Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: ShaderMask(
+                                      shaderCallback: (rect) => LinearGradient(
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.center,
+                                          colors:[Colors.black87,Colors.black38.withOpacity(0.3)]
+                                      ).createShader(rect),
+                                      blendMode: BlendMode.darken,
+                                      child: Container(height: MediaQuery.of(context).size.height / 4,width: MediaQuery.of(context).size.width / 2,
+                                        padding: const EdgeInsets.all(13.0),
+                                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), image: DecorationImage(image: AssetImage(borrower1[index]["asset"]))),
+                                        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  const SizedBox(height: 40,),
+                                                  ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 3, minHeight: 50),
+                                                      child: Text(borrower1[index]["title"],
+                                                        style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w700,),)),
+                                                  ButtonWidget(
+                                                    onPressed: (){
+                                                      Get.to(()=> LoanOptions(data: borrower1[index],));
                                                     }, borderRadius: 8,
                                                     buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
                                                     height: 37, width: 87, buttonColor: kWhite,
@@ -1220,9 +1470,24 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         const SizedBox(height: 20,),
-                        Container(height: MediaQuery.of(context).size.height / 2, width: double.maxFinite,
+                        isLender == true ? Container(height: MediaQuery.of(context).size.height / 2, width: double.maxFinite,
                           padding: const EdgeInsets.fromLTRB(34.0, 40.0, 30.0, 27.0),
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), image: DecorationImage(image: AssetImage(AssetPath.others))),
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text("Others", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 20),
+                              ButtonWidget(
+                                onPressed: (){},
+                                borderRadius: 8,
+                                buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                height: 37, width: 87, buttonColor: kWhite,
+                              ),
+                            ],
+                          ),
+                        ) : Container(height: MediaQuery.of(context).size.height / 2, width: double.maxFinite,
+                          padding: const EdgeInsets.fromLTRB(34.0, 40.0, 30.0, 27.0),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), image: DecorationImage(image: AssetImage(AssetPath.others1))),
                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Text("Others", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.bold)),

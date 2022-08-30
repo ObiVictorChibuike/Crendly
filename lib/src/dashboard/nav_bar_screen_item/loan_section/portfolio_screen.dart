@@ -38,63 +38,41 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
       children: [
         Container(
           padding: const EdgeInsets.only(left: 21, right: 21, top: 30),
-          height: 460,
-          width: 390,
+          height: MediaQuery.of(context).size.height / 2, width: 390,
           decoration: BoxDecoration(
               color: const Color(0xff081952),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16)),
               border: Border.all()),
-          child: Column(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 29,
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: kGreen,
-                  ),
-                  Text(
-                    'My Portfolio',
-                    style: Theme.of(context).textTheme.headline2!.copyWith(
-                        color: kWhite,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-              const SizedBox(height: 126),
               Expanded(
-                child: SizedBox(
-                  height: 280,
-                  child: PageView.builder(
-                      controller: _pageController,
-                      itemCount: portfolioGraphs.length,
-                      onPageChanged: (page) {
-                        setState(() {
-                          currentIndex = page;
-                        });
-                      },
-                      itemBuilder: (context, index) {
-                        return Column(children: [
-                          Image.asset(portfolioGraphs[index]),
-                          const SizedBox(
-                            height: 35,
-                          ),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: indicators(
-                                portfolioGraphs.length,
-                                currentIndex,
-                              )),
-                          const SizedBox(
-                            height: 18,
-                          ),
-                          chartsDisplay[index],
-                        ]);
-                      }),
-                ),
+                child: Column(mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Spacer(),
+                    SizedBox(
+                      height: 250,
+                      child: PageView.builder(
+                          controller: _pageController,
+                          itemCount: portfolioGraphs.length,
+                          onPageChanged: (page) {
+                            setState(() {
+                              currentIndex = page;
+                            });
+                          },
+                          itemBuilder: (context, index) {
+                            return Column(children: [
+                              Image.asset(portfolioGraphs[index]),
+                              const SizedBox(height: 35,),
+                              Row(mainAxisAlignment: MainAxisAlignment.center, children: indicators(portfolioGraphs.length, currentIndex,)),
+                              const SizedBox(
+                                height: 18,
+                              ),
+                              chartsDisplay[index],
+                            ]);
+                          }),
+                    ),
+                  ],
+                )
               ),
               // Image.asset(AssetPath.portfolioBarChart),
             ],

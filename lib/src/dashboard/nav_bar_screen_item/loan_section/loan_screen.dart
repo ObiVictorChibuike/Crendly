@@ -19,12 +19,15 @@ class _LoanScreenState extends State<LoanScreen> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 3,
       child: Column(
         children: [
           Container(
+            padding: const EdgeInsets.only(left: 21, right: 21, top: 30), height: MediaQuery.of(context).size.height / 2, width: 390,
+            decoration: BoxDecoration(color: kLightBackGroundColor,
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), bottomLeft: Radius.circular(16)), border: Border.all()),
+            child: Column(mainAxisAlignment: MainAxisAlignment.end,
             padding: const EdgeInsets.only(left: 21, right: 21, top: 30),
             height: 460,
             width: 390,
@@ -35,53 +38,18 @@ class _LoanScreenState extends State<LoanScreen> {
             child: Column(
 
               children: [
-                const SizedBox(
-                  height: 29,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: kGreen,
-                    ),
-                    Text(
-                      'My Loans',
-                      style: Theme.of(context).textTheme.headline2!.copyWith(
-                          color: kWhite,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-                const SizedBox(height: 133),
                 Container(
-                  color: kGreen,
-                  width: 92,
-                  height: 21,
-                  child: Center(
-                    child: Text('N250,000 repaid',
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              fontSize: 10,
-                            )),
-                  ),
+                  color: kGreen, width: 92, height: 21,
+                  child: Center(child: Text('N250,000 repaid', style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 10,)),),
                 ),
                 Image.asset(AssetPath.chartGraph),
-                const SizedBox(
-                  height: 11,
-                ),
+                const SizedBox(height: 11,),
                 IntrinsicHeight(
                   child: Row(
                     children: [
-                      SizedBox(
-                        width: 50,
-                      ),
-                      CircleAvatar(
-                        radius: 4,
-                        backgroundColor: Color(0xffFFBA7B),
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
+                      SizedBox(width: 50,),
+                      CircleAvatar(radius: 4, backgroundColor: Color(0xffFFBA7B),),
+                      const SizedBox(width: 4,),
                       Text(
                         'Total Loans Taken',
                         style: Theme.of(context)
@@ -134,6 +102,7 @@ class _LoanScreenState extends State<LoanScreen> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 30,),
               ],
             ),
           ),
@@ -167,47 +136,28 @@ class _LoanScreenState extends State<LoanScreen> {
                   style: Theme.of(context).textTheme.headline3!.copyWith(
                       fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
                 ),
-                Container(
-                  height: 40,
-                  padding: const EdgeInsets.all(3),
-                  color: kLightBackGroundColor,
+                const SizedBox(height: 14,),
+                Container(padding: EdgeInsets.symmetric(vertical: 3, horizontal: 3),
+                  height: 40, decoration: BoxDecoration(color: kLightBackGroundColor, borderRadius: BorderRadius.circular(9)),
                   child: TabBar(
                       onTap: (index) {
                         setState(() {
                           currentIndex = index;
                         });
-                      },
+                      }, indicatorSize: TabBarIndicatorSize.tab,
                       labelColor: kDarkBackGroundColor,
                       unselectedLabelColor: kWhite,
-                      labelStyle: Theme.of(context)
-                          .textTheme
-                          .bodyText2!
-                          .copyWith(fontWeight: FontWeight.bold),
-                      unselectedLabelStyle: Theme.of(context)
-                          .textTheme
-                          .bodyText2!
-                          .copyWith(fontSize: 14, color: kWhite),
-                      indicator: BoxDecoration(
-                          color: kOrange,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(9.0)),
-                          border: Border.all(
-                            color: kOrange,
-                          )),
+                      labelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(fontWeight: FontWeight.bold, fontSize: 12),
+                      unselectedLabelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: kWhite),
+                      indicator: BoxDecoration(color: kOrange, borderRadius: const BorderRadius.all(Radius.circular(9.0)), border: Border.all(color: kOrange,)),
                       tabs: const [
-                        Text(
-                          'All Loans',
-                        ),
-                        Text(
-                          'Running Loans',
-                        ),
-                        Text(
-                          'Repaid Loans',
-                        )
+                        Text('All Loans',),
+                        Text('Running Loans',),
+                        Text('Repaid Loans',)
                       ]),
                 ),
                 const SizedBox(
-                  height: 44,
+                  height: 40,
                 ),
                 getLoanView(context, currentIndex)
               ],
@@ -278,6 +228,53 @@ Widget AllLoans(BuildContext context) {
       ),
       LoanAndPortfolioCard(
         onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
+        },
+        loanType: "Payday Loan(Amount repayable)",
+        totalAmount: "N450,000.00",
+        loanAmount: "N350,000.00",
+        loanDuration: "6 Months",
+        loanAmountOrTypeHeader: "Loan Amount",
+        status: "Repaid",
+        rate: "15%",
+        interestOrRepaymentMethod: "Interest",
+        interestAmountOrRepaymentMethodType: "N150,000",
+        statusColor: kGreen,
+      ),
+      const SizedBox(height: 139,)
+    ],
+  );
+}
+
+Widget RunningLoans(BuildContext context) {
+  return Column(
+    children: [
+      LoanAndPortfolioCard(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
+        },
+        loanType: "Payday Loan(Amount repayable)",
+        totalAmount: "N450,000.00",
+        loanAmount: "N350,000.00",
+        loanDuration: "6 Months",
+        loanAmountOrTypeHeader: "Loan Amount",
+        status: "Running",
+        rate: "15%",
+        interestOrRepaymentMethod: "Interest",
+        interestAmountOrRepaymentMethodType: "N150,000",
+        statusColor: kLightOrange,
+      ),
+      const SizedBox(height: 189,)
+    ],
+  );
+}
+
+Widget RepaidLoans(BuildContext context) {
+  return Column(
+    children: [
+      LoanAndPortfolioCard(
+        onTap: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
         },
@@ -291,45 +288,72 @@ Widget AllLoans(BuildContext context) {
         interestOrRepaymentMethod: "Interest",
         interestAmountOrRepaymentMethodType: "N150,000",
         statusColor: kGreen,
-      )
+      ),
+      LoanAndPortfolioCard(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
+        },
+        loanType: "Payday Loan(Amount repayable)",
+        totalAmount: "N450,000.00",
+        loanAmount: "N350,000.00",
+        loanDuration: "6 Months",
+        loanAmountOrTypeHeader: "Loan Amount",
+        status: "Repaid",
+        rate: "15%",
+        interestOrRepaymentMethod: "Interest",
+        interestAmountOrRepaymentMethodType: "N150,000",
+        statusColor: kGreen,
+      ),
+      LoanAndPortfolioCard(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
+        },
+        loanType: "Payday Loan(Amount repayable)",
+        totalAmount: "N450,000.00",
+        loanAmount: "N350,000.00",
+        loanDuration: "6 Months",
+        loanAmountOrTypeHeader: "Loan Amount",
+        status: "Repaid",
+        rate: "15%",
+        interestOrRepaymentMethod: "Interest",
+        interestAmountOrRepaymentMethodType: "N150,000",
+        statusColor: kGreen,
+      ),
+      LoanAndPortfolioCard(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
+        },
+        loanType: "Payday Loan(Amount repayable)",
+        totalAmount: "N450,000.00",
+        loanAmount: "N350,000.00",
+        loanDuration: "6 Months",
+        loanAmountOrTypeHeader: "Loan Amount",
+        status: "Repaid",
+        rate: "15%",
+        interestOrRepaymentMethod: "Interest",
+        interestAmountOrRepaymentMethodType: "N150,000",
+        statusColor: kGreen,
+      ),
+      LoanAndPortfolioCard(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
+        },
+        loanType: "Payday Loan(Amount repayable)",
+        totalAmount: "N450,000.00",
+        loanAmount: "N350,000.00",
+        loanDuration: "6 Months",
+        loanAmountOrTypeHeader: "Loan Amount",
+        status: "Repaid",
+        rate: "15%",
+        interestOrRepaymentMethod: "Interest",
+        interestAmountOrRepaymentMethodType: "N150,000",
+        statusColor: kGreen,
+      ),
+      const SizedBox(height: 158,)
     ],
-  );
-}
-
-Widget RunningLoans(BuildContext context) {
-  return LoanAndPortfolioCard(
-    onTap: () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
-    },
-    loanType: "Payday Loan(Amount repayable)",
-    totalAmount: "N450,000.00",
-    loanAmount: "N350,000.00",
-    loanDuration: "6 Months",
-    loanAmountOrTypeHeader: "Loan Amount",
-    status: "Running",
-    rate: "15%",
-    interestOrRepaymentMethod: "Interest",
-    interestAmountOrRepaymentMethodType: "N150,000",
-    statusColor: kLightOrange,
-  );
-}
-
-Widget RepaidLoans(BuildContext context) {
-  return LoanAndPortfolioCard(
-    onTap: () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => LoanTypeInfo()));
-    },
-    loanType: "Payday Loan(Amount repayable)",
-    totalAmount: "N450,000.00",
-    loanAmount: "N350,000.00",
-    loanDuration: "6 Months",
-    loanAmountOrTypeHeader: "Loan Amount",
-    status: "Repaid",
-    rate: "15%",
-    interestOrRepaymentMethod: "Interest",
-    interestAmountOrRepaymentMethodType: "N150,000",
-    statusColor: kGreen,
   );
 }

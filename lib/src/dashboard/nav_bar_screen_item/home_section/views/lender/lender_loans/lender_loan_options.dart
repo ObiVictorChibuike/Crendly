@@ -1,10 +1,10 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/dummy_data.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/browse_loan_category_option/loan_option_process/loan_request_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_stack/image_stack.dart';
 import '../widgets/quick_loan_details_tile.dart';
+import 'lender_loan_option_details.dart';
 
 class LoanOptions extends StatefulWidget {
   final data;

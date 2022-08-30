@@ -1,12 +1,14 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/browse_loan_category_option/widgets/custom_loan_request_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import '../../../../../../../constants/asset_path.dart';
 import '../../../../../../../shared_widgets/custom_dialog_widget.dart';
+import '../widgets/custom_loan_details_widget.dart';
+
+
 
 
 
@@ -166,7 +168,7 @@ class _LoanRequestDetailsState extends State<LoanRequestDetails> {
                           },
                         ),
                         const SizedBox(height: 40,),
-                        CustomLoanRequestDetailsWidget(
+                        CustomLoanRequestWidget(
                           creditScore: "75%",
                           loanAmount: "N20,000",
                           interestRate: "5%",

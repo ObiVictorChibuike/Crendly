@@ -1,10 +1,10 @@
-import 'package:crendly/src/dashboard/nav_bar_screen_item/transaction_section/widget/transaction_detail_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../../constants/asset_path.dart';
 import '../../../../../constants/color_palette.dart';
 import '../../../../../shared_widgets/custom_appBar.dart';
+import '../widget/transaction_details_dialog.dart';
 
 class TransactionDetailsScreen extends StatefulWidget {
   final transaction;

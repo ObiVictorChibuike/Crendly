@@ -1,6 +1,7 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/controller/home_section_controller.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/questionnaire/add_card/add_card_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -86,7 +87,7 @@ class _CompleteProfileDetailsState extends State<CompleteProfileDetails> {
                 const Spacer(flex: 6,),
                 ButtonWidget(
                     onPressed: (){
-
+                      _controller.isSecondOptionSelected == false || _controller.isFirstOptionSelected == false ? null : Get.to(()=> const AddCardScreen());
                     },
                     buttonText: "Continue",  buttonColor: _controller.isSecondOptionSelected == false || _controller.isFirstOptionSelected == false ?  Color(0xff383838) : kGreen,
                     height: 50, width: double.maxFinite

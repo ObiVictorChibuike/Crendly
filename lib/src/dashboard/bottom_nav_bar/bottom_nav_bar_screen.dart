@@ -1,10 +1,12 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/explore_section/explore_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/loans_and_portfolio.dart';
+
 import 'package:crendly/src/dashboard/nav_bar_screen_item/transaction_section/views/transaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../nav_bar_screen_item/home_section/views/home_screen.dart';
+import '../nav_bar_screen_item/transaction_section/views/transaction_screen.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({Key? key}) : super(key: key);

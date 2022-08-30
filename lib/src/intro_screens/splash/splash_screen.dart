@@ -18,9 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3),
-        //const BottomNavigationBarScreen() //MainOnBoardingScreen()
-            () => Get.offAll(()=> const MainOnBoardingScreen()));
+    Timer(
+        const Duration(seconds: 3),
+        () => Get.offAll(()=>
+            const MainOnBoardingScreen()
+            ));
   }
 
   @override

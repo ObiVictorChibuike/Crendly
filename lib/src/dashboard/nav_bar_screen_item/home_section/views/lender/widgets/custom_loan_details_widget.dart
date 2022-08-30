@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../../../constants/color_palette.dart';
 
-class CustomLoanRequestDetailsWidget extends StatelessWidget {
+class CustomLoanRequestWidget extends StatelessWidget {
   final String? creditScore;
   final String? loanAmount;
   final String? interestRate;
@@ -11,7 +11,7 @@ class CustomLoanRequestDetailsWidget extends StatelessWidget {
   final String? repaymentType;
   final String? duration;
   final String? repaymentStartDate;
-  const CustomLoanRequestDetailsWidget({Key? key, this.creditScore, this.loanAmount, this.interestRate, this.interestType, this.repaymentAmount, this.requestDate, this.repaymentType, this.duration, this.repaymentStartDate}) : super(key: key);
+  const CustomLoanRequestWidget({Key? key, this.creditScore, this.loanAmount, this.interestRate, this.interestType, this.repaymentAmount, this.requestDate, this.repaymentType, this.duration, this.repaymentStartDate}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
