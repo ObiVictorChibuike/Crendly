@@ -1,13 +1,11 @@
 import 'dart:async';
 
 import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/setting_personal_information.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/color_palette.dart';
-import '../../questionnaire/trust_questions/personality_questions.dart';
-import '../onboarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -20,12 +18,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Get.to(() =>
-            //PersonalityQuestionsScreen()
-            const BottomNavigationBarScreen() //MainOnBoardingScreen()
-            ));
+    Timer(const Duration(seconds: 3), () => Get.to(() =>
+        // BottomNavigationBarScreen()
+        // MainOnBoardingScreen()
+        const SettingPersonalInformation()));
   }
 
   @override

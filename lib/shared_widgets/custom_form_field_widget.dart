@@ -25,65 +25,123 @@ class FormFieldWidget extends StatelessWidget {
   final String? hintText;
   final TextStyle? hintTextStyle;
   final EdgeInsetsGeometry? padding;
-  const FormFieldWidget({Key? key, this.labelText, this.labelStyle, this.keyboardType, this.textInputAction, this.inputFormatters, this.onSaved, this.controller, this.onChanged, this.icon, this.validator, this.width, this.onTap, this.suffixIcon, this.style, this.obscureText, this.maxLines, this.minLines, this.expands, this.prefixIcon, this.padding, this.hintText, this.hintTextStyle, }) : super(key: key);
+  final String? labelTitle;
+  final TextStyle? labelTitleTextStyle;
+
+  const FormFieldWidget({
+    Key? key,
+    this.labelTitle,
+    this.labelTitleTextStyle,
+    this.labelText,
+    this.labelStyle,
+    this.keyboardType,
+    this.textInputAction,
+    this.inputFormatters,
+    this.onSaved,
+    this.controller,
+    this.onChanged,
+    this.icon,
+    this.validator,
+    this.width,
+    this.onTap,
+    this.suffixIcon,
+    this.style,
+    this.obscureText,
+    this.maxLines,
+    this.minLines,
+    this.expands,
+    this.prefixIcon,
+    this.padding,
+    this.hintText,
+    this.hintTextStyle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.transparent,border: Border.all(width: 0.7, color: kDarkBackGroundColor),
-      ),
-      height: 50,
-      width: width ?? double.maxFinite,
-      child: TextFormField(
-        obscureText: obscureText ?? false,
-        style: style ?? Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 18, color: kWhite, ),
-        textCapitalization: TextCapitalization.words,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        onSaved: onSaved, controller: controller, onChanged: onChanged,
-        inputFormatters: inputFormatters,
-        maxLines: maxLines, minLines: maxLines,
-        expands: expands ?? true, cursorHeight: 25,
-        onTap: onTap,
-        textInputAction: textInputAction ?? TextInputAction.next, keyboardType: keyboardType ?? TextInputType.text,
-        decoration: InputDecoration(
-          alignLabelWithHint: true,
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          suffixIcon: suffixIcon, prefixIcon: prefixIcon,
-          icon: icon,
-          labelText: labelText,
-          hintText: hintText,
-          hintStyle: hintTextStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff868484), fontSize: 16),
-          labelStyle: labelStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff868484), fontSize: 16),
-          enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          focusedBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          focusedErrorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          errorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          fillColor: kDarkBackGroundColor,
-          filled: true, isDense: true,
-          contentPadding: const EdgeInsets.all(15),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          labelTitle ?? '',
+          style: labelTitleTextStyle ??
+              Theme.of(context).textTheme.bodyText1!.copyWith(
+                  fontWeight: FontWeight.w500, fontSize: 16, color: kWhite),
         ),
-        cursorColor: kWhite,
-        validator: validator,
-      ),
+        const SizedBox(
+          height: 8,
+        ),
+        Container(
+          padding: padding,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.transparent,
+            border: Border.all(width: 0.7, color: kDarkBackGroundColor),
+          ),
+          height: 50,
+          width: width ?? double.maxFinite,
+          child: TextFormField(
+            obscureText: obscureText ?? false,
+            style: style ??
+                Theme.of(context).textTheme.bodyText2?.copyWith(
+                      fontSize: 18,
+                      color: kWhite,
+                    ),
+            textCapitalization: TextCapitalization.words,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            onSaved: onSaved,
+            controller: controller,
+            onChanged: onChanged,
+            inputFormatters: inputFormatters,
+            maxLines: maxLines,
+            minLines: maxLines,
+            expands: expands ?? true,
+            cursorHeight: 25,
+            onTap: onTap,
+            textInputAction: textInputAction ?? TextInputAction.next,
+            keyboardType: keyboardType ?? TextInputType.text,
+            decoration: InputDecoration(
+              alignLabelWithHint: true,
+              floatingLabelBehavior: FloatingLabelBehavior.never,
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
+              icon: icon,
+              labelText: labelText,
+              hintText: hintText,
+              hintStyle: hintTextStyle ??
+                  Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(color: const Color(0xff868484), fontSize: 16),
+              labelStyle: labelStyle ??
+                  Theme.of(context)
+                      .textTheme
+                      .bodyText2
+                      ?.copyWith(color: const Color(0xff868484), fontSize: 16),
+              enabledBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderSide: BorderSide(color: kWhite, width: 0.7)),
+              focusedBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderSide: BorderSide(color: kWhite, width: 0.7)),
+              focusedErrorBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderSide: BorderSide(color: kWhite, width: 0.7)),
+              border: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderSide: BorderSide(color: kWhite, width: 0.7)),
+              errorBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  borderSide: BorderSide(color: kWhite, width: 0.7)),
+              fillColor: kDarkBackGroundColor,
+              filled: true,
+              isDense: true,
+              contentPadding: const EdgeInsets.all(15),
+            ),
+            cursorColor: kWhite,
+            validator: validator,
+          ),
+        ),
+      ],
     );
   }
 }

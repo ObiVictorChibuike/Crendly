@@ -41,6 +41,7 @@ class AssetPath {
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
+  static const String copy = "$_svgImageBaseUrl/copy.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";
@@ -61,4 +62,6 @@ class AssetPath {
       "$_pngImageBaseUrl/portfolio_bar_chart.png";
   static const String portfolioLineGraph =
       "$_pngImageBaseUrl/portfolio_graph.png";
+  static const String IDCard =
+      "$_pngImageBaseUrl/ID card.png"; //assets/png_assets/ID card.png
 }

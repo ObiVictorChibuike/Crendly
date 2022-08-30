@@ -30,7 +30,7 @@ class PortfolioInfoCard extends StatelessWidget {
     return Container(
       height: 211,
       child: Card(
-        color: kPurple,
+        color: kBlue,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppPadding.p13),
