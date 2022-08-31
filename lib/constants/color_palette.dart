@@ -18,11 +18,16 @@ const kLightPurple = Color(0xffA380EF);
 const kRedPink = Color(0xFFFF0062);
 const kRed = Color(0xffE54B4D);
 const kWhite = Color(0xFFFFFFFF);
-const kWhiteWithOpacity = Color(0xffE2E2E2);
-const kGrey = Color(0xFFEEEEEE);
+const kDivider = Color(0xff192B68);
+
+const kWhiteWithOpacity = Color.fromRGBO(255, 255, 255, 0.5);
+const almostGrey = Color(0xFFEEEEEE);
+
+const kAlmostGrey = Color(0xFFEEEEEE);
+const kGrey = Color(0xffAAAAAA);
+
 const kRadioBlue = Color(0xff8095E0);
 const kLightOrange = Color(0xffF5B070);
-const kLighterOrange = Color(0xffF2EAE0);
 const kLoanBackGroundColor = Color(0xff000926);
 const kCtaColor = const Color(0xff1B034F);
 const kDisableColor = Color(0xff666666);

@@ -24,18 +24,12 @@ class _BVNVerificationState extends State<BVNVerification> {
       child: Scaffold(
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
-          flexibleSpace: const Padding(
-            padding: EdgeInsets.only(top: 35.0, bottom: 10),
-            child: LinearProgressIndicator(
-              color: kGreen,
-              value: 0.1,
-            ),
+          centerTitle: false,
+          title: LinearProgressIndicator(
+            color: kGreen,
+            value: 0.1,
           ),
-          title: Text(
-            "BVN",
-            style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),
-          ),
+          appBarLabel: Text("BVN", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
           decorationImagePath: AssetPath.pngLemonHead,
           onBackPressed: () {
             Get.back();

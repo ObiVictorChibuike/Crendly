@@ -19,6 +19,7 @@ class _LoanScreenState extends State<LoanScreen> {
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
       length: 3,
       child: Column(
@@ -32,6 +33,7 @@ class _LoanScreenState extends State<LoanScreen> {
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all()),
             child: Column(
+
               children: [
                 const SizedBox(
                   height: 29,

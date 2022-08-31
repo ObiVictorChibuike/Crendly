@@ -6,6 +6,7 @@ import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/shared_widgets/custom_pincode_field.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
 import 'package:crendly/src/dashboard/settings/views/settings.dart';
 import 'package:dotted_border/dotted_border.dart';
@@ -18,6 +19,7 @@ import '../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
 import 'acquire-a_loan_section/get_a_loan.dart';
+import 'browse_loan_category_option/loan_option_process/loan_options.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -104,49 +106,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   bool? isCardSelected = true;
 
-  void showTopUPWalletBottomSheet() {
-    Get.bottomSheet(
-        FractionallySizedBox(
-          heightFactor: 0.65,
-          child: Container(
-              decoration: BoxDecoration(
-                  color: kDarkBackGroundColor,
-                  borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(20))),
-              constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height / 1.8,
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
-              child: StatefulBuilder(builder: (context, mySetState) {
-                return Column(
-                  children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      height: 5,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: kWhite,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+
+  void showTopUPWalletBottomSheet(){
+    Get.bottomSheet(FractionallySizedBox(heightFactor: 0.75,
+      child: Container(decoration: BoxDecoration(color: kDarkBackGroundColor,borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
+        constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/1.8,), padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 5),
+        child: StatefulBuilder(builder: (context, mySetState){
+          return Column(
+            children: [
+              const SizedBox(height: 10,),
+              Container(height: 5, width: 50, decoration: BoxDecoration(color: kWhite, borderRadius: BorderRadius.circular(5),),),
+              const SizedBox(height: 30,),
+              Expanded(
+                child: SingleChildScrollView(physics: const BouncingScrollPhysics(),
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children:[
+                        Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                                     children: [
                                       Expanded(
                                         child: Row(
@@ -860,53 +841,21 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Align(
               alignment: Alignment.center,
-              child: Container(
-                height: 80,
-                width: 80,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: kGreen, width: 2),
-                    color: const Color(0xff081952)),
-                child: const Center(
-                    child: Icon(
-                  Icons.add,
-                  color: kOrange,
-                  size: 45,
-                )),
+
+              child: Container(height: 65, width: 80,
+                decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
+                child: const Center(child: Icon(Icons.add, color: kOrange, size: 45,)),
               ),
             ),
-            Container(
-              height: 65,
-              width: 2,
-              color: kGreen,
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Text(
-              "TopUp successful",
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                  color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              "Your wallet topup was successful",
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                  color: kWhite, fontWeight: FontWeight.w400, fontSize: 14),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Container(
-              height: 65,
-              width: 2,
-              color: kGreen,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
+            Container(height: 45, width:2, color: kGreen,),
+            const SizedBox(height: 40,),
+            Text("TopUp successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
+            const SizedBox(height: 15,),
+            Text("Your wallet topup was successful", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+            const SizedBox(height: 40,),
+            Container(height: 45, width:2, color: kGreen,),
+            const SizedBox(height: 10,),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: ButtonWidget(
@@ -1426,21 +1375,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: kOrange),
                           ),
                           const Spacer(),
-                          userData.isEmpty
-                              ? const SizedBox()
-                              : IconButton(
-                                  onPressed: () {},
-                                  icon: SvgPicture.asset(
-                                    AssetPath.search,
-                                    theme: const SvgTheme(fontSize: 25),
-                                  ),
-                                ),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.notifications_none,
-                                color: kWhite,
-                              )),
+
+                          userData.isEmpty ? const SizedBox() : IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
+                          IconButton(onPressed: (){
+                            Get.to(()=> const NotificationPage());
+                          }, icon: const Icon(Icons.notifications_none, color: kWhite,)),
+
                         ],
                       ),
                     ),
@@ -1519,163 +1459,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           return InkWell(
                             onTap: () {
                               selectBetweenTopWithDrawAndMoreOption(index);
-                              // showModalBottomSheet(
-                              //     context: context,
-                              //     enableDrag: false,
-                              //     isDismissible: false,
-                              //     isScrollControlled: true,
-                              //     shape: const RoundedRectangleBorder(
-                              //         borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
-                              //     backgroundColor: Colors.transparent,
-                              //     builder: (context) {
-                              //       int currentIndex = 0;
-                              //       return StatefulBuilder(
-                              //           builder:
-                              //               (context, setState) =>
-                              //               DraggableScrollableSheet(
-                              //                 initialChildSize: 0.7,
-                              //                 builder: (_,
-                              //                     controller) =>
-                              //                     DefaultTabController(
-                              //                       initialIndex:
-                              //                       currentIndex,
-                              //                       length: 2,
-                              //                       child: ListView(
-                              //                         children: [
-                              //                           Container(
-                              //                             padding: const EdgeInsets
-                              //                                 .symmetric(
-                              //                                 horizontal:
-                              //                                 22,
-                              //                                 vertical: 28),
-                              //                             // color:
-                              //                             // backgroundColor,
-                              //                             child: Column(
-                              //                               crossAxisAlignment:
-                              //                               CrossAxisAlignment
-                              //                                   .start,
-                              //                               children: [
-                              //                                 Row(
-                              //                                   mainAxisAlignment:
-                              //                                   MainAxisAlignment
-                              //                                       .spaceBetween,
-                              //                                   children: [
-                              //                                     const Text(
-                              //                                       'Topup wallet',
-                              //                                     ),
-                              //                                     IconButton(
-                              //                                         onPressed:
-                              //                                             () {
-                              //                                           Get.back();
-                              //                                         },
-                              //                                         icon:
-                              //                                         const Icon(
-                              //                                           Icons.cancel_outlined,
-                              //                                           // color:
-                              //                                           // iconColor,
-                              //                                         ))
-                              //                                   ],
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 35,
-                              //                                 ),
-                              //                                 const Text('How much do you want to fund',),
-                              //                                 const SizedBox(
-                              //                                   height: 13,
-                              //                                 ),
-                              //                                 const TextField(
-                              //                                   style:
-                              //                                   TextStyle(
-                              //                                     color: Color(
-                              //                                         0xff797979),
-                              //                                     fontSize:
-                              //                                     14,
-                              //                                     fontFamily:
-                              //                                     'KumbhSans',
-                              //                                   ),
-                              //                                   decoration: InputDecoration(
-                              //                                       //enabledBorder: inputBorder,
-                              //                                       hintStyle: TextStyle(
-                              //                                         color:
-                              //                                         Color(0xff797979),
-                              //                                         fontSize:
-                              //                                         14,
-                              //                                         fontFamily:
-                              //                                         'KumbhSans',
-                              //                                       ),
-                              //                                       hintText: 'Enter amount',
-                              //                                       contentPadding: EdgeInsets.all(8)),
-                              //                                   keyboardType:
-                              //                                   TextInputType
-                              //                                       .text,
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 43,
-                              //                                 ),
-                              //                                 const Text(
-                              //                                   'Fund your wallet using',
-                              //
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 8,
-                              //                                 ),
-                              //                                 Container(
-                              //                                   decoration:
-                              //                                   BoxDecoration(
-                              //                                     border: Border.all(
-                              //                                         color:
-                              //                                         const Color(0xffFED0B7)),
-                              //                                     borderRadius: const BorderRadius
-                              //                                         .all(
-                              //                                         Radius.circular(
-                              //                                             6)),
-                              //                                   ),
-                              //                                   height: 39,
-                              //                                   child: TabBar(
-                              //                                       onTap: (int index) {
-                              //                                         setState(
-                              //                                                 () {
-                              //                                               currentIndex =
-                              //                                                   index;
-                              //                                             });
-                              //                                       },
-                              //                                       labelColor: const Color(0xff00071F),
-                              //                                       unselectedLabelColor: Colors.white,
-                              //                                       labelStyle: const TextStyle(fontFamily: 'KumbhSans', fontWeight: FontWeight.bold),
-                              //                                       unselectedLabelStyle: const TextStyle(
-                              //                                         fontFamily:
-                              //                                         'KumbhSans',
-                              //                                         fontSize:
-                              //                                         14,
-                              //                                       ),
-                              //                                       indicator: BoxDecoration(
-                              //                                           color: const Color(0xffFED0B7),
-                              //                                           borderRadius: const BorderRadius.all(Radius.circular(6)),
-                              //                                           border: Border.all(
-                              //                                             color: const Color(0xffFED0B7),
-                              //                                           )),
-                              //                                       tabs: const [
-                              //                                         Text(
-                              //                                           'Card',
-                              //                                         ),
-                              //                                         Text(
-                              //                                           'Bank Transfer',
-                              //                                         ),
-                              //                                       ]),
-                              //                                 ),
-                              //                                 const SizedBox(
-                              //                                   height: 25,
-                              //                                 ),
-                              //                                 // getViewTabBar(
-                              //                                 //     currentIndex)
-                              //                               ],
-                              //                             ),
-                              //                           ),
-                              //                         ],
-                              //                       ),
-                              //                     ),
-                              //               ));
-                              //     });
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -2634,21 +2417,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     height: 15,
                                                   ),
                                                   ButtonWidget(
-                                                    onPressed: () {},
-                                                    borderRadius: 8,
-                                                    buttonText: "View All",
-                                                    buttonTextStyle:
-                                                        Theme.of(context)
-                                                            .textTheme
-                                                            .bodyText2
-                                                            ?.copyWith(
-                                                                fontSize: 12,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                    height: 37,
-                                                    width: 87,
-                                                    buttonColor: kWhite,
+  
+
+                                                    onPressed: (){
+                                                      Get.to(()=> QuickLoans(data: browseOptions[index],));
+                                                    }, borderRadius: 8,
+                                                    buttonText: "View All", buttonTextStyle: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.bold),
+                                                    height: 37, width: 87, buttonColor: kWhite,
+
                                                   ),
                                                 ],
                                               ),

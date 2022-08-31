@@ -67,8 +67,8 @@ class _ConfirmSignatureState extends State<ConfirmSignature> {
         child: Scaffold(
           backgroundColor: kDarkBackGroundColor,
           appBar: CustomAppbar(
-            flexibleSpace: const Padding(padding: EdgeInsets.only(top: 35.0, bottom: 10), child: LinearProgressIndicator(color: kGreen, value: 0.5,),),
-            title: Text("Signature", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
+            title: LinearProgressIndicator(color: kGreen, value: 0.5,),centerTitle: false,
+            appBarLabel: Text("Signature", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 20),),
             decorationImagePath: AssetPath.pngLemonHead,
             onBackPressed: (){
               Get.back();
