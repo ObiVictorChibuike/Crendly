@@ -14,6 +14,7 @@ const kGreen = Color(0xFF6DE7B4);
 const kLightGreen = Color(0xffB4DDC5);
 const kLighterGreen = Color(0xffD6F2E2);
 const kOrange = Color(0xFFFED0B7);
+const kDarkPurple = Color(0xff6219FF);
 const kLightPurple = Color(0xffA380EF);
 const kRedPink = Color(0xFFFF0062);
 const kRed = Color(0xffE54B4D);
@@ -26,6 +27,7 @@ const kLighterOrange = Color(0xffF2EAE0);
 const kLoanBackGroundColor = Color(0xff000926);
 const kCtaColor = const Color(0xff1B034F);
 const kDisableColor = Color(0xff666666);
+const kLighterDisableColor = Color(0xffC4C4C4);
 const List<Color> orangeGradient = [
   Color(0xFFFD5454),
   Color(0xFFFF9061),

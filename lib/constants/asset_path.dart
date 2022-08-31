@@ -42,6 +42,8 @@ class AssetPath {
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
   static const String copy = "$_svgImageBaseUrl/copy.svg";
+  static const String bank =
+      "$_svgImageBaseUrl/bank-regular.svg"; // bank-regular
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";

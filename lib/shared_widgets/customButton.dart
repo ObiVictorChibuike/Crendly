@@ -31,10 +31,9 @@ class ButtonWidget extends StatelessWidget {
         width: width ?? double.maxFinite,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              shape:
-                  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(borderRadius ?? 8),
-                      side: BorderSide(color: borderColor!)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(borderRadius ?? 8),
+                  side: BorderSide(color: borderColor ?? buttonColor!)),
               elevation: 0,
               primary: buttonColor),
           onPressed: onPressed,

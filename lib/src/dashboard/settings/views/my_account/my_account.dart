@@ -1,4 +1,9 @@
 import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/bank_account/bank_account.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/cards/bank_card.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/setting_personal_information.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/security/security.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/verification/verification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -31,36 +36,51 @@ class MyAccount extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 32,
+              height: 8,
             ),
             SettingTile(
               title: 'Personal Information',
               iconData: Icons.person,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (builder) => SettingPersonalInformation()));
+              },
               subtitle: "Kindly provide your personal information",
             ),
             SettingTile(
               title: 'Verification',
               iconData: Icons.lock,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (builder) => Verification()));
+              },
               subtitle: "In integer",
             ),
             SettingTile(
               title: 'Security',
               iconData: Icons.lock,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (builder) => Security()));
+              },
               subtitle: "Reset your password to keep yor account safe",
             ),
             SettingTile(
               title: 'Bank Account',
               iconData: Icons.museum_outlined,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (builder) => BankAccount()));
+              },
               subtitle: "View your bank information to make changes if any",
             ),
             SettingTile(
               title: 'Cards',
               iconData: Icons.credit_card_sharp,
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (builder) => BankCard()));
+              },
               subtitle: "Add your card details to make transactions breezy",
             ),
           ],

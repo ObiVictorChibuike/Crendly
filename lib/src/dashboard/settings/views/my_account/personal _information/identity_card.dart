@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../../constants/asset_path.dart';
-import '../../../../shared_widgets/custom_appBar.dart';
+import '../../../../../../constants/asset_path.dart';
+import '../../../../../../shared_widgets/custom_appBar.dart';
 
 class IdentityCard extends StatelessWidget {
   const IdentityCard({Key? key}) : super(key: key);
