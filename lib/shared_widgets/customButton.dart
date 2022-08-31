@@ -8,17 +8,44 @@ class ButtonWidget extends StatelessWidget {
   final double? width;
   final TextStyle? buttonTextStyle;
   final double? borderRadius;
-  const ButtonWidget({Key? key,required this.onPressed,required this.buttonText, this.buttonColor, required this.height, required this.width, this.buttonTextStyle, this.borderRadius}) : super(key: key);
+  final Color? borderColor;
+
+  const ButtonWidget(
+      {Key? key,
+      this.borderColor,
+      required this.onPressed,
+      required this.buttonText,
+      this.buttonColor,
+      required this.height,
+      required this.width,
+      this.buttonTextStyle,
+      this.borderRadius})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(borderRadius ?? 8),
-      child: SizedBox(height: height ?? 55, width: width ?? double.maxFinite,
+      child: SizedBox(
+        height: height ?? 55,
+        width: width ?? double.maxFinite,
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(elevation: 0, primary: buttonColor),
+          style: ElevatedButton.styleFrom(
+              shape:
+                  RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(borderRadius ?? 8),
+                      side: BorderSide(color: borderColor!)),
+              elevation: 0,
+              primary: buttonColor),
           onPressed: onPressed,
-          child: Text(buttonText, style: buttonTextStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),),
+          child: Text(
+            buttonText,
+            style: buttonTextStyle ??
+                Theme.of(context)
+                    .textTheme
+                    .bodyText2
+                    ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );

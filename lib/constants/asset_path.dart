@@ -36,6 +36,9 @@ class AssetPath {
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
+
+  static const String copy = "$_svgImageBaseUrl/copy.svg";
+
   static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
   static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
   static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
@@ -68,6 +71,8 @@ class AssetPath {
       "$_pngImageBaseUrl/portfolio_bar_chart.png";
   static const String portfolioLineGraph =
       "$_pngImageBaseUrl/portfolio_graph.png";
+  static const String IDCard =
+      "$_pngImageBaseUrl/ID card.png"; //assets/png_assets/ID card.png
 }
 
 
