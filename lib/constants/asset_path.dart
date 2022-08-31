@@ -50,6 +50,11 @@ class AssetPath {
   static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
   static const String warning = "$_pngImageBaseUrl/warning.png";
 
+  static const String bank = "$_svgImageBaseUrl/bank-regular.svg";
+  static const String instagram = "$_svgImageBaseUrl/instagram.svg";
+  static const String facebook = "$_svgImageBaseUrl/facebook.svg";
+  static const String twitter = "$_svgImageBaseUrl/twitter.svg";
+  static const String web = "$_svgImageBaseUrl/web.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";

@@ -1,4 +1,5 @@
 import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/src/dashboard/settings/views/support/support.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -206,7 +207,9 @@ class _SettingsState extends State<Settings> {
                 iconData: Icons.headset_mic,
                 title: "Support",
                 subtitle: "In integer",
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (builder) => Support()));
+                },
               ),
               SettingTile(
                 iconData: Icons.star,
