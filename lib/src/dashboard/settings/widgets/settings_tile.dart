@@ -25,43 +25,44 @@ class SettingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-      leading: toRotate!
-          ? Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Transform(
-                transform: Matrix4.rotationY(math.pi),
-                child: Icon(
-                  iconData,
-                  color: kPurple,
+    return Padding(
+      padding: const EdgeInsets.only(top: 24.0),
+      child: ListTile(
+        onTap: onTap,
+        leading: toRotate!
+            ? Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Transform(
+                  transform: Matrix4.rotationY(math.pi),
+                  child: Icon(
+                    iconData,
+                    color: kPurple,
+                  ),
                 ),
+              )
+            : Icon(
+                iconData,
+                color: kPurple,
               ),
-            )
-          : Icon(
-              iconData,
+        title: Text(
+          title,
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              color: kWhite, fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(color: kWhiteWithOpacity, fontSize: 12),
+        ),
+        trailing: trailing ??
+            Icon(
+              Icons.arrow_forward_ios,
               color: kPurple,
+              size: 14,
             ),
-      title: Text(
-        title,
-        style: Theme.of(context)
-            .textTheme
-            .bodyText1!
-            .copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.bold),
       ),
-      subtitle: Text(
-        subtitle,
-        style: Theme.of(context)
-            .textTheme
-            .bodyText1!
-            .copyWith(color: kWhiteWithOpacity, fontSize: 12),
-      ),
-      trailing: trailing ??
-          Icon(
-            Icons.arrow_forward_ios,
-            color: kPurple,
-            size: 14,
-          ),
     );
   }
 }

@@ -1,7 +1,7 @@
-import 'package:crendly/src/dashboard/settings/views/bio_details.dart';
-import 'package:crendly/src/dashboard/settings/views/contact_address.dart';
-import 'package:crendly/src/dashboard/settings/views/identity_card.dart';
-import 'package:crendly/src/dashboard/settings/views/next_of_kin.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/bio_details.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/contact_address.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/identity_card.dart';
+import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/next_of_kin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -35,7 +35,7 @@ class SettingPersonalInformation extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(
-              height: 32,
+              height: 8,
             ),
             SettingTile(
               title: 'Bio details',

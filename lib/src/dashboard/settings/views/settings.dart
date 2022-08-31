@@ -1,5 +1,4 @@
 import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/setting_personal_information.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +11,7 @@ import '../../../../constants/asset_path.dart';
 import '../../../../constants/color_palette.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
 import '../widgets/settings_tile.dart';
+import 'my_account/my_account.dart';
 
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
@@ -170,8 +170,8 @@ class _SettingsState extends State<Settings> {
                 title: "My Account",
                 subtitle: "In integer",
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (builder) => SettingPersonalInformation()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (builder) => MyAccount()));
                 },
               ),
               SettingTile(

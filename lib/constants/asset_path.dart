@@ -37,6 +37,8 @@ class AssetPath {
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
   static const String copy = "$_svgImageBaseUrl/copy.svg";
+  static const String bank =
+      "$_svgImageBaseUrl/bank-regular.svg"; // bank-regular
   static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
   static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
   static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";

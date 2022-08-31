@@ -8,7 +8,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../../constants/asset_path.dart';
+import '../../../../../../constants/asset_path.dart';
 
 class BioDetails extends StatelessWidget {
   const BioDetails({Key? key}) : super(key: key);
