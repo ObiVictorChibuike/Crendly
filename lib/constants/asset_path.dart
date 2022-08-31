@@ -42,8 +42,11 @@ class AssetPath {
   static const String send = "$_svgImageBaseUrl/send.svg";
   static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
   static const String copy = "$_svgImageBaseUrl/copy.svg";
-  static const String bank =
-      "$_svgImageBaseUrl/bank-regular.svg"; // bank-regular
+  static const String bank = "$_svgImageBaseUrl/bank-regular.svg";
+  static const String instagram = "$_svgImageBaseUrl/instagram.svg";
+  static const String facebook = "$_svgImageBaseUrl/facebook.svg";
+  static const String twitter = "$_svgImageBaseUrl/twitter.svg";
+  static const String web = "$_svgImageBaseUrl/web.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";
