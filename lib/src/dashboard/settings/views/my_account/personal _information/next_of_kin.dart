@@ -16,10 +16,10 @@ class NextOfKin extends StatelessWidget {
       backgroundColor: kDarkBackGroundColor,
       appBar: CustomAppbar(
         centerTitle: true,
-        title: Text(
+        appBarLabel: Text(
           "Bio Details",
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
-              fontSize: 16, fontWeight: FontWeight.bold, color: kWhite),
+              fontSize: 20, fontWeight: FontWeight.bold, color: kWhite),
         ),
         decorationImagePath: AssetPath.fullTag,
         onBackPressed: () {
@@ -27,6 +27,7 @@ class NextOfKin extends StatelessWidget {
         },
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 21.0),
           child: Column(

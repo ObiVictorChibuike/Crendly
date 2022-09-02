@@ -188,10 +188,10 @@ class _ContactAddressState extends State<ContactAddress> {
         backgroundColor: kDarkBackGroundColor,
         appBar: CustomAppbar(
           centerTitle: true,
-          title: Text(
+          appBarLabel: Text(
             "Contact Address",
             style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                fontSize: 16, fontWeight: FontWeight.bold, color: kWhite),
+                fontSize: 20, fontWeight: FontWeight.bold, color: kWhite),
           ),
           decorationImagePath: AssetPath.fullTag,
           onBackPressed: () {

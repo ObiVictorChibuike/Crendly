@@ -4,8 +4,8 @@ import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import '../../../../constants/asset_path.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../../../constants/asset_path.dart';
@@ -19,10 +19,10 @@ class BioDetails extends StatelessWidget {
       backgroundColor: kDarkBackGroundColor,
       appBar: CustomAppbar(
         centerTitle: true,
-        title: Text(
+        appBarLabel: Text(
           "Bio Details",
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
-              fontSize: 16, fontWeight: FontWeight.bold, color: kWhite),
+              fontSize: 20, fontWeight: FontWeight.bold, color: kWhite),
         ),
         decorationImagePath: AssetPath.fullTag,
         onBackPressed: () {
@@ -30,6 +30,7 @@ class BioDetails extends StatelessWidget {
         },
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 21.0),
           child: Column(
@@ -132,6 +133,7 @@ class BioDetails extends StatelessWidget {
                 width: 344,
                 height: 203,
                 child: DottedBorder(
+                  dashPattern: [4, 6],
                     color: kBrighterBackGroundColor,
                     child: Center(
                         child: SvgPicture.asset(AssetPath.confirmSignature))),

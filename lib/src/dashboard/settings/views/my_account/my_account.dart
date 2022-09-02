@@ -6,7 +6,7 @@ import 'package:crendly/src/dashboard/settings/views/my_account/security/securit
 import 'package:crendly/src/dashboard/settings/views/my_account/verification/verification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 
 import '../../../../../constants/asset_path.dart';
 import '../../../../../shared_widgets/custom_appBar.dart';

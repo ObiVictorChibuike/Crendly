@@ -4,8 +4,6 @@ import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_info
 import 'package:crendly/src/dashboard/settings/views/my_account/personal%20_information/next_of_kin.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../../../constants/asset_path.dart';
 import '../../../../../../constants/color_palette.dart';
 import '../../../../../../shared_widgets/custom_appBar.dart';
@@ -20,10 +18,10 @@ class SettingPersonalInformation extends StatelessWidget {
       backgroundColor: kDarkBackGroundColor,
       appBar: CustomAppbar(
         centerTitle: true,
-        title: Text(
+        appBarLabel: Text(
           "Personal Information",
           style: Theme.of(context).textTheme.bodyText1!.copyWith(
-              fontSize: 16, fontWeight: FontWeight.bold, color: kWhite),
+              fontSize: 20, fontWeight: FontWeight.bold, color: kWhite),
         ),
         decorationImagePath: AssetPath.fullTag,
         onBackPressed: () {

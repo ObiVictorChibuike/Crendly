@@ -6,10 +6,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
+import 'package:step_progress_indicator/step_progress_indicator.dart';
 import '../../../../constants/asset_path.dart';
 import '../../../../constants/color_palette.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
@@ -30,7 +28,8 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
       backgroundColor: kDarkBackGroundColor,
       appBar: CustomAppbar(
-        title: Text(
+        centerTitle: false,
+        appBarLabel: Text(
           "Settings",
           style: Theme.of(context).textTheme.bodyText2?.copyWith(
               color: kWhite, fontWeight: FontWeight.w700, fontSize: 24),
@@ -41,6 +40,7 @@ class _SettingsState extends State<Settings> {
         },
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 21.0),
           child: Column(
@@ -164,6 +164,66 @@ class _SettingsState extends State<Settings> {
                     )
                   ],
                 ),
+              ),
+              const SizedBox(height: 10,),
+              Container(
+                width: double.maxFinite,
+                height: 150,
+                child: DottedBorder(
+                    dashPattern: [4, 6],
+                    color: kBrighterBackGroundColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        children: [
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Your Credit Score", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16 ,fontWeight: FontWeight.w400),),
+                              Text("82", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16 ,fontWeight: FontWeight.w400),),
+                            ],
+                          ),
+                          const SizedBox(height: 15,),
+                          StepProgressIndicator(
+                            totalSteps: 100, currentStep: 32,
+                            size: 8, padding: 0, selectedColor: Colors.yellow, unselectedColor: Colors.cyan,
+                            roundedEdges: Radius.circular(10),
+                            selectedGradientColor: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Colors.deepOrange, Colors.orange],
+                            ),
+                            unselectedGradientColor: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Colors.yellow, kGreen],
+                            ),
+                          ),
+                          const SizedBox(height: 30,),
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("Your Reputation Score", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16 ,fontWeight: FontWeight.w400),),
+                              Text("72", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16 ,fontWeight: FontWeight.w400),),
+                            ],
+                          ),
+                          const SizedBox(height: 15,),
+                          StepProgressIndicator(
+                            totalSteps: 100, currentStep: 32, size: 8, padding: 0,
+                            selectedColor: Colors.yellow, unselectedColor: Colors.cyan,
+                            roundedEdges: Radius.circular(10),
+                            selectedGradientColor: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Colors.deepOrange, Colors.orange],
+                            ),
+                            unselectedGradientColor: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [Colors.yellow, kGreen],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
               ),
               const SizedBox(
                 height: 16,

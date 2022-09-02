@@ -1,7 +1,6 @@
 import 'package:crendly/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 
 class FormFieldWidget extends StatelessWidget {
   final String? labelText;
@@ -62,66 +61,11 @@ class FormFieldWidget extends StatelessWidget {
     this.prefixIcon,
     this.padding,
     this.hintText,
-    this.hintTextStyle,
+    this.hintTextStyle, this.filledColor,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Colors.transparent,border: Border.all(width: 0.7, color: color ?? kDarkBackGroundColor),
-      ),
-      height: height ?? 50,
-      width: width ?? double.maxFinite,
-      child: TextFormField(
-        obscureText: obscureText ?? false,
-        style: style ?? Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 18, color: kWhite, ),
-        textCapitalization: TextCapitalization.words,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        onSaved: onSaved, controller: controller, onChanged: onChanged,
-        inputFormatters: inputFormatters,
-        maxLines: maxLines, minLines: maxLines,
-        expands: expands ?? true, cursorHeight: 25,
-        onTap: onTap,
-        textInputAction: textInputAction ?? TextInputAction.next, keyboardType: keyboardType ?? TextInputType.text,
-        decoration: InputDecoration(
-          alignLabelWithHint: true,
-          floatingLabelBehavior: FloatingLabelBehavior.never,
-          suffixIcon: suffixIcon, prefixIcon: prefixIcon,
-          icon: icon,
-          labelText: labelText,
-          hintText: hintText,
-          hintStyle: hintTextStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff868484), fontSize: 16),
-          labelStyle: labelStyle ?? Theme.of(context).textTheme.bodyText2?.copyWith(color: const Color(0xff868484), fontSize: 16),
-          enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          focusedBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          focusedErrorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          errorBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-              borderSide: BorderSide(color: kWhite, width: 0.7)
-          ),
-          fillColor: filledColor ?? kDarkBackGroundColor,
-          filled: true, isDense: true,
-          contentPadding: const EdgeInsets.all(15),
-        ),
-        cursorColor: kWhite,
-        validator: validator,
-      ),
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -147,9 +91,9 @@ class FormFieldWidget extends StatelessWidget {
             obscureText: obscureText ?? false,
             style: style ??
                 Theme.of(context).textTheme.bodyText2?.copyWith(
-                      fontSize: 18,
-                      color: kWhite,
-                    ),
+                  fontSize: 18,
+                  color: kWhite,
+                ),
             textCapitalization: TextCapitalization.words,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             onSaved: onSaved,
@@ -196,7 +140,7 @@ class FormFieldWidget extends StatelessWidget {
               errorBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                   borderSide: BorderSide(color: kWhite, width: 0.7)),
-              fillColor: kDarkBackGroundColor,
+              fillColor: filledColor ?? kDarkBackGroundColor,
               filled: true,
               isDense: isDense ?? true,
               contentPadding: const EdgeInsets.all(15),

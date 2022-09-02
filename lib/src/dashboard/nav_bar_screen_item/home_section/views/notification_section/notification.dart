@@ -12,7 +12,6 @@ import '../../../../../../shared_widgets/custom_appBar.dart';
 import '../../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../../shared_widgets/custom_form_field_widget.dart';
 import '../../widget/transaction_pin_bottomsheet.dart';
-import '../view-all/loan_offer_and_agreement.dart';
 import '../view-all/view_all_loan_request_details.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -347,7 +346,7 @@ class _NotificationPageState extends State<NotificationPage> {
                     return NotificationTile(
                       onTap: (){
                         button == "View negotiation request" ? Get.to(()=> LoanNegotiationRequest()) :
-                        button == "Topup Wallet" ? showTopUPWalletBottomSheet() : button == "View Request" ? AllLoanRequestDetails() : null;
+                        button == "Topup Wallet" ? showTopUPWalletBottomSheet() : button == "View Request" ? Get.to(()=> const AllLoanRequestDetails()) : null;
                       },
                       title: title,
                       action: time,

@@ -8,7 +8,9 @@ import 'package:crendly/shared_widgets/custom_pincode_field.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
+import 'package:crendly/src/dashboard/settings/views/settings.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -752,14 +754,22 @@ class _HomeScreenState extends State<HomeScreen> {
                    crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (1/0.8),
                    shrinkWrap: true, crossAxisCount: 2, 
                    children: List.generate(quickMenu.length, (index){
-                     return Container(
-                       decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(4)),
-                       child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
-                         children: [
-                           CircleAvatar(backgroundColor: Color(0xff6219FF), radius: 16, child: Icon(quickMenu[index]["image"], size: 20, color: kWhite,)),
-                           Text(quickMenu[index]["title"],
-                             style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14,color: kWhite, fontWeight: FontWeight.w700,),),
-                         ],
+                     return GestureDetector(
+                       onTap: (){
+                         String title = quickMenu[index]["title"];
+                         if (title.toLowerCase() == "settings") {
+                           Get.to(()=> Settings());
+                         }
+                       },
+                       child: Container(
+                         decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(4)),
+                         child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                           children: [
+                             CircleAvatar(backgroundColor: Color(0xff6219FF), radius: 16, child: Icon(quickMenu[index]["image"], size: 20, color: kWhite,)),
+                             Text(quickMenu[index]["title"],
+                               style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14,color: kWhite, fontWeight: FontWeight.w700,),),
+                           ],
+                         ),
                        ),
                      );
                    }),
