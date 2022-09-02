@@ -1,4 +1,6 @@
 import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/src/auth/auth_screens/sign_in/sign_in.dart';
+import 'package:crendly/src/dashboard/settings/views/settings_transaction_pin/settings_transaction_pin.dart';
 import 'package:crendly/src/dashboard/settings/views/support/support.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +14,7 @@ import '../../../../constants/asset_path.dart';
 import '../../../../constants/color_palette.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
 import '../widgets/settings_tile.dart';
+import 'delete_account/delete_account.dart';
 import 'my_account/my_account.dart';
 
 class Settings extends StatefulWidget {
@@ -179,7 +182,10 @@ class _SettingsState extends State<Settings> {
                 iconData: Icons.privacy_tip_rounded,
                 title: "Transaction Pin",
                 subtitle: "In integer",
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (builder) => SettingsTransactionPin()));
+                },
               ),
               SettingTile(
                   iconData: Icons.lock_open_sharp,
@@ -208,7 +214,8 @@ class _SettingsState extends State<Settings> {
                 title: "Support",
                 subtitle: "In integer",
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (builder) => Support()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (builder) => Support()));
                 },
               ),
               SettingTile(
@@ -239,7 +246,10 @@ class _SettingsState extends State<Settings> {
                 height: 41,
               ),
               ButtonWidget(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (builder) => SignIn()));
+                  },
                   buttonColor: kDarkBackGroundColor,
                   borderColor: kRed,
                   buttonText: "Logout",
@@ -256,7 +266,10 @@ class _SettingsState extends State<Settings> {
                 height: 21,
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (builder) => DeleteAccount()));
+                  },
                   child: Text(
                     "Delete My Account",
                     style: Theme.of(context).textTheme.bodyText1!.copyWith(

@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 class CustomHeader extends StatelessWidget {
   final Widget? trailing;
   final String title;
-  const CustomHeader({this.trailing, required this.title, Key? key})
+  final TextStyle? titleTextStyle;
+  const CustomHeader(
+      {this.trailing, this.titleTextStyle, required this.title, Key? key})
       : super(key: key);
 
   @override
@@ -24,8 +26,9 @@ class CustomHeader extends StatelessWidget {
           child: Center(
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline3!.copyWith(
-              fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
+          style: titleTextStyle ??
+              Theme.of(context).textTheme.headline3!.copyWith(
+                  fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
         ),
       )),
       trailing ?? Container()

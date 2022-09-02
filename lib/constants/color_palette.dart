@@ -18,6 +18,7 @@ const kDarkPurple = Color(0xff6219FF);
 const kLightPurple = Color(0xffA380EF);
 const kRedPink = Color(0xFFFF0062);
 const kRed = Color(0xffE54B4D);
+const kDarkRed = Color(0xffFF3A5A);
 const kWhite = Color(0xFFFFFFFF);
 const kDivider = Color(0xff192B68);
 
