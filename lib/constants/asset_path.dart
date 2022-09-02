@@ -47,6 +47,8 @@ class AssetPath {
   static const String facebook = "$_svgImageBaseUrl/facebook.svg";
   static const String twitter = "$_svgImageBaseUrl/twitter.svg";
   static const String web = "$_svgImageBaseUrl/web.svg";
+  static const String edit = "$_svgImageBaseUrl/edit.svg";
+  static const String lock = "$_svgImageBaseUrl/lock-fill.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";

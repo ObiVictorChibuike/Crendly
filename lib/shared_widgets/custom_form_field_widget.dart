@@ -27,10 +27,14 @@ class FormFieldWidget extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final String? labelTitle;
   final TextStyle? labelTitleTextStyle;
+  final bool? isDense;
+  final double? height;
 
   const FormFieldWidget({
     Key? key,
     this.labelTitle,
+    this.height,
+    this.isDense,
     this.labelTitleTextStyle,
     this.labelText,
     this.labelStyle,
@@ -77,7 +81,7 @@ class FormFieldWidget extends StatelessWidget {
             color: Colors.transparent,
             border: Border.all(width: 0.7, color: kDarkBackGroundColor),
           ),
-          height: 50,
+          height: height ?? 50,
           width: width ?? double.maxFinite,
           child: TextFormField(
             obscureText: obscureText ?? false,
@@ -134,7 +138,7 @@ class FormFieldWidget extends StatelessWidget {
                   borderSide: BorderSide(color: kWhite, width: 0.7)),
               fillColor: kDarkBackGroundColor,
               filled: true,
-              isDense: true,
+              isDense: isDense ?? true,
               contentPadding: const EdgeInsets.all(15),
             ),
             cursorColor: kWhite,

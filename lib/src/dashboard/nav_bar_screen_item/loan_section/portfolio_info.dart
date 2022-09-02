@@ -1,11 +1,13 @@
 import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/values_manager.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/portfolio_details.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_and_portfolio_info_tile.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/portfolio_info_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class PortfolioInfo extends StatelessWidget {
   const PortfolioInfo({Key? key}) : super(key: key);
@@ -24,7 +26,9 @@ class PortfolioInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                     icon: Icon(
                       Icons.arrow_back_ios,
                       color: kGreen,
@@ -34,13 +38,19 @@ class PortfolioInfo extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyText2!.copyWith(
                       fontSize: 16, color: kWhite, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  "View Details",
-                  style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      fontSize: 14,
-                      color: kGreen,
-                      fontWeight: FontWeight.bold),
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (builder) => PortfolioDetails()));
+                  },
+                  child: Text(
+                    "View Details",
+                    style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 14,
+                        color: kGreen,
+                        fontWeight: FontWeight.bold),
+                  ),
                 )
               ],
             ),

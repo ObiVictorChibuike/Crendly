@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/color_palette.dart';
-import '../../dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
+import '../onboarding/onboarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,9 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () => Get.to(() =>
+        // BottomNavigationBarScreen()
 
-        // MainOnBoardingScreen()
-        const BottomNavigationBarScreen()));
+        const MainOnBoardingScreen()));
   }
 
   @override

@@ -44,9 +44,7 @@ class Support extends StatelessWidget {
               supportTile(context, "08123456779"),
               supportTile(context, "08123456779"),
               supportTile(context, "08123456779"),
-              const SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 40),
               Text(
                 "Social Media",
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
