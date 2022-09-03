@@ -21,6 +21,7 @@ class AssetPath {
   static const String greenLight = "$_svgImageBaseUrl/green_light.svg";
   static const String androidPhone = "$_svgImageBaseUrl/phone_android.svg";
   static const String id = "$_svgImageBaseUrl/id.svg";
+  static const String sendIcon = "$_svgImageBaseUrl/send_icon.svg";
   static const String scanPicture = "$_svgImageBaseUrl/scan_picture.svg";
   static const String fileUpload = "$_svgImageBaseUrl/file_upload.svg";
   static const String faceScan = "$_svgImageBaseUrl/face_scan.svg";
@@ -34,12 +35,20 @@ class AssetPath {
   static const String loanIcon = "$_svgImageBaseUrl/loan_icon.svg";
   static const String transactionIcon = "$_svgImageBaseUrl/transaction_icon.svg";
   static const String exploreIcon = "$_svgImageBaseUrl/explore_icon.svg";
+  static const String send = "$_svgImageBaseUrl/send.svg";
+  static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
   static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
   static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
   static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
-  static const String send = "$_svgImageBaseUrl/send.svg";
-  static const String withdraw = "$_svgImageBaseUrl/withdraw.svg";
+  static const String loanDisbursed = "$_svgImageBaseUrl/loan_disbursed.svg";
+  static const String fundsWithdrawal = "$_svgImageBaseUrl/funds_withdrawal.svg";
+  static const String fundedWallet = "$_svgImageBaseUrl/funded_wallet.svg";
+  static const String loanRepayment = "$_svgImageBaseUrl/loan_repayment.svg";
   static const String copy = "$_svgImageBaseUrl/copy.svg";
+  static const String topLeftBracket = "$_svgImageBaseUrl/top_left_bracket.svg";
+  static const String topRightBracket = "$_svgImageBaseUrl/top_right_bracket.svg";
+  static const String bottomLeftBracket = "$_svgImageBaseUrl/bottom_left_bracket.svg";
+  static const String bottomRightBracket = "$_svgImageBaseUrl/bottom_right_bracket.svg";
   static const String bank =
       "$_svgImageBaseUrl/bank-regular.svg"; // bank-regular
   static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
@@ -67,6 +76,7 @@ class AssetPath {
   //Png Assets
   static const String logo = '$_pngImageBaseUrl/logo.png';
   static const String others = '$_pngImageBaseUrl/others.png';
+  static const String others1 = '$_pngImageBaseUrl/others_1.png';
   static const String carbonMoney = "$_pngImageBaseUrl/carbon_money.png";
   static const String tag = "$_pngImageBaseUrl/tag.png";
   static const String fullTag = "$_pngImageBaseUrl/full_tag.png";
@@ -78,6 +88,12 @@ class AssetPath {
   static const String driverLicense = '$_pngImageBaseUrl/drivers_license.png';
   static const String face = "$_pngImageBaseUrl/face.png";
   static const String chartGraph = "$_pngImageBaseUrl/chart_graph.png";
+  static const String portfolioBarChart = "$_pngImageBaseUrl/portfolio_bar_chart.png";
+  static const String portfolioLineGraph = "$_pngImageBaseUrl/portfolio_graph.png";
+  static const String IDCard = "$_pngImageBaseUrl/ID card.png";
+  static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
+  static const String warning = "$_pngImageBaseUrl/warning.png";
+  //assets/png_assets/ID card.png
   static const String portfolioBarChart =
       "$_pngImageBaseUrl/portfolio_bar_chart.png";
   static const String portfolioLineGraph =

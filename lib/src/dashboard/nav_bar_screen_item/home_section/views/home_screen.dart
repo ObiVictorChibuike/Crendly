@@ -500,7 +500,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Get.back();
                 },
                 buttonText: "Go to Home",
-                height: 55, buttonColor: kGreen,
+                height: 50, buttonColor: kGreen,
                 width: double.maxFinite,
               ),
               const Spacer(flex: 2,),

@@ -362,7 +362,6 @@ class _NotificationPageState extends State<NotificationPage> {
                     final time = maintenanceNotification[index]["time"];
                     final title = maintenanceNotification[index]["title"];
                     return NotificationTile(
-                      onTap: (){},
                       title: title,
                       action: time,
                       body: msg,

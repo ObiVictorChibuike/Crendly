@@ -130,6 +130,7 @@ class _AddCardScreenState extends State<AddCardScreen> {
                               height: 55, buttonColor: kGreen,
                               width: double.maxFinite
                           ),
+                          const SizedBox(height: 47),
                         ],
                       )
                     ]
@@ -157,29 +158,35 @@ class _AddCardScreenState extends State<AddCardScreen> {
             ),
             backgroundColor: kDarkBackGroundColor,
             body: Align(alignment: Alignment.center,
-              child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 140,),
-                  CircleAvatar(
-                    backgroundColor: kBlue,
-                    radius: 50, child: Icon(Icons.credit_card_rounded, color: kWhite,size: 50,),
-                  ),
-                  const SizedBox(height: 40,),
-                  Text("No Cards added", textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.w700, fontSize: 20),),
-                  const SizedBox(height: 10,),
-                  Text("You do not have any Bank \naccount added yet.", textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.bold, fontSize: 14),),
-                  const SizedBox(height: 121,),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                    child: ButtonWidget(onPressed: (){
-                      showAddCardBottomSheet();
-                    }, buttonText: "Link Card", buttonColor: kGreen,
-                        height: 55, width: double.maxFinite),
-                  ),
-                   const SizedBox(height: 191,),
-                ],
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 140,),
+                    CircleAvatar(
+                      backgroundColor: kBlue,
+                      radius: 50, child: Icon(Icons.credit_card_rounded, color: kWhite,size: 50,),
+                    ),
+                    const SizedBox(height: 40,),
+                    Text("Please Add a Card.", textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.w700, fontSize: 20),),
+                    const SizedBox(height: 10,),
+                    Text("You do not have any debit/credit \ncard added yet.", textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite,fontWeight: FontWeight.bold, fontSize: 14),),
+                    const SizedBox(height: 121,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      child: ButtonWidget(onPressed: (){
+                        showAddCardBottomSheet();
+                      }, buttonText: "Add a Card", buttonColor: kGreen,
+                          height: 55, width: double.maxFinite),
+                    ),
+                     const SizedBox(height: 35,),
+                     TextButton(onPressed: (){}, child: Text("Do this Later",
+                       style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 16, fontWeight: FontWeight.w700, color: kGreen, decoration: TextDecoration.underline),)),
+                     const SizedBox(height: 191,),
+                  ],
+                ),
               ),
             )
         )
