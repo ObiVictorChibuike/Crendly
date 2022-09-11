@@ -4,6 +4,7 @@ import 'package:crendly/shared_widgets/shared_questionnaire_screens.dart';
 import 'package:crendly/src/intro_screens/widgets/custom_carousel_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DummyData {
   DummyData._();
@@ -38,6 +39,7 @@ class DummyData {
       "color": greenGradient
     },
   ];
+
 
   static final userData = [];
   static final myLoan = [];

@@ -182,7 +182,9 @@ class _AddCardScreenState extends State<AddCardScreen> {
                           height: 55, width: double.maxFinite),
                     ),
                      const SizedBox(height: 35,),
-                     TextButton(onPressed: (){}, child: Text("Do this Later",
+                     TextButton(onPressed: (){
+                       Get.to(()=>const BottomNavigationBarScreen());
+                     }, child: Text("Do this Later",
                        style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 16, fontWeight: FontWeight.w700, color: kGreen, decoration: TextDecoration.underline),)),
                      const SizedBox(height: 191,),
                   ],

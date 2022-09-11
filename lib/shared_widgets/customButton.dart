@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants/color_palette.dart';
-
 class ButtonWidget extends StatelessWidget {
   final void Function()? onPressed;
   final String buttonText;
@@ -33,10 +31,6 @@ class ButtonWidget extends StatelessWidget {
         width: width ?? double.maxFinite,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-              shape:
-              RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(borderRadius ?? 8),
-                  side: BorderSide(color: borderColor ?? Colors.transparent )),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(borderRadius ?? 8),
                   side: BorderSide(color: borderColor ?? buttonColor!)),
@@ -46,7 +40,8 @@ class ButtonWidget extends StatelessWidget {
           child: Text(
             buttonText,
             style: buttonTextStyle ??
-                Theme.of(context).textTheme
+                Theme.of(context)
+                    .textTheme
                     .bodyText2
                     ?.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
           ),

@@ -49,6 +49,17 @@ class AssetPath {
   static const String topRightBracket = "$_svgImageBaseUrl/top_right_bracket.svg";
   static const String bottomLeftBracket = "$_svgImageBaseUrl/bottom_left_bracket.svg";
   static const String bottomRightBracket = "$_svgImageBaseUrl/bottom_right_bracket.svg";
+  static const String bank = "$_svgImageBaseUrl/bank-regular.svg";
+  static const String instagram = "$_svgImageBaseUrl/instagram.svg";
+  static const String facebook = "$_svgImageBaseUrl/facebook.svg";
+  static const String twitter = "$_svgImageBaseUrl/twitter.svg";
+  static const String web = "$_svgImageBaseUrl/web.svg";
+  static const String edit = "$_svgImageBaseUrl/edit.svg";
+  static const String lock = "$_svgImageBaseUrl/lock-fill.svg";
+  static const String network = "$_svgImageBaseUrl/network.svg";
+  static const String generatedFile = "$_svgImageBaseUrl/generate_file_icon.svg";
+  static const String masterCard = "$_svgImageBaseUrl/master_card.svg";
+  static const String amount = "$_svgImageBaseUrl/amount.svg";
   static const String bank =
       "$_svgImageBaseUrl/bank-regular.svg"; // bank-regular
   static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
@@ -92,12 +103,6 @@ class AssetPath {
   static const String portfolioLineGraph = "$_pngImageBaseUrl/portfolio_graph.png";
   static const String IDCard = "$_pngImageBaseUrl/ID card.png";
   static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
-  static const String warning = "$_pngImageBaseUrl/warning.png";
-  //assets/png_assets/ID card.png
-  static const String portfolioBarChart =
-      "$_pngImageBaseUrl/portfolio_bar_chart.png";
-  static const String portfolioLineGraph =
-      "$_pngImageBaseUrl/portfolio_graph.png";
-  static const String IDCard =
-      "$_pngImageBaseUrl/ID card.png"; //assets/png_assets/ID card.png
+  static const String cardWaterMask = "$_pngImageBaseUrl/card_watermask.png";
+  static const String warning = "$_pngImageBaseUrl/warning.png";//assets/png_assets/ID card.png
 }

@@ -346,7 +346,7 @@ class _IssueLoanOfferToBorrowerState extends State<IssueLoanOfferToBorrower> {
               const SizedBox(height: 15,),
               Align( alignment: Alignment.center,
                 child: Text("You have accepted this Loan request. A notification of your acceptance will be sent to the Borrower. ", textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 14),),
+                  style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400,fontSize: 16),),
               ),
               const Spacer(flex: 2,),
             ],

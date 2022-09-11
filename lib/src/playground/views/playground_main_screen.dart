@@ -210,7 +210,7 @@ class _PlayGroundHomeScreenState extends State<PlayGroundHomeScreen> {
                                         ),
                                         const Spacer(),
                                         InkWell(onTap: (){
-                                          Get.to(()=> const LoanCalculator());
+                                          Get.to(()=> const PlayGroundLoanCalculator());
                                         },
                                           child: Container(
                                             height: 34, width: 113, decoration: BoxDecoration(color: kGreen, borderRadius: BorderRadius.circular(4)),

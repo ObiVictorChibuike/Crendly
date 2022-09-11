@@ -45,12 +45,7 @@ class PortfolioDetails extends StatelessWidget {
                   SvgPicture.asset(AssetPath.edit),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
-                      "edit",
-                      style: TextStyle(
-                          color: kGreen,
-                          fontSize: 16,
-                          decoration: TextDecoration.underline),
+                    child: Text("edit", style: TextStyle(color: kGreen, fontSize: 16, decoration: TextDecoration.underline),
                     ),
                   )
                 ]),

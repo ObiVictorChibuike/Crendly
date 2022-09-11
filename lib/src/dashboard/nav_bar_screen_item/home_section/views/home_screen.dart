@@ -5,10 +5,11 @@ import 'package:crendly/constants/dummy_data.dart';
 import 'package:crendly/shared_widgets/customButton.dart';
 import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/shared_widgets/custom_pincode_field.dart';
+import 'package:crendly/src/dashboard/drawer_options/settings_views/invite/invite_screen.dart';
+import 'package:crendly/src/dashboard/drawer_options/settings_views/statement/statement_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
-import 'package:crendly/src/dashboard/settings/views/settings.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,11 @@ import 'package:dotted_line/dotted_line.dart';
 import '../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
+import '../../../drawer_options/settings_views/calculator/loan_calculator.dart';
+import '../../../drawer_options/settings_views/my_account/bank_account/bank_account.dart';
+import '../../../drawer_options/settings_views/my_account/cards/bank_card.dart';
+import '../../../drawer_options/settings_views/settings.dart';
+import '../../../drawer_options/settings_views/support/support.dart';
 import 'acquire-a_loan_section/get_a_loan.dart';
 import 'lender/lender_loans/lender_loan_options.dart';
 
@@ -368,22 +374,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }, icon: Icon(Icons.clear, color: kOrange,))
                               ],
                             ),
-                            const SizedBox(
-                              height: 50,
-                            ),
-                            Text(
-                              "Amount",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2
-                                  ?.copyWith(
-                                      color: kWhite,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16),
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
+                            const SizedBox(height: 50,),
+                            Text("Amount", style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 16),),
+                            const SizedBox(height: 10,),
                             FormFieldWidget(
                               filledColor: kLightBackGroundColor,
                               hintText: "Enter amount",
@@ -759,6 +752,18 @@ class _HomeScreenState extends State<HomeScreen> {
                          String title = quickMenu[index]["title"];
                          if (title.toLowerCase() == "settings") {
                            Get.to(()=> Settings());
+                         }else if(title.toLowerCase() == "support"){
+                           Get.to(()=> const Support());
+                         }else if(title.toLowerCase() == "cards"){
+                           Get.to(()=> const BankCard());
+                         }else if(title.toLowerCase() == "bank"){
+                           Get.to(()=> const BankAccount());
+                         }else if(title.toLowerCase() == "invite"){
+                           Get.to(()=> const InviteScreen());
+                         }else if(title.toLowerCase() == "statements"){
+                           Get.to(()=> const StatementScreen());
+                         }else if (title.toLowerCase() == "calculator"){
+                           Get.to(()=> const LoanCalculator());
                          }
                        },
                        child: Container(

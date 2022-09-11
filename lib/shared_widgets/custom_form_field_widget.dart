@@ -25,14 +25,13 @@ class FormFieldWidget extends StatelessWidget {
   final String? hintText;
   final TextStyle? hintTextStyle;
   final EdgeInsetsGeometry? padding;
-  final double? height;
-  final Color? color;
-  final Color? filledColor;
-  const FormFieldWidget({Key? key, this.labelText, this.labelStyle, this.keyboardType, this.textInputAction, this.inputFormatters, this.onSaved, this.controller, this.onChanged, this.icon, this.validator, this.width, this.onTap, this.suffixIcon, this.style, this.obscureText, this.maxLines, this.minLines, this.expands, this.prefixIcon, this.padding, this.hintText, this.hintTextStyle, this.height, this.color, this.filledColor, }) : super(key: key);
   final String? labelTitle;
   final TextStyle? labelTitleTextStyle;
   final bool? isDense;
   final double? height;
+  final Color? filledColor;
+  final String? initialValue;
+  final bool? readOnly;
 
   const FormFieldWidget({
     Key? key,
@@ -61,7 +60,7 @@ class FormFieldWidget extends StatelessWidget {
     this.prefixIcon,
     this.padding,
     this.hintText,
-    this.hintTextStyle, this.filledColor,
+    this.hintTextStyle, this.filledColor, this.initialValue, this.readOnly,
   }) : super(key: key);
 
   @override
@@ -88,6 +87,8 @@ class FormFieldWidget extends StatelessWidget {
           height: height ?? 50,
           width: width ?? double.maxFinite,
           child: TextFormField(
+            readOnly: readOnly ?? false,
+            initialValue: initialValue,
             obscureText: obscureText ?? false,
             style: style ??
                 Theme.of(context).textTheme.bodyText2?.copyWith(

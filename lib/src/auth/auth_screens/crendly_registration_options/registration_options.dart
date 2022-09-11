@@ -2,11 +2,9 @@ import 'package:crendly/constants/asset_path.dart';
 import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/src/auth/auth_screens/registration/bvn_verifcation.dart';
 import 'package:crendly/src/auth/auth_screens/registration/crendly_business_registration_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import '../../../../constants/dummy_data.dart';
 import '../../../../shared_widgets/custom_appBar.dart';
 

@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:crendly/constants/app_theme.dart';
 import 'package:crendly/src/intro_screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
         }
       },
       child: GetMaterialApp(
+          builder: BotToastInit(),
+          navigatorObservers: [BotToastNavigatorObserver()],
         debugShowCheckedModeBanner: false,
         theme: AppTheme.applicationTheme(),
         home: const SplashScreen()

@@ -118,13 +118,13 @@ class _FinishLoanOfferState extends State<FinishLoanOffer> {
             const SizedBox(height: 31,),
             Align(
               alignment: Alignment.center,
-              child: Container(height: 65, width: 80,
+              child: Container(height: 65, width: 80, margin: EdgeInsets.only(left: 10, right: 10),
                 decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: kGreen, width: 2), color: const Color(0xff081952)),
                 child: const Center(child: Icon(Icons.check_circle, color: kOrange, size: 45,)),
               ),
             ),
             Container(height: 41, width:2, color: kGreen,),
-            const SizedBox(height: 7,),
+            const SizedBox(height: 20,),
             Text("Your feedback and review has \nbeen submitted", textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),),
             const Spacer(flex: 4,),
@@ -250,50 +250,53 @@ class _FinishLoanOfferState extends State<FinishLoanOffer> {
   showRatingDialog(){
     MyDialog().showMyDialog(context, MediaQuery.of(context).size.height /1.55, MediaQuery.of(context).size.width /1.3, [
       Expanded(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Align(alignment: Alignment.centerRight,
-              child: IconButton(
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Align(alignment: Alignment.centerRight,
+                child: IconButton(
+                    onPressed: (){
+                      Get.back();
+                    }, icon: Icon(Icons.clear, color: kOrange, size: 20,)),
+              ),
+              const SizedBox(height: 21,),
+              Text("Rate your experience \nwith the crendly app.", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700,),),
+              const SizedBox(height: 33,),
+              RatingBar.builder(
+                initialRating: 4, minRating: 1, direction: Axis.horizontal,
+                allowHalfRating: true, unratedColor: Color(0xffC4C4C4),
+                itemCount: 5, itemSize: 20, itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                itemBuilder: (context, _) => Icon(Icons.star, color: Color(0xff2E4DBD),),
+                onRatingUpdate: (rating) {
+                  print(rating);
+                },
+              ),
+              const SizedBox(height: 20,),
+              Text("Write a comment", textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 16),),
+              const SizedBox(height: 8,),
+              _commentForm(),
+              const SizedBox(height: 19,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: ButtonWidget(
                   onPressed: (){
                     Get.back();
-                  }, icon: Icon(Icons.clear, color: kOrange, size: 20,)),
-            ),
-            const SizedBox(height: 21,),
-            Text("Rate your experience \nwith the crendly app.", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700,),),
-            const SizedBox(height: 33,),
-            RatingBar.builder(
-              initialRating: 4, minRating: 1, direction: Axis.horizontal,
-              allowHalfRating: true, unratedColor: Color(0xffC4C4C4),
-              itemCount: 5, itemSize: 20, itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-              itemBuilder: (context, _) => Icon(Icons.star, color: Color(0xff2E4DBD),),
-              onRatingUpdate: (rating) {
-                print(rating);
-              },
-            ),
-            const SizedBox(height: 20,),
-            Text("Write a comment", textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 16),),
-            const SizedBox(height: 8,),
-            _commentForm(),
-            const SizedBox(height: 19,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: ButtonWidget(
-                onPressed: (){
-                  Get.back();
-                  showFeedBackDialog();
-                },
-                buttonText: "Continue",
-                height: 50, buttonColor: kGreen,
-                width: double.maxFinite,
+                    showFeedBackDialog();
+                  },
+                  buttonText: "Continue",
+                  height: 50, buttonColor: kGreen,
+                  width: double.maxFinite,
+                ),
               ),
-            ),
-            const SizedBox(height: 36,),
-            TextButton(onPressed: (){},
-                child: Text("Not Now", style:
-                Theme.of(context).textTheme.bodyText2?.copyWith(color: kGreen, fontWeight: FontWeight.w700,fontSize: 16, decoration: TextDecoration.underline),),
-            )
-          ],
+              const SizedBox(height: 36,),
+              TextButton(onPressed: (){},
+                  child: Text("Not Now", style:
+                  Theme.of(context).textTheme.bodyText2?.copyWith(color: kGreen, fontWeight: FontWeight.w700,fontSize: 16, decoration: TextDecoration.underline),),
+              )
+            ],
+          ),
         ),
       )
     ]);
