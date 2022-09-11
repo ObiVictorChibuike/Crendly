@@ -10,12 +10,12 @@ import 'package:crendly/src/dashboard/drawer_options/settings_views/statement/st
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
+import 'package:crendly/src/playground/views/loan_calculator.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:dotted_line/dotted_line.dart';
 import '../../../../../shared_widgets/custom_buttom_sheet.dart';
 import '../../../../../shared_widgets/custom_dialog_widget.dart';
 import '../../../../../shared_widgets/custom_outlined_button.dart';
@@ -74,15 +74,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       const Divider(color: kLighterBackGroundColor,)
                     ],
                   ),
-                );
-              },
-            )
+                ),);
+            },)
           ],
         ),
       )
     ]);
   }
-
   bool? isCardSelected = true;
 
   void showTopUPWalletBottomSheet(){

@@ -65,30 +65,6 @@ class _LoanOptionsState extends State<LoanOptions> {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
-                ),
-              ),
-              titlePadding: EdgeInsets.fromLTRB(24.0, 0.0, 24.0, 80),
-              title:  FittedBox(
-                child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ConstrainedBox(constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 1.2, minHeight: 50),
-                        child: Text(widget.data["description"],
-                          style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 32,color: kWhite, fontWeight: FontWeight.w700,),)),
-                    const SizedBox(height: 5,),
-                    Text("Quis blandit tempus, risus non vivamus \ntortor natoque. Urna pellentesque tellus.", textAlign: TextAlign.start,
-                      style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 16,color: kWhite, fontWeight: FontWeight.w400,),),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
                     child: Column(
                       children: [
                         ...List.generate(quickLoanItem.length, (index){

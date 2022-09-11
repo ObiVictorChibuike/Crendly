@@ -60,26 +60,8 @@ class AssetPath {
   static const String generatedFile = "$_svgImageBaseUrl/generate_file_icon.svg";
   static const String masterCard = "$_svgImageBaseUrl/master_card.svg";
   static const String amount = "$_svgImageBaseUrl/amount.svg";
-  static const String bank =
-      "$_svgImageBaseUrl/bank-regular.svg"; // bank-regular
-  static const String personChecked = "$_svgImageBaseUrl/person_checked.svg";
-  static const String starredPerson = "$_svgImageBaseUrl/starred_person.svg";
-  static const String alertIcon = "$_svgImageBaseUrl/alert_icon.svg";
-  static const String carbonMoney = "$_svgImageBaseUrl/carbon_money.svg";
-  static const String loanDisbursed = "$_svgImageBaseUrl/loan_disbursed.svg";
-  static const String fundsWithdrawal = "$_svgImageBaseUrl/funds_withdrawal.svg";
-  static const String fundedWallet = "$_svgImageBaseUrl/funded_wallet.svg";
-  static const String loanRepayment = "$_svgImageBaseUrl/loan_repayment.svg";
   static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
   static const String warning = "$_pngImageBaseUrl/warning.png";
-
-  static const String bank = "$_svgImageBaseUrl/bank-regular.svg";
-  static const String instagram = "$_svgImageBaseUrl/instagram.svg";
-  static const String facebook = "$_svgImageBaseUrl/facebook.svg";
-  static const String twitter = "$_svgImageBaseUrl/twitter.svg";
-  static const String web = "$_svgImageBaseUrl/web.svg";
-  static const String edit = "$_svgImageBaseUrl/edit.svg";
-  static const String lock = "$_svgImageBaseUrl/lock-fill.svg";
 
   //Jpg Assets
   static const String appLogo = "$_jpgImageBaseUrl/slash.jpg";
@@ -87,8 +69,8 @@ class AssetPath {
   //Png Assets
   static const String logo = '$_pngImageBaseUrl/logo.png';
   static const String others = '$_pngImageBaseUrl/others.png';
-  static const String others1 = '$_pngImageBaseUrl/others_1.png';
   static const String carbonMoney = "$_pngImageBaseUrl/carbon_money.png";
+  static const String others1 = '$_pngImageBaseUrl/others_1.png';
   static const String tag = "$_pngImageBaseUrl/tag.png";
   static const String fullTag = "$_pngImageBaseUrl/full_tag.png";
   static const String splashImage = '$_pngImageBaseUrl/splash_image.png';
@@ -102,7 +84,6 @@ class AssetPath {
   static const String portfolioBarChart = "$_pngImageBaseUrl/portfolio_bar_chart.png";
   static const String portfolioLineGraph = "$_pngImageBaseUrl/portfolio_graph.png";
   static const String IDCard = "$_pngImageBaseUrl/ID card.png";
-  static const String profilePic = "$_pngImageBaseUrl/profile_pic.png";
   static const String cardWaterMask = "$_pngImageBaseUrl/card_watermask.png";
-  static const String warning = "$_pngImageBaseUrl/warning.png";//assets/png_assets/ID card.png
+
 }

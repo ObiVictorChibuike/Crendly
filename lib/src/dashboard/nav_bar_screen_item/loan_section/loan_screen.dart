@@ -3,7 +3,6 @@ import 'package:crendly/constants/color_palette.dart';
 import 'package:crendly/constants/values_manager.dart';
 import 'package:crendly/shared_widgets/call_to_action.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_and_portfolio_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'loan_type_info.dart';
@@ -28,15 +27,6 @@ class _LoanScreenState extends State<LoanScreen> {
             decoration: BoxDecoration(color: kLightBackGroundColor,
                 borderRadius: BorderRadius.only(bottomRight: Radius.circular(16), bottomLeft: Radius.circular(16)), border: Border.all()),
             child: Column(mainAxisAlignment: MainAxisAlignment.end,
-            padding: const EdgeInsets.only(left: 21, right: 21, top: 30),
-            height: 460,
-            width: 390,
-            decoration: BoxDecoration(
-                color: kLightBackGroundColor,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all()),
-            child: Column(
-
               children: [
                 Container(
                   color: kGreen, width: 92, height: 21,

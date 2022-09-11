@@ -1,5 +1,4 @@
 import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/transaction_section/views/transaction_details_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/transaction_section/views/transaction_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,8 +7,6 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../../../constants/color_palette.dart';
 import '../../../../../constants/dummy_data.dart';
 import '../../../../../shared_widgets/custom_appBar.dart';
-
-
 class TransactionScreen extends StatefulWidget {
   const TransactionScreen({Key? key}) : super(key: key);
 
@@ -21,7 +18,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
   List userOldTransaction = DummyData.oldTransaction;
   List userTodayTransaction = DummyData.todayTransaction;
   List<PopupMenuItem> filterOptions = DummyData.transactionFilterOption;
-  final scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,
@@ -41,7 +37,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
           backgroundColor: kDarkBackGroundColor,
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
-            controller: scrollController,
             child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
               children: [
               userOldTransaction.isEmpty || userTodayTransaction.isEmpty ?
@@ -62,7 +57,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Column(
                     children: [
-                      const SizedBox(height: 10,),
                       Row(mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text("Today", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontWeight: FontWeight.w700, fontSize: 16),),
@@ -85,7 +79,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                             Expanded(
                                 child: SingleChildScrollView(
                                   physics: const BouncingScrollPhysics(),
-                                  controller: scrollController,
                                   child: Column(
                                     children: [
                                       ...List.generate(userTodayTransaction.length, (index){
@@ -93,28 +86,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                                           children: [
                                             InkWell(onTap: (){
                                               Get.to(()=> TransactionDetails(transaction:  userTodayTransaction[index],));
-                                            },
-                                              child: ListTile(visualDensity: VisualDensity(vertical: -3),
-                                                leading: SvgPicture.asset(userTodayTransaction[index]["status"] == "Loan Disbursed"? AssetPath.loanDisbursed :
-                                                userTodayTransaction[index]["status"] == "Funds Withdrawal" ? AssetPath.fundsWithdrawal :
-                                                userTodayTransaction[index]["status"] == "Funded Wallet" ? AssetPath.fundedWallet :
-                                                userTodayTransaction[index]["status"] == "Loan Repayment" ? AssetPath.loanRepayment : ""),
-                                                title: Text(userTodayTransaction[index]["status"],
-                                                  style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w700),),
-                                                subtitle: Text(userTodayTransaction[index]["date"],
-                                                  style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kAlmostGrey, fontSize: 10, fontWeight: FontWeight.w400),),
-                                                trailing:Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(userTodayTransaction[index]["amount"],
-                                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kAlmostGrey, fontSize: 16, fontWeight: FontWeight.w700),),
-                                                    Text(userTodayTransaction[index]["type"],
-                                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(color:
-                                                      userTodayTransaction[index]["type"] == "Debit" ? Color(0xffFF0062) : userTodayTransaction[index]["type"] == "Credit" ?
-                                                         kGreen : null , fontSize: 10, fontWeight: FontWeight.w700),),
-                                                  ],
-                                                ),
-                                            InkWell(onTap: (){
-                                              Get.to(()=> TransactionDetailsScreen(transaction:  userTodayTransaction[index],));
                                             },
                                               child: ListTile(visualDensity: VisualDensity(vertical: -3),
                                                 leading: SvgPicture.asset(userTodayTransaction[index]["status"] == "Loan Disbursed"? AssetPath.loanDisbursed :
@@ -161,7 +132,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                             Expanded(
                                 child: SingleChildScrollView(
                                   physics: const BouncingScrollPhysics(),
-                                  controller: scrollController,
                                   child: Column(
                                     children: [
                                       ...List.generate(userOldTransaction.length, (index){
@@ -169,28 +139,6 @@ class _TransactionScreenState extends State<TransactionScreen> {
                                           children: [
                                             InkWell(onTap: (){
                                               Get.to(()=> TransactionDetails(transaction:  userOldTransaction[index],));
-                                            },
-                                              child: ListTile(visualDensity: VisualDensity(vertical: -3),
-                                                leading: SvgPicture.asset(userOldTransaction[index]["status"] == "Loan Disbursed"? AssetPath.loanDisbursed :
-                                                userOldTransaction[index]["status"] == "Funds Withdrawal" ? AssetPath.fundsWithdrawal :
-                                                userOldTransaction[index]["status"] == "Funded Wallet" ? AssetPath.fundedWallet :
-                                                userOldTransaction[index]["status"] == "Loan Repayment" ? AssetPath.loanRepayment : ""),
-                                                title: Text(userOldTransaction[index]["status"],
-                                                  style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14, fontWeight: FontWeight.w700),),
-                                                subtitle: Text(userOldTransaction[index]["date"],
-                                                  style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kAlmostGrey, fontSize: 10, fontWeight: FontWeight.w400),),
-                                                trailing:Column(crossAxisAlignment: CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(userOldTransaction[index]["amount"],
-                                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kAlmostGrey, fontSize: 16, fontWeight: FontWeight.w700),),
-                                                    Text(userOldTransaction[index]["type"],
-                                                      style: Theme.of(context).textTheme.bodyText1?.copyWith(color:
-                                                      userOldTransaction[index]["type"] == "Debit" ? Color(0xffFF0062) : userOldTransaction[index]["type"] == "Credit" ?
-                                                      kGreen : null , fontSize: 10, fontWeight: FontWeight.w700),),
-                                                  ],
-                                                ),
-                                            InkWell(onTap: (){
-                                              Get.to(()=> TransactionDetailsScreen(transaction:  userOldTransaction[index],));
                                             },
                                               child: ListTile(visualDensity: VisualDensity(vertical: -3),
                                                 leading: SvgPicture.asset(userOldTransaction[index]["status"] == "Loan Disbursed"? AssetPath.loanDisbursed :
