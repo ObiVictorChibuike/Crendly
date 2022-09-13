@@ -99,60 +99,69 @@ class _LoanScreenState extends State<LoanScreen> {
           const SizedBox(
             height: 17,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CallToAction(assetName: AssetPath.send, actionText: "Repay Loan"),
-              const SizedBox(
-                width: 41,
+        Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CallToAction(assetName: AssetPath.send, actionText: "Repay Loan"),
+                      const SizedBox(
+                        width: 41,
+                      ),
+                      CallToAction(
+                          assetName: AssetPath.withdraw,
+                          actionText: "Withdraw",
+                          backgroundColor: kCtaColor,
+                          textColor: kWhiteWithOpacity),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: AppPadding.p21),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Loans",
+                          style: Theme.of(context).textTheme.headline3!.copyWith(
+                              fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 14,),
+                        Container(padding: EdgeInsets.symmetric(vertical: 3, horizontal: 3),
+                          height: 40, decoration: BoxDecoration(color: kLightBackGroundColor, borderRadius: BorderRadius.circular(9)),
+                          child: TabBar(
+                              onTap: (index) {
+                                setState(() {
+                                  currentIndex = index;
+                                });
+                              }, indicatorSize: TabBarIndicatorSize.tab,
+                              labelColor: kDarkBackGroundColor,
+                              unselectedLabelColor: kWhite,
+                              labelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(fontWeight: FontWeight.bold, fontSize: 12),
+                              unselectedLabelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: kWhite),
+                              indicator: BoxDecoration(color: kOrange, borderRadius: const BorderRadius.all(Radius.circular(9.0)), border: Border.all(color: kOrange,)),
+                              tabs: const [
+                                Text('All Loans',),
+                                Text('Running Loans',),
+                                Text('Repaid Loans',)
+                              ]),
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        getLoanView(context, currentIndex)
+                      ],
+                    ),
+                  )
+                ],
               ),
-              CallToAction(
-                  assetName: AssetPath.withdraw,
-                  actionText: "Withdraw",
-                  backgroundColor: kCtaColor,
-                  textColor: kWhiteWithOpacity),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppPadding.p21),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Loans",
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
-                      fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 14,),
-                Container(padding: EdgeInsets.symmetric(vertical: 3, horizontal: 3),
-                  height: 40, decoration: BoxDecoration(color: kLightBackGroundColor, borderRadius: BorderRadius.circular(9)),
-                  child: TabBar(
-                      onTap: (index) {
-                        setState(() {
-                          currentIndex = index;
-                        });
-                      }, indicatorSize: TabBarIndicatorSize.tab,
-                      labelColor: kDarkBackGroundColor,
-                      unselectedLabelColor: kWhite,
-                      labelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(fontWeight: FontWeight.bold, fontSize: 12),
-                      unselectedLabelStyle: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 12, color: kWhite),
-                      indicator: BoxDecoration(color: kOrange, borderRadius: const BorderRadius.all(Radius.circular(9.0)), border: Border.all(color: kOrange,)),
-                      tabs: const [
-                        Text('All Loans',),
-                        Text('Running Loans',),
-                        Text('Repaid Loans',)
-                      ]),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                getLoanView(context, currentIndex)
-              ],
-            ),
-          )
+            )
+        )
         ],
       ),
     );

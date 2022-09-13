@@ -81,72 +81,81 @@ class _PortfolioScreenState extends State<PortfolioScreen> {
         const SizedBox(
           height: 17,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CallToAction(
-                assetName: AssetPath.send, actionText: "Fund Portfolio"),
-            const SizedBox(
-              width: 41,
-            ),
-            CallToAction(
-              assetName: AssetPath.withdraw,
-              actionText: "Withdraw",
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppPadding.p21),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Portfolios",
-                style: Theme.of(context).textTheme.headline3!.copyWith(
-                    fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
+        Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CallToAction(
+                          assetName: AssetPath.send, actionText: "Fund Portfolio"),
+                      const SizedBox(
+                        width: 41,
+                      ),
+                      CallToAction(
+                        assetName: AssetPath.withdraw,
+                        actionText: "Withdraw",
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: AppPadding.p21),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Portfolios",
+                          style: Theme.of(context).textTheme.headline3!.copyWith(
+                              fontSize: 20, color: kWhite, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 16),
+                        LoanAndPortfolioCard(
+                          onTap: () {
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (builder) => PortfolioInfo()));
+                          },
+                          loanType: "Portfolio Amount",
+                          totalAmount: "N450,000.00",
+                          loanAmount: "Payday",
+                          loanDuration: "6 Months",
+                          status: "Open",
+                          loanAmountOrTypeHeader: "Loan Type",
+                          rate: "15%",
+                          interestOrRepaymentMethod: "Repayment Method",
+                          interestAmountOrRepaymentMethodType: "Installment",
+                          statusColor: kWhite,
+                        ),
+                        const SizedBox(
+                          height: 13,
+                        ),
+                        LoanAndPortfolioCard(
+                          onTap: () {
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (builder) => PortfolioInfo()));
+                          },
+                          loanType: "Portfolio Amount",
+                          totalAmount: "N450,000.00",
+                          loanAmount: "Payday",
+                          loanDuration: "6 Months",
+                          status: "Running",
+                          loanAmountOrTypeHeader: "Loan Type",
+                          rate: "15%",
+                          interestOrRepaymentMethod: "Repayment Method",
+                          interestAmountOrRepaymentMethodType: "Installment",
+                          statusColor: kLightOrange,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 16),
-              LoanAndPortfolioCard(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (builder) => PortfolioInfo()));
-                },
-                loanType: "Portfolio Amount",
-                totalAmount: "N450,000.00",
-                loanAmount: "Payday",
-                loanDuration: "6 Months",
-                status: "Open",
-                loanAmountOrTypeHeader: "Loan Type",
-                rate: "15%",
-                interestOrRepaymentMethod: "Repayment Method",
-                interestAmountOrRepaymentMethodType: "Installment",
-                statusColor: kWhite,
-              ),
-              const SizedBox(
-                height: 13,
-              ),
-              LoanAndPortfolioCard(
-                onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (builder) => PortfolioInfo()));
-                },
-                loanType: "Portfolio Amount",
-                totalAmount: "N450,000.00",
-                loanAmount: "Payday",
-                loanDuration: "6 Months",
-                status: "Running",
-                loanAmountOrTypeHeader: "Loan Type",
-                rate: "15%",
-                interestOrRepaymentMethod: "Repayment Method",
-                interestAmountOrRepaymentMethodType: "Installment",
-                statusColor: kLightOrange,
-              ),
-            ],
-          ),
-        ),
+            )
+        )
       ],
     );
   }

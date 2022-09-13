@@ -17,6 +17,7 @@ class AssetPath {
   static const String takenLoanIcon = "$_svgImageBaseUrl/taken_loan_icon.svg";
   static const String repaidLoanIcon = "$_svgImageBaseUrl/repaid_loan_icon.svg";
   static const String addFile = "$_svgImageBaseUrl/add_file.svg";
+  static const String createPortFolio = "$_svgImageBaseUrl/create_portfolio.svg";
   static const String funds = "$_svgImageBaseUrl/funds.svg";
   static const String greenLight = "$_svgImageBaseUrl/green_light.svg";
   static const String androidPhone = "$_svgImageBaseUrl/phone_android.svg";
@@ -85,5 +86,4 @@ class AssetPath {
   static const String portfolioLineGraph = "$_pngImageBaseUrl/portfolio_graph.png";
   static const String IDCard = "$_pngImageBaseUrl/ID card.png";
   static const String cardWaterMask = "$_pngImageBaseUrl/card_watermask.png";
-
 }

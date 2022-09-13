@@ -53,7 +53,7 @@ class _GetALoanState extends State<GetALoan> {
                       selectedColor: const Color(0xff8095E0),
                       buttonHeight: 40,
                       buttonWidth: MediaQuery.of(context).size.width / 3.7),
-                  isRadio: false,
+                  isRadio: true,
                   onSelected: (String value, index, isSelected) {},
                   buttons: loanOptions,
                 ),

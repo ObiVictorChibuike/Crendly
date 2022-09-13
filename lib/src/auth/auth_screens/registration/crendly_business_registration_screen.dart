@@ -20,13 +20,8 @@ class _CrendlyBusinessOptionState extends State<CrendlyBusinessOption> {
     MyDialog().showMyDialog(context, MediaQuery.of(context).size.height / 2,
         MediaQuery.of(context).size.width / 1.3, [
       Expanded(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Spacer(
-            flex: 3,
-          ),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start, children: [
+            const Spacer(flex: 3,),
           Align(
             alignment: Alignment.center,
             child: Container(

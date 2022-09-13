@@ -7,10 +7,10 @@ import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/shared_widgets/custom_pincode_field.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/invite/invite_screen.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/statement/statement_screen.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/create_portfolio_process/create_a_loan_portfolio.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
-import 'package:crendly/src/playground/views/loan_calculator.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
@@ -628,6 +628,37 @@ class _HomeScreenState extends State<HomeScreen> {
     ]);
   }
 
+  void showCreatePortfolioBottomSheet(BuildContext context){
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/2,
+        children: [
+          Align(alignment: Alignment.centerRight,
+            child: IconButton(onPressed: (){
+              Get.back();
+            }, icon: Icon(Icons.clear, color: kOrange,),),
+          ),
+          const SizedBox(height: 27,),
+          Align(alignment: Alignment.center,
+              child: CircleAvatar(backgroundColor: kBlue, radius: 48, child: SvgPicture.asset(AssetPath.createPortFolio))),
+          const SizedBox(height: 18,),
+          Align(alignment: Alignment.center,
+            child: Text("Create a portfolio", textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontSize: 20, fontWeight: FontWeight.w700),),
+          ),
+          const SizedBox(height: 5,),
+          Align(alignment: Alignment.center,
+            child: Text("You are about to create your \nfirst portfolio.", textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontWeight: FontWeight.w400, fontSize: 14)),
+          ),
+          const SizedBox(height: 64,),
+          ButtonWidget(onPressed: (){
+            Get.back();
+            Get.to(()=>CreateALoanPortfolio());
+          }, buttonText: "Let’s start",
+            height: 50, width: double.maxFinite, buttonColor: kGreen,)
+        ]
+    );
+  }
+
   void showEmptyWithdrawalWalletBottomSheet(BuildContext context){
     MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/2,
         children: [
@@ -742,7 +773,7 @@ class _HomeScreenState extends State<HomeScreen> {
                children: [
                  GridView.count(
                    controller: scrollController,
-                   crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (1/0.8),
+                   crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (0.9/0.8),
                    shrinkWrap: true, crossAxisCount: 2, 
                    children: List.generate(quickMenu.length, (index){
                      return GestureDetector(
@@ -765,7 +796,7 @@ class _HomeScreenState extends State<HomeScreen> {
                          }
                        },
                        child: Container(
-                         decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(4)),
+                         decoration: BoxDecoration(color: const Color(0xFF4700E0), borderRadius: BorderRadius.circular(8)),
                          child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
                            children: [
                              CircleAvatar(backgroundColor: Color(0xff6219FF), radius: 16, child: Icon(quickMenu[index]["image"], size: 20, color: kWhite,)),
@@ -807,7 +838,7 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: userData.isEmpty ? MediaQuery.of(context).size.height / 1.6 : MediaQuery.of(context).size.height / 2.2,
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: userData.isEmpty ? MediaQuery.of(context).size.height / 1.6 : MediaQuery.of(context).size.height / 2,
                 decoration: BoxDecoration(color: kLightBackGroundColor, border: Border.all(color: kLightBackGroundColor),
                     borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))),
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center,
@@ -879,12 +910,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Row(
                         children: [
                           Expanded(
-                            child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+                            child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                SvgPicture.asset(AssetPath.greenLight, theme: const SvgTheme(fontSize: 25),),
-                                const SizedBox(width: 5,),
-                                Text("My Requests", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kWhite)),
-                                const Spacer(),
+                                // SvgPicture.asset(AssetPath.greenLight, theme: const SvgTheme(fontSize: 25),),
+                                // const SizedBox(width: 5,),
+                                // Text("My Requests", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kWhite)),
+                                // const Spacer(),
                                 TextButton(onPressed: (){
                                   Get.to(()=> const LoanOfferAndAgreement());
                                 },
@@ -917,7 +948,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ) : Text("₦350,000.00", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),)
                     ),
-                    SizedBox(height: userData.isEmpty ? 60 : 20,),
+                    SizedBox(height: userData.isEmpty ? 60 : 45,),
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         ...List.generate(rowButtonItem.length, (index){
@@ -1207,31 +1238,41 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               const Spacer(),
                              
-                              userData.isEmpty ? Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
-                                  border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
-                                width: double.maxFinite, height: 55,
-                                child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    SvgPicture.asset(AssetPath.addFile),
-                                    const SizedBox(width: 5,),
-                                    const Text('Create Portfolio')
-                                  ],
+                              userData.isEmpty ? GestureDetector(
+                                  onTap: (){
+                                    showCreatePortfolioBottomSheet(context);
+                                  },
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(horizontal: 18), decoration: BoxDecoration(color: Colors.white,
+                                    border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
+                                  width: double.maxFinite, height: 55,
+                                  child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(AssetPath.addFile),
+                                      const SizedBox(width: 5,),
+                                      const Text('Create Portfolio')
+                                    ],
+                                  ),
                                 ),
                               ) :
                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Expanded(
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)), height: 48,
-                                      child: Row(
-                                        children: [
-                                          SvgPicture.asset(AssetPath.addFile),
-                                          const SizedBox(width: 5,),
-                                          Text('Create Portfolio', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
-                                        ],
+                                    child: GestureDetector(
+                                      onTap:(){
+                                        showCreatePortfolioBottomSheet(context);
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                                        decoration: BoxDecoration(
+                                            color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)), height: 48,
+                                        child: Row(
+                                          children: [
+                                            SvgPicture.asset(AssetPath.addFile),
+                                            const SizedBox(width: 5,),
+                                            Text('Create Portfolio', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),

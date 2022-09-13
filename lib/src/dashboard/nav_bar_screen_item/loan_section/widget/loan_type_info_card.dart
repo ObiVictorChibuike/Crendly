@@ -245,20 +245,12 @@ class LoanTypeInfoCard extends StatelessWidget {
                     const SizedBox(
                       width: 64,
                     ),
-                    Text("Loan Status",
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                            fontSize: 10,
-                            color: kWhite,
-                            fontWeight: FontWeight.bold)),
-                    const SizedBox(
-                      width: 14,
-                    ),
+                    Text("Loan Status", style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 10, color: kWhite, fontWeight: FontWeight.bold)),
+                    const SizedBox(width: 10,),
                     Container(
                       width: 68,
                       height: 24,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          border: Border.all(color: statusColor)),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0), border: Border.all(color: statusColor)),
                       child: Center(
                         child: Text(
                           status,
