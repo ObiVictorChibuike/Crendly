@@ -1,6 +1,4 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/values_manager.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class PortfolioInfoCard extends StatelessWidget {
@@ -33,7 +31,7 @@ class PortfolioInfoCard extends StatelessWidget {
         color: kBlue,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppPadding.p13),
+            padding: EdgeInsets.symmetric(horizontal: 13),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

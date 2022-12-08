@@ -1,6 +1,5 @@
 import 'dart:math' as math;
-
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 

@@ -1,12 +1,12 @@
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_buttom_sheet.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/get_a_loan.dart';
 import 'package:range_slider_flutter/range_slider_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:get/get.dart';
-import '../../../../../constants/color_palette.dart';
-import '../../../../../shared_widgets/customButton.dart';
-import '../../../../../shared_widgets/custom_buttom_sheet.dart';
 import 'loan_calculator_widget/loan_calculator_widget.dart';
 
 

@@ -1,14 +1,14 @@
 import 'dart:async';
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_buttom_sheet.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../../../../shared_widgets/customButton.dart';
-import '../../../../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../../shared_widgets/custom_form_field_widget.dart';
-import '../../../../bottom_nav_bar/bottom_nav_bar_screen.dart';
 
 class BankCard extends StatefulWidget {
   const BankCard({Key? key}) : super(key: key);

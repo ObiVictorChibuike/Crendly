@@ -1,7 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:clipboard/clipboard.dart';
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

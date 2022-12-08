@@ -1,11 +1,11 @@
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/my_account/personal%20_information/setting_personal_information.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/my_account/security/security.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/my_account/verification/verification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../constants/asset_path.dart';
-import '../../../../../shared_widgets/custom_appBar.dart';
 import '../../widgets/settings_tile.dart';
 import 'bank_account/bank_account.dart';
 import 'cards/bank_card.dart';

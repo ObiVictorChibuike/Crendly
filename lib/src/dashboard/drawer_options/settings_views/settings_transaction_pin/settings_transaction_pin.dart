@@ -1,10 +1,9 @@
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../../../shared_widgets/customButton.dart';
 import 'create_pin.dart';
 
 class SettingsTransactionPin extends StatelessWidget {

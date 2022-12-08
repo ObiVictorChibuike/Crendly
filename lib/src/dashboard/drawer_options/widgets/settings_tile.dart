@@ -1,8 +1,6 @@
 import 'dart:math' as math;
-
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../constants/color_palette.dart';
 
 class SettingTile extends StatelessWidget {
   final IconData iconData;

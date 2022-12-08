@@ -1,12 +1,11 @@
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_outlined_button.dart';
 import 'package:crendly/src/auth/auth_screens/registration/face_scan/scanning_face.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../../../shared_widgets/custom_appBar.dart';
-import '../../../../../shared_widgets/custom_outlined_button.dart';
 
 class FaceScanAuth extends StatefulWidget {
   const FaceScanAuth({Key? key}) : super(key: key);

@@ -1,10 +1,13 @@
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/values_manager.dart';
-import 'package:crendly/shared_widgets/call_to_action.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/call_to_action.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_buttom_sheet.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_and_portfolio_card.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_repayment_board.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import 'loan_type_info.dart';
 
 class LoanScreen extends StatefulWidget {
@@ -16,6 +19,103 @@ class LoanScreen extends StatefulWidget {
 
 class _LoanScreenState extends State<LoanScreen> {
   int currentIndex = 0;
+  bool? isFullRepayment;
+
+  void showRepayLoanBottomSheet(BuildContext context){
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/1.3,
+        children: [
+          StatefulBuilder(builder: (context, mySetState){
+            return Column(children: [
+              const SizedBox(height: 10,),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Repay Loan", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite,fontSize: 20, fontWeight: FontWeight.w700),),
+                  GestureDetector(
+                      onTap: (){
+                        Get.back();
+                      },
+                      child: Icon(Icons.clear, color: kOrange,)),
+                ],
+              ),
+              const SizedBox(height: 48,),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(onTap: (){
+                    mySetState(() {
+                      isFullRepayment = true;
+                    });
+                  },
+                    child: Container(
+                      height: 44, width: MediaQuery.of(context).size.width / 2.4,
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),
+                          border: Border.all(color: isFullRepayment == true ? kBlue : kWhite), color: isFullRepayment == true ? kBlue : Colors.transparent),
+                      child: Center(
+                        child: Text("Full Repayment", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16,),),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(onTap: (){
+                    mySetState(() {
+                      isFullRepayment = false;
+                    });
+                  },
+                    child: Container(
+                      height: 44, width: MediaQuery.of(context).size.width / 2.4,
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),
+                          border: Border.all(color: isFullRepayment == false ? kBlue : kWhite), color: isFullRepayment == false ? kBlue : Colors.transparent),
+                      child: Center(
+                        child: Text("Part Repayment", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16),),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20,),
+              Container(
+                child: Column(
+                  children: [
+                    LoanRepaymentBoardWidget(
+                      loanAmount: "₦350,000.00",
+                      duration: "6 Months",
+                      interestRate: "15%",
+                      repaymentAmount: "₦450,000.00",
+                      amountRepayment: "₦350,000.00",
+                      remainingPayment: "₦150,000.00",
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24,),
+              isFullRepayment == true ?
+              Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("You will be make a full repayment of N150,000", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 16),),
+                  Text("Funds will be deducted from your wallet", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kGrey, fontSize: 14, fontWeight: FontWeight.w700),)
+                ],
+              ) :
+              isFullRepayment == false ?
+              Column(crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FormFieldWidget(
+                    labelTitle: "Enter loan amount you want to repay.",
+                    hintText: "Amount",
+                    filledColor: kLightBackGroundColor,
+                  ),
+                  const SizedBox(height: 12,),
+                  Text("Funds will be deducted from your wallet", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kGrey, fontSize: 12),)
+                ],
+              )
+                  : const SizedBox(),
+              SizedBox(height: isFullRepayment == true ? 88 : isFullRepayment == false ? 21 : 150,),
+              ButtonWidget(onPressed: (){}, buttonText: "Make repayment", height: 50, width: double.maxFinite, buttonColor: kGreen,),
+              const SizedBox(height: 68,),
+            ],);
+          })
+        ]
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -104,25 +204,14 @@ class _LoanScreenState extends State<LoanScreen> {
               physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CallToAction(assetName: AssetPath.send, actionText: "Repay Loan"),
-                      const SizedBox(
-                        width: 41,
-                      ),
-                      CallToAction(
-                          assetName: AssetPath.withdraw,
-                          actionText: "Withdraw",
-                          backgroundColor: kCtaColor,
-                          textColor: kWhiteWithOpacity),
-                    ],
-                  ),
+                  GestureDetector(
+                    onTap: ()=>showRepayLoanBottomSheet(context),
+                      child: CallToAction(assetName: AssetPath.send, actionText: "Repay Loan")),
                   const SizedBox(
                     height: 30,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: AppPadding.p21),
+                    padding: EdgeInsets.symmetric(horizontal: 22),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

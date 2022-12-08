@@ -1,13 +1,10 @@
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/home_screen.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
-import '../../../playground/views/playground_main_screen.dart';
+import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 
 class PermissionAccess extends StatelessWidget {
   const PermissionAccess({Key? key}) : super(key: key);

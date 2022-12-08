@@ -1,8 +1,8 @@
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../constants/asset_path.dart';
-import '../../../../../../constants/color_palette.dart';
-import '../../../../../../shared_widgets/custom_appBar.dart';
 import '../../../widgets/settings_tile.dart';
 import 'bio_details.dart';
 import 'contact_address.dart';

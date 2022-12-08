@@ -1,5 +1,4 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/values_manager.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class LoanAndPortfolioCard extends StatelessWidget {
@@ -39,7 +38,7 @@ class LoanAndPortfolioCard extends StatelessWidget {
           elevation: 2,
           color: kLightBackGroundColor,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

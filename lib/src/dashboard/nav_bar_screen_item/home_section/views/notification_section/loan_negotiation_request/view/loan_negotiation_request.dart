@@ -1,15 +1,15 @@
 import 'dart:async';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/shared_widgets/custom_outlined_button.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_outlined_button.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/loan_negotiation_request/widgets/loan_term_widget.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/loan_negotiation_request/widgets/negotiation_term_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
-import '../../../../../../../../shared_widgets/custom_appBar.dart';
-import '../../../../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../../../../shared_widgets/custom_form_field_widget.dart';
 import '../../../../../../bottom_nav_bar/bottom_nav_bar_screen.dart';
 
 

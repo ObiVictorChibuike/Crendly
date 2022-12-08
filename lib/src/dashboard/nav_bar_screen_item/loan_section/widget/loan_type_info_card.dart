@@ -1,5 +1,4 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/values_manager.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class LoanTypeInfoCard extends StatelessWidget {
@@ -38,7 +37,7 @@ class LoanTypeInfoCard extends StatelessWidget {
         color: kBlue,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p13),
+          padding: EdgeInsets.symmetric(horizontal: 13),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -77,7 +76,7 @@ class LoanTypeInfoCard extends StatelessWidget {
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: AppPadding.p12),
+                          padding: const EdgeInsets.only(left: 12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

@@ -1,7 +1,11 @@
 import 'dart:async';
 
-import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/src/auth/auth_screens/sign_in/sign_in.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/presentation/modules/sign_in/pages/sign_in.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/privacy_policy/policy_policy.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/settings_transaction_pin/settings_transaction_pin.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/support/support.dart';
@@ -13,10 +17,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-import '../../../../constants/asset_path.dart';
-import '../../../../constants/color_palette.dart';
-import '../../../../shared_widgets/custom_appBar.dart';
-import '../../../../shared_widgets/custom_dialog_widget.dart';
 import '../widgets/settings_tile.dart';
 import 'delete_account/delete_account.dart';
 import 'my_account/my_account.dart';

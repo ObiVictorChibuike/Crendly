@@ -1,4 +1,5 @@
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+
 import 'package:flutter/material.dart';
 
 class LoanOfferWidget extends StatelessWidget {

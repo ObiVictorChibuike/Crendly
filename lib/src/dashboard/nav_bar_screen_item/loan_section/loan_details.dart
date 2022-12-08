@@ -1,8 +1,9 @@
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_or_portfolio_row_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../constants/color_palette.dart';
-import '../../../../shared_widgets/customButton.dart';
+
 
 class LoanDetails extends StatelessWidget {
   const LoanDetails({Key? key}) : super(key: key);
@@ -30,10 +31,7 @@ class LoanDetails extends StatelessWidget {
                 Container(
                   width: double.maxFinite,
                   padding: const EdgeInsets.only(left: 15, right: 15, bottom: 78, top: 10),
-                  decoration: BoxDecoration(
-                      color: kBlue,
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: kBlue)),
+                  decoration: BoxDecoration(color: kBlue, borderRadius: BorderRadius.circular(8), border: Border.all(color: kBlue)),
                   child: Column(
                     children: [
                       LoanOrPortfolioRowTile(title: "Loan type", data: "Payday"),
@@ -44,46 +42,15 @@ class LoanDetails extends StatelessWidget {
                       LoanOrPortfolioRowTile(title: "Repayment amount", data: "N35,000 - N35,500"),
                       LoanOrPortfolioRowTile(title: "Total repayment amount", data: "N55,000 - N130,000"),
                       const SizedBox(height: 18,),
-                      LoanOrPortfolioRowTile(
-                          title: "Repayment type", data: "Installments"),
-                      LoanOrPortfolioRowTile(
-                          title: "Repayment occurrence", data: "Monthly"),
-                      LoanOrPortfolioRowTile(
-                          title: "Repayment start date", data: "21 Mar 2021"),
-                      LoanOrPortfolioRowTile(
-                          title: "Repayment start date", data: "21 Mar 2021"),
-                      const SizedBox(
-                        height: 21,
-                      ),
-                      const Divider(
-                        color: kDarkPurple,
-                      ),
-                      LoanOrPortfolioRowTile(
-                        title: "Negotiation",
-                        data: "YES",
-                        dataTextStyle: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(
-                                color: kGreen,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                      ),
-                      LoanOrPortfolioRowTile(
-                        title: "Loan extension ",
-                        data: "YES",
-                        dataTextStyle: Theme.of(context)
-                            .textTheme
-                            .bodyText1!
-                            .copyWith(
-                                color: kGreen,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                      ),
-                      LoanOrPortfolioRowTile(
-                        title: "Loan extension time",
-                        data: "30 days",
-                      ),
+                      LoanOrPortfolioRowTile(title: "Repayment type", data: "Installments"),
+                      LoanOrPortfolioRowTile(title: "Repayment occurrence", data: "Monthly"),
+                      LoanOrPortfolioRowTile(title: "Repayment start date", data: "21 Mar 2021"),
+                      LoanOrPortfolioRowTile(title: "Repayment start date", data: "21 Mar 2021"),
+                      const SizedBox(height: 21,),
+                      const Divider(color: kDarkPurple,),
+                      LoanOrPortfolioRowTile(title: "Negotiation", data: "YES", dataTextStyle: Theme.of(context).textTheme.bodyText1!.copyWith(color: kGreen, fontWeight: FontWeight.bold, fontSize: 16),),
+                      LoanOrPortfolioRowTile(title: "Loan extension ", data: "YES", dataTextStyle: Theme.of(context).textTheme.bodyText1!.copyWith(color: kGreen, fontWeight: FontWeight.bold, fontSize: 16),),
+                      LoanOrPortfolioRowTile(title: "Loan extension time", data: "30 days",),
                     ],
                   ),
                 ),

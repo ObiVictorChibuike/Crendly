@@ -1,10 +1,10 @@
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/create_portfolio_process/loan_portfolio_repayment_option.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
-import '../../../../../../constants/color_palette.dart';
-import '../../../../../../shared_widgets/customButton.dart';
-import '../../../../../../shared_widgets/custom_appBar.dart';
 import 'package:get/get.dart';
 
 class CreateLoanPortFolioTenor extends StatefulWidget {

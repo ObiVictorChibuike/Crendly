@@ -1,8 +1,9 @@
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_pincode_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../constants/color_palette.dart';
-import '../../../../../shared_widgets/customButton.dart';
-import '../../../../../shared_widgets/custom_pincode_field.dart';
+
 
 void showPinBottomBottomSheet({required BuildContext context, required void Function()? onPressed}){
   Get.bottomSheet(FractionallySizedBox(heightFactor: 0.5,

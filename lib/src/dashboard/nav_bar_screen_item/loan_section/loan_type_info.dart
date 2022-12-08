@@ -1,6 +1,5 @@
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/values_manager.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/loan_details.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_and_portfolio_info_tile.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/widget/loan_type_info_card.dart';
@@ -42,7 +41,7 @@ class LoanTypeInfo extends StatelessWidget {
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p23),
+          padding: EdgeInsets.symmetric(horizontal: 23),
           child: Column(
             children: [
               SizedBox(height: 20),

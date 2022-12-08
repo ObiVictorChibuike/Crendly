@@ -1,5 +1,5 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/dummy_data.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/constants/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_stack/image_stack.dart';

@@ -1,17 +1,16 @@
 import 'dart:async';
 
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/constants/dummy_data.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_outlined_button.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/issue_loan_offer_to_borrower.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:image_stack/image_stack.dart';
-
-import '../../../../../../constants/asset_path.dart';
-import '../../../../../../constants/color_palette.dart';
-import '../../../../../../constants/dummy_data.dart';
-import '../../../../../../shared_widgets/customButton.dart';
-import '../../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../../shared_widgets/custom_outlined_button.dart';
 import '../../../../bottom_nav_bar/bottom_nav_bar_screen.dart';
 import '../lender/widgets/custom_loan_details_widget.dart';
 

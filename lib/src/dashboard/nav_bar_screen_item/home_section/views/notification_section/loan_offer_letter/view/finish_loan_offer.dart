@@ -1,19 +1,16 @@
-
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/constants/dummy_data.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_buttom_sheet.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
 import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-
-import '../../../../../../../../constants/dummy_data.dart';
-import '../../../../../../../../shared_widgets/customButton.dart';
-import '../../../../../../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../../../../shared_widgets/custom_form_field_widget.dart';
 
 class FinishLoanOffer extends StatefulWidget {
   const FinishLoanOffer({Key? key}) : super(key: key);

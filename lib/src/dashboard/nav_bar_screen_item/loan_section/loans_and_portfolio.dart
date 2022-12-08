@@ -1,4 +1,4 @@
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/loan_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/portfolio_screen.dart';
 import 'package:flutter/material.dart';

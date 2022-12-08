@@ -1,7 +1,5 @@
-import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../../../constants/color_palette.dart';
 
 class NotificationTile extends StatelessWidget {
   final String? title;

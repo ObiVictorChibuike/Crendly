@@ -1,5 +1,6 @@
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
-import '../../../../../constants/color_palette.dart';
+
 
 class LoanAndPortfolioInfoTile extends StatelessWidget {
   final Widget leading;

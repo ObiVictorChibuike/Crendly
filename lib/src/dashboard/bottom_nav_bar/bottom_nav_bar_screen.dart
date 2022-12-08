@@ -1,12 +1,11 @@
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/explore_section/explore_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/loan_section/loans_and_portfolio.dart';
-
 import 'package:crendly/src/dashboard/nav_bar_screen_item/transaction_section/views/transaction_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../nav_bar_screen_item/home_section/views/home_screen.dart';
-import '../nav_bar_screen_item/transaction_section/views/transaction_screen.dart';
+import '../nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 
 class BottomNavigationBarScreen extends StatefulWidget {
   const BottomNavigationBarScreen({Key? key}) : super(key: key);
@@ -26,6 +25,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
       HomeScreen(),
       LoansAndPortfolioScreen(),
       TransactionScreen(),
+      LoanOfferAndAgreement(),
       Explore(),
     ];
     super.initState();
@@ -123,6 +123,28 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(2),
                           color: _selectedIndex == 3
+                              ? kGreen
+                              : kDarkBackGroundColor),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8),
+                      child: Icon(MdiIcons.accessPoint,
+                        size: 25,
+                      ),
+                    ),
+                  ],
+                ),
+                label: 'Requests',
+              ),
+              BottomNavigationBarItem(
+                icon: Column(
+                  children: [
+                    Container(
+                      height: 4,
+                      width: MediaQuery.of(context).size.width / 7,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(2),
+                          color: _selectedIndex == 4
                               ? kGreen
                               : kDarkBackGroundColor),
                     ),

@@ -1,12 +1,12 @@
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/loan_duration.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:group_button/group_button.dart';
-import '../../../../../../shared_widgets/custom_appBar.dart';
 
 
 class GetALoan extends StatefulWidget {

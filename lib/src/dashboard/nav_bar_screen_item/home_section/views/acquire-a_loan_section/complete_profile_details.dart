@@ -1,5 +1,5 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/controller/home_section_controller.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/questionnaire/add_card/add_card_screen.dart';
 import 'package:flutter/material.dart';

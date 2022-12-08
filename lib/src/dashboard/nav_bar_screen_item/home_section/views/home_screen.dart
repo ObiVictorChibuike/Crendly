@@ -1,24 +1,23 @@
 import 'dart:async';
-import 'package:crendly/constants/asset_path.dart';
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/constants/dummy_data.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
-import 'package:crendly/shared_widgets/custom_pincode_field.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/constants/dummy_data.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_buttom_sheet.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_outlined_button.dart';
+import 'package:crendly/app/shared_widgets/custom_pincode_field.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/invite/invite_screen.dart';
 import 'package:crendly/src/dashboard/drawer_options/settings_views/statement/statement_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/create_portfolio_process/create_a_loan_portfolio.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
-import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/view-all/loan_offer_and_agreement.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/widget/transaction_pin_bottomsheet.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import '../../../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../shared_widgets/custom_outlined_button.dart';
 import '../../../drawer_options/settings_views/calculator/loan_calculator.dart';
 import '../../../drawer_options/settings_views/my_account/bank_account/bank_account.dart';
 import '../../../drawer_options/settings_views/my_account/cards/bank_card.dart';
@@ -45,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List borrower1 = DummyData.borrowerLoans1;
   List userData = DummyData.userData;
   List community = DummyData.crendlyCommunity;
+  List<PopupMenuItem> loanRequestOptions = DummyData.OpenLoanRequestOption;
   bool isLender = true;
 
   showMyBankAccountDialog(){
@@ -530,7 +530,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Get.back();
                 },
                 buttonText: "Go to Home",
-                height: 55, buttonColor: kGreen,
+                height: 50, buttonColor: kGreen,
                 width: double.maxFinite,
               ),
             ),
@@ -683,6 +683,44 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void showTotalBalanceBottomSheet(BuildContext context){
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/5,
+        children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Total Balance", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kGreen, fontWeight: FontWeight.w700, fontSize: 20),),
+              Align(alignment: Alignment.centerRight,
+                child: IconButton(onPressed: (){
+                  Get.back();
+                }, icon: Icon(Icons.clear, color: kOrange,),),
+              ),
+            ],
+          ),
+          Text("This is your balance which shows a combination of your accessible balance and the balance set aside to finance your portfolio.",
+            style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14),)
+        ]
+    );
+  }
+
+  void showAccessibleBalanceBottomSheet(BuildContext context){
+    MyBottomSheet().showNonDismissibleBottomSheet(context: context, height: MediaQuery.of(context).size.height/5,
+        children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Accessible balance", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kGreen, fontWeight: FontWeight.w700, fontSize: 20),),
+              Align(alignment: Alignment.centerRight,
+                child: IconButton(onPressed: (){
+                  Get.back();
+                }, icon: Icon(Icons.clear, color: kOrange,),),
+              ),
+            ],
+          ),
+          Text("This is your balance which you can actively carry out activities such as withdrawals, repayments, etc.",
+            style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14),)
+        ]
+    );
+  }
+
   selectBetweenTopWithDrawAndMoreOption(int index){
     if(index == 0 && userData.isEmpty){
       showTopUPWalletBottomSheet();
@@ -720,30 +758,18 @@ class _HomeScreenState extends State<HomeScreen> {
               dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
               child: Row(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(height: 64, width: 64,
-                      decoration: const BoxDecoration(shape: BoxShape.circle, color: kWhite),
-                      child: Center(
-                        child: SvgPicture.asset(AssetPath.orangeHead, height: 55, width: 55, theme: const SvgTheme(fontSize: 25),),
-                      ),
-                    ),
-                  ),
                   Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 10,),
-                            Text("Damilare Martins", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.bold, fontSize: 16,),),
-                            const SizedBox(height: 10,),
-                            LinearProgressIndicator(
-                              value: 0.7, backgroundColor: Color(0xff040F35), color: kGreen,
-                              minHeight: 8,
-                            ),
-                            const SizedBox(height: 10,),
                             Text("Your profile is 80% complete", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
                             const SizedBox(height: 10,),
+                            LinearProgressIndicator(
+                              value: 0.8, backgroundColor: Color(0xff040F35), color: kGreen,
+                              minHeight: 5,
+                            ),
                             TextButton(
                                 onPressed: (){},
                                 child: Text("Complete your profile",
@@ -760,9 +786,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             children: [
               Text("Quick menu", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
-              Divider(
-                color: Colors.blue, height: 4,
-              ),
+              const SizedBox(width: 5,),
+              Expanded(child: Divider(color: Colors.blue, height: 4,),),
             ],
           ),
          Expanded(
@@ -773,8 +798,8 @@ class _HomeScreenState extends State<HomeScreen> {
                children: [
                  GridView.count(
                    controller: scrollController,
-                   crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (0.9/0.8),
-                   shrinkWrap: true, crossAxisCount: 2, 
+                   crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: (0.7/0.8),
+                   shrinkWrap: true, crossAxisCount: 3,
                    children: List.generate(quickMenu.length, (index){
                      return GestureDetector(
                        onTap: (){
@@ -825,152 +850,136 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(top: false, bottom: false,
       child: Scaffold(backgroundColor: kDarkBackGroundColor,
-          endDrawer: Container(
-            width: MediaQuery.of(context).size.width / 1.2, height: MediaQuery.of(context).size.height,
-            child: Drawer(
-              backgroundColor: Color(0xff081952),
-              child: drawerContent(),
-            ),
-          ),
+          endDrawer: Container(width: MediaQuery.of(context).size.width / 1.1, height: MediaQuery.of(context).size.height,
+            child: Drawer(backgroundColor: kLightBackGroundColor, child: drawerContent(),),),
           key: _scaffoldKey,
-          endDrawerEnableOpenDragGesture: false,
-          // endDrawer: More(),
+          endDrawerEnableOpenDragGesture: true,
           body: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: userData.isEmpty ? MediaQuery.of(context).size.height / 1.6 : MediaQuery.of(context).size.height / 2,
-                decoration: BoxDecoration(color: kLightBackGroundColor, border: Border.all(color: kLightBackGroundColor),
-                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center,
+              Stack(
+                children: [
+                  Column(
+                    children: [
+                      Container(padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: MediaQuery.of(context).size.height / 4,
+                        decoration: BoxDecoration(color: kLightBackGroundColor, border: Border.all(color: kLightBackGroundColor),
+                            borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(16), bottomRight: Radius.circular(16))),
+                      ),
+                      Container(padding: const EdgeInsets.only(left: 25, right: 25, top: 42), width: double.maxFinite, height: MediaQuery.of(context).size.height / 15,
+                        decoration: BoxDecoration(color: Colors.transparent),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: double.maxFinite, height: MediaQuery.of(context).size.height / 3,
+                    color: Colors.transparent,
+                    child:  Stack(
+                       children: [
+                         Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center,
+                           children: [
+                             Padding(
+                               padding: const EdgeInsets.fromLTRB(24.0, 40, 24,0),
+                               child: SizedBox(height: 50, width: double.maxFinite,
+                                 child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
+                                   children: [
+                                     Container(height: 40, width: 40, decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                                       child: Center(child: SvgPicture.asset(AssetPath.orangeHead, theme: const SvgTheme(fontSize: 25),),),),
+                                     const SizedBox(width: 9,),
+                                     Text("Hi, Damilare", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 15, fontWeight: FontWeight.w700, color: kOrange),),
+                                     const Spacer(),
+                                     userData.isEmpty ? const SizedBox() : IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
+                                     IconButton(onPressed: (){
+                                       Get.to(()=> const NotificationPage());
+                                     }, icon: const Icon(Icons.notifications_none, color: kWhite,)),
+                                   ],
+                                 ),
+                               ),
+                             ),
+                             const SizedBox(height: 56,),
+                             Expanded(
+                               child: SingleChildScrollView(
+                                 physics: const BouncingScrollPhysics(),
+                                 scrollDirection: Axis.horizontal,
+                                 child: Padding(
+                                   padding: const EdgeInsets.only(left: 16.0),
+                                   child: Row(
+                                     children: [
+                                       Padding(
+                                         padding: const EdgeInsets.only(right: 8.0),
+                                         child: Container(padding: const EdgeInsets.all(16),
+                                           height: 114, width: MediaQuery.of(context).size.width / 1.2,
+                                           decoration: BoxDecoration(color: kBlue, borderRadius: BorderRadius.circular(4)),
+                                             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                                 children: [
+                                                   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
+                                                     children: [
+                                                       Text("Accessible Balance", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14),),
+                                                       GestureDetector(
+                                                         onTap: (){
+                                                           showAccessibleBalanceBottomSheet(context);
+                                                         },
+                                                           child: Icon(Icons.error_outline, color: kWhite)),
+                                                     ],
+                                                   ),
+                                                   Text( userData.isEmpty ? "₦0" : "₦350,000,000", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 30, fontWeight: FontWeight.w700),),
+                                                 ],
+                                             )
+                                         ),
+                                       ),
+                                       Container(
+                                         padding: const EdgeInsets.all(16),
+                                         height: 114, width: MediaQuery.of(context).size.width / 1.2,
+                                         decoration: BoxDecoration(color: kBlue, borderRadius: BorderRadius.circular(4)),
+                                           child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                             children: [
+                                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
+                                                 children: [
+                                                   Text("Total Balance", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 14),),
+                                                   GestureDetector(
+                                                       onTap: (){
+                                                         showTotalBalanceBottomSheet(context);
+                                                       },
+                                                       child: Icon(Icons.error_outline, color: kWhite)),
+                                                 ],
+                                               ),
+                                               Text( userData.isEmpty ? "₦0" : "₦350,000,000", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: kWhite, fontSize: 30, fontWeight: FontWeight.w700),),
+                                             ],
+                                           )
+                                       ),
+                                     ],
+                                   ),
+                                 ),
+                               ),
+                             ),
+                             SizedBox(height: 20,),
+                           ],
+                         ),
+                       ],
+                     ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SizedBox(height: 50, width: double.maxFinite,
-                      child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Container(height: 40, width: 40,
-                            decoration: const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-                            child: Center(
-                              child: SvgPicture.asset(AssetPath.orangeHead, theme: const SvgTheme(fontSize: 25),),
-                            ),
-                          ),
-                          const SizedBox(width: 9,),
-                          Text("Hi, Damilare", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 15, fontWeight: FontWeight.w700, color: kOrange),),
-                          const Spacer(),
-                          userData.isEmpty ? const SizedBox() : IconButton(onPressed: (){}, icon: SvgPicture.asset(AssetPath.search, theme: const SvgTheme(fontSize: 25),),),
-                          IconButton(onPressed: (){
-                            Get.to(()=> const NotificationPage());
-                          }, icon: const Icon(Icons.notifications_none, color: kWhite,)),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: userData.isEmpty ? 20 :20,),
-                    userData.isEmpty ?
-                    DottedBorder(color: Color(0xff2E4DBD),
-                        dashPattern: [8, 4], radius: Radius.circular(10), borderType: BorderType.RRect,
-                        child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+                    ...List.generate(rowButtonItem.length, (index){
+                      return InkWell(
+                        onTap: (){
+                          selectBetweenTopWithDrawAndMoreOption(index);
+                        },
+                        child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Container(height: 64, width: 64,
-                                decoration: const BoxDecoration(shape: BoxShape.circle, color: kWhite),
-                                child: Center(
-                                  child: SvgPicture.asset(AssetPath.orangeHead, height: 55, width: 55, theme: const SvgTheme(fontSize: 25),),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                  child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      const SizedBox(height: 10,),
-                                      Text("Damilare Martins", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontWeight: FontWeight.bold, fontSize: 16,),),
-                                      const SizedBox(height: 10,),
-                                      LinearProgressIndicator(
-                                        value: 0.7, backgroundColor: Color(0xff040F35), color: kGreen,
-                                        minHeight: 8,
-                                      ),
-                                      const SizedBox(height: 10,),
-                                      Text("Your profile is 80% complete", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
-                                      const SizedBox(height: 10,),
-                                      TextButton(
-                                          onPressed: (){},
-                                          child: Text("Complete your profile",
-                                            style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kGreen, decoration: TextDecoration.underline, fontSize: 14),)
-                                      )
-                                    ],
-                                  ),
-                                )
-                            )
-                          ],
-                        )
-                    ) :
-                    Container(
-                      height: 56, width: double.maxFinite, decoration: BoxDecoration(color: const Color(0xff4700E0), borderRadius: BorderRadius.circular(8)),
-                      padding: const EdgeInsets.only(left: 16, right: 16),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                // SvgPicture.asset(AssetPath.greenLight, theme: const SvgTheme(fontSize: 25),),
-                                // const SizedBox(width: 5,),
-                                // Text("My Requests", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kWhite)),
-                                // const Spacer(),
-                                TextButton(onPressed: (){
-                                  Get.to(()=> const LoanOfferAndAgreement());
-                                },
-                                    child: Text("View all", style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 14, fontWeight: FontWeight.w700, color: kGreen, decoration: TextDecoration.underline)),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: userData.isEmpty ? 35 : 25,),
-                    Center(child: userData.isEmpty ? Row(mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text('Accessible Balance', style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.w400, fontSize: 12),),
-                            Text("₦0", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 24),),
+                            CircleAvatar(backgroundColor: kBlue, radius: 24, child: rowButtonItem[index]["icon"]),
+                            const SizedBox(height: 8,),
+                            Text(rowButtonItem[index]["Text"], textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, color: kWhite),)
                           ],
                         ),
-                        const SizedBox(width: 28,),
-                        Container(height: 50, width: 2, color: kWhite,),
-                        const SizedBox(width: 28,),
-                        Column(crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Total Balance", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kGrey, fontFamily: 'KumbhSans', fontWeight: FontWeight.w400, fontSize: 12),),
-                            Text("₦0", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kGrey, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 24),)
-                          ],
-                        )
-                      ],
-                    ) : Text("₦350,000.00", style:Theme.of(context).textTheme.bodyText2?.copyWith(color: kWhite, fontFamily: 'KumbhSans', fontWeight: FontWeight.bold, fontSize: 32),)
-                    ),
-                    SizedBox(height: userData.isEmpty ? 60 : 45,),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ...List.generate(rowButtonItem.length, (index){
-                          return InkWell(
-                            onTap: (){
-                              selectBetweenTopWithDrawAndMoreOption(index);
-                            },
-                            child: Column(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CircleAvatar(backgroundColor: kBlue, radius: 28, child: rowButtonItem[index]["icon"]),
-                                const SizedBox(height: 8,),
-                                Text(rowButtonItem[index]["Text"], textAlign: TextAlign.center, style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, color: kWhite),)
-                              ],
-                            ),
-                          );
-                        }),
-                      ],
-                    )
+                      );
+                    }),
                   ],
                 ),
               ),
-              const SizedBox(height: 30,),
+              const SizedBox(height: 20,),
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -978,6 +987,67 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                       userData.isEmpty ?  const SizedBox() :
+                        Container(
+                            padding: EdgeInsets.all(20), decoration: BoxDecoration(color: Color(0xff122C85), borderRadius: BorderRadius.circular(8)),
+                            child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Payday Loan", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),),
+                                        Text("2%p.a", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kGreen, fontSize: 24, fontWeight: FontWeight.w700),),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          padding: EdgeInsets.symmetric(horizontal: 13, vertical: 5),
+                                          decoration: BoxDecoration(color: kLightBackGroundColor, borderRadius: BorderRadius.circular(14), border: Border.all(color: Color(0xffC1CDF6))),
+                                          child: Text("Open Loan request", style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Color(0xffC1CDF6), fontSize: 10),),
+                                        ),
+                                        const SizedBox(width: 15,),
+                                        PopupMenuButton(
+                                            color: kLightBackGroundColor, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                                            child: Icon(Icons.more_vert_rounded, color: kWhite,),
+                                            itemBuilder: (BuildContext context)=>loanRequestOptions),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                const SizedBox(height: 15,),
+                                const Divider(color: kBrighterBackGroundColor,),
+                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Amount", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+                                        const SizedBox(height: 5,),
+                                        Text("₦50,000", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),),
+                                        const SizedBox(height: 19,),
+                                        Text("Payment", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+                                        const SizedBox(height: 5,),
+                                        Text("Installment", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),),
+                                      ],
+                                    ),
+                                    Column(crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Duration", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+                                        const SizedBox(height: 5,),
+                                        Text("6 Months", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),),
+                                        const SizedBox(height: 19,),
+                                        Text("Lender’s rep", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 14),),
+                                        const SizedBox(height: 5,),
+                                        Text("89.2%", style: Theme.of(context).textTheme.displaySmall?.copyWith(color: kWhite, fontSize: 16, fontWeight: FontWeight.w700),),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            )
+                        ),
+                        SizedBox(height: userData.isEmpty ? 0: 32),
                         Container(
                           padding: const EdgeInsets.only(top: 23, left: 16, right: 16, bottom: 23,), width: double.maxFinite, height:  userData.isEmpty ?MediaQuery.of(context).size.height / 4 : MediaQuery.of(context).size.height / 3.2,
                           decoration: BoxDecoration(gradient: const LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: greenGradient),
@@ -1059,7 +1129,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               IntrinsicHeight(
                                 child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const SizedBox(width: 25,),
                                     Column(
                                       children: [
                                         Text('Current Loan', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 10, fontWeight: FontWeight.w600, color: const Color(0xff070647))),
@@ -1102,17 +1171,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: InkWell(onTap: (){
                                         Get.to(()=> const GetALoan());
                                       },
-                                        child: Container(
-                                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                                            decoration: BoxDecoration(color: kWhite, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)),
-                                            height: 48,
-                                            child: Row(
-                                              children: [
-                                                SvgPicture.asset(AssetPath.takenLoanIcon),
-                                                const SizedBox(width: 5,),
-                                                Text('Take Loan', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12))
-                                              ],
-                                            )
+                                        child: Card(elevation: 3,
+                                          child: Container(
+                                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                                              decoration: BoxDecoration(color: kWhite, border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)),
+                                              height: 48,
+                                              child: Row(
+                                                children: [
+                                                  SvgPicture.asset(AssetPath.takenLoanIcon),
+                                                  const SizedBox(width: 5,),
+                                                  Text('Take Loan', overflow: TextOverflow.ellipsis,style:
+                                                  Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, fontWeight: FontWeight.w600, color: kTextBlue))
+                                                ],
+                                              )
+                                          ),
                                         ),
                                       ),
                                   ),
@@ -1121,16 +1193,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: InkWell(onTap: (){
                                       showRepayLoanBottomSheet();
                                     },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 10), decoration: BoxDecoration(color: Colors.white,
-                                          border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)), height: 48,
-                                        child: Row(
-                                          children: [
-                                            SvgPicture.asset(AssetPath.repaidLoanIcon),
-                                            const SizedBox(width: 5,),
-                                            Text('Repay Loan', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
-                                          ],
-                                        )
+                                      child: Card(elevation: 3,
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 10), decoration: BoxDecoration(color: Colors.white,
+                                            border: Border.all(color: kWhite), borderRadius: BorderRadius.circular(4)), height: 48,
+                                          child: Row(
+                                            children: [
+                                              SvgPicture.asset(AssetPath.repaidLoanIcon),
+                                              const SizedBox(width: 5,),
+                                              Text('Repay Loan', overflow: TextOverflow.ellipsis,
+                                                style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, color: kTextBlue, fontWeight: FontWeight.w600),)
+                                            ],
+                                          )
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -1218,11 +1293,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               IntrinsicHeight(
                                 child: Row(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    const SizedBox(width: 25,),
                                     Column(
                                       children: [
                                         Text('Running Portfolio', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 10, fontWeight: FontWeight.w600, color: const Color(0xff070647))),
-                                        Text('N500,000.00', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20, fontWeight: FontWeight.bold, color:Colors.black)
+                                        Text('₦500,000.00', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20, fontWeight: FontWeight.bold, color:Colors.black)
                                         )
                                       ],
                                     ),
@@ -1230,7 +1304,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Column(
                                       children: [
                                         Text('Total Loan Disbursed', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 10, fontWeight: FontWeight.w600, color: const Color(0xff070647))),
-                                        Text('N3,050,000.00', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black))
+                                        Text('₦3,050,000.00', style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black))
                                       ],
                                     ),
                                   ],
@@ -1262,32 +1336,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                       onTap:(){
                                         showCreatePortfolioBottomSheet(context);
                                       },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                                        decoration: BoxDecoration(
-                                            color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)), height: 48,
-                                        child: Row(
-                                          children: [
-                                            SvgPicture.asset(AssetPath.addFile),
-                                            const SizedBox(width: 5,),
-                                            Text('Create Portfolio', overflow: TextOverflow.ellipsis,style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
-                                          ],
+                                      child: Card(elevation: 3,
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                                          decoration: BoxDecoration(
+                                              color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)), height: 48,
+                                          child: Row(
+                                            children: [
+                                              SvgPicture.asset(AssetPath.addFile),
+                                              const SizedBox(width: 5,),
+                                              Text('Create Portfolio', overflow: TextOverflow.ellipsis,
+                                                style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, color: kTextBlue, fontWeight: FontWeight.w600),)
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
                                   const SizedBox(width: 10,),
                                   Expanded(
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                                        decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)),
-                                        height: 48,
-                                        child: Row(
-                                          children: [
-                                            SvgPicture.asset(AssetPath.funds),
-                                            const SizedBox(width: 5,),
-                                            Text('Fund Portfolio', overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, ),)
-                                          ],
+                                      child: Card(elevation: 3,
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                                          decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.white), borderRadius: BorderRadius.circular(4)),
+                                          height: 48,
+                                          child: Row(
+                                            children: [
+                                              SvgPicture.asset(AssetPath.funds),
+                                              const SizedBox(width: 5,),
+                                              Text('Fund Portfolio', overflow: TextOverflow.ellipsis,
+                                                style: Theme.of(context).textTheme.displaySmall?.copyWith(fontSize: 12, fontWeight: FontWeight.w600, color: kTextBlue),)
+                                            ],
+                                          ),
                                         ),
                                       ),
                                   ),

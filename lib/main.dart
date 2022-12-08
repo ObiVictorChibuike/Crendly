@@ -1,11 +1,14 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:crendly/constants/app_theme.dart';
-import 'package:crendly/src/intro_screens/splash/splash_screen.dart';
+import 'package:crendly/app/constants/app_theme.dart';
+import 'package:crendly/presentation/modules/registration%20&%20onboarding/pages/otp_verification/otp_verification.dart';
+import 'package:crendly/presentation/modules/registration%20&%20onboarding/pages/otp_verification/registration_success_loader_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart'show kIsWeb;
 import 'package:flutter/services.dart';
 import 'dart:io';
 import 'package:get/get.dart';
+
+import 'presentation/modules/intro_screens/splash/pages/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

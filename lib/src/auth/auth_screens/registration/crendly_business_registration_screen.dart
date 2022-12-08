@@ -1,12 +1,11 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/custom_dialog_widget.dart';
-import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../../constants/asset_path.dart';
-import '../../../../shared_widgets/customButton.dart';
-import '../../../../shared_widgets/custom_appBar.dart';
 
 class CrendlyBusinessOption extends StatefulWidget {
   const CrendlyBusinessOption({Key? key}) : super(key: key);

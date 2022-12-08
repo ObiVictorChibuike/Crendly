@@ -1,9 +1,9 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/create_portfolio_process/widget/loan_portfolio_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../shared_widgets/custom_dialog_widget.dart';
 
 class LoanPortfolio extends StatelessWidget {
   const LoanPortfolio({Key? key}) : super(key: key);

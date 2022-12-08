@@ -1,17 +1,16 @@
-import 'package:crendly/constants/color_palette.dart';
-import 'package:crendly/shared_widgets/customButton.dart';
-import 'package:crendly/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
+import 'package:crendly/app/shared_widgets/custom_buttom_sheet.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_outlined_button.dart';
 import 'package:crendly/src/auth/auth_screens/registration/verify_address/address_verification.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
-import '../../../../../constants/asset_path.dart';
-import '../../../../../shared_widgets/custom_appBar.dart';
-import '../../../../../shared_widgets/custom_buttom_sheet.dart';
-import '../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../shared_widgets/custom_outlined_button.dart';
 
 class UploadIDCard extends StatefulWidget {
   const UploadIDCard({Key? key}) : super(key: key);

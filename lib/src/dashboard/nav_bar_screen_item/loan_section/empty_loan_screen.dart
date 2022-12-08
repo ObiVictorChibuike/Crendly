@@ -1,9 +1,9 @@
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/constants/dummy_data.dart';
+import 'package:crendly/app/shared_widgets/custom_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import '../../../../constants/dummy_data.dart';
-import '../../../../shared_widgets/custom_appBar.dart';
 
 class EmptyLoanScreen extends StatefulWidget {
   const EmptyLoanScreen({Key? key}) : super(key: key);

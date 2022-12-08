@@ -1,10 +1,11 @@
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
+import 'package:crendly/app/shared_widgets/custom_dialog_widget.dart';
+import 'package:crendly/app/shared_widgets/custom_form_field_widget.dart';
 import 'package:crendly/src/dashboard/bottom_nav_bar/bottom_nav_bar_screen.dart';
+import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/acquire-a_loan_section/loan_board_application/loan_board.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../../../../constants/color_palette.dart';
-import '../../../../../../../../shared_widgets/customButton.dart';
-import '../../../../../../../../shared_widgets/custom_dialog_widget.dart';
-import '../../../../../../../../shared_widgets/custom_form_field_widget.dart';
 
 class AddCardScreen extends StatefulWidget {
   const AddCardScreen({Key? key}) : super(key: key);
@@ -39,10 +40,10 @@ class _AddCardScreenState extends State<AddCardScreen> {
               child: ButtonWidget(
                   onPressed: (){
                     Get.back();
-                    Get.to(()=> BottomNavigationBarScreen());
+                    Get.to(()=> LoanBoard());
                   },
                   buttonText: "Continue",
-                  height: 55, buttonColor: kGreen,
+                  height: 50, buttonColor: kGreen,
                   width: double.maxFinite
               ),
             ),

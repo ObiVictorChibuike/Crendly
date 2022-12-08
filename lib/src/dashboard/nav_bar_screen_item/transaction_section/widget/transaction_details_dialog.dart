@@ -1,5 +1,5 @@
+import 'package:crendly/app/constants/color_palette.dart';
 import 'package:flutter/material.dart';
-import '../../../../../constants/color_palette.dart';
 
 class TransactionDetailWidget extends StatelessWidget {
   final String? transactionType;

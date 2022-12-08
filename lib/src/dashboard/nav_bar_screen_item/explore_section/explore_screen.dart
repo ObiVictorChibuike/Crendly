@@ -1,13 +1,13 @@
-import 'package:crendly/constants/color_palette.dart';
+import 'package:crendly/app/constants/asset_path.dart';
+import 'package:crendly/app/constants/color_palette.dart';
+import 'package:crendly/app/constants/dummy_data.dart';
+import 'package:crendly/app/shared_widgets/customButton.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/explore_section/explore_search_screen.dart';
 import 'package:crendly/src/dashboard/nav_bar_screen_item/home_section/views/notification_section/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../../../../constants/asset_path.dart';
-import '../../../../constants/dummy_data.dart';
-import '../../../../shared_widgets/customButton.dart';
 
 class Explore extends StatefulWidget {
   const Explore({Key? key}) : super(key: key);
