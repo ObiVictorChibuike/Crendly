@@ -32,6 +32,7 @@ class FormFieldWidget extends StatelessWidget {
   final Color? filledColor;
   final String? initialValue;
   final bool? readOnly;
+  final bool? enabled;
 
   const FormFieldWidget({
     Key? key,
@@ -52,6 +53,7 @@ class FormFieldWidget extends StatelessWidget {
     this.width,
     this.onTap,
     this.suffixIcon,
+    this.enabled,
     this.style,
     this.obscureText,
     this.maxLines,
@@ -60,7 +62,10 @@ class FormFieldWidget extends StatelessWidget {
     this.prefixIcon,
     this.padding,
     this.hintText,
-    this.hintTextStyle, this.filledColor, this.initialValue, this.readOnly,
+    this.hintTextStyle,
+    this.filledColor,
+    this.initialValue,
+    this.readOnly,
   }) : super(key: key);
 
   @override
@@ -69,7 +74,11 @@ class FormFieldWidget extends StatelessWidget {
       readOnly: readOnly ?? false,
       initialValue: initialValue,
       obscureText: obscureText ?? false,
-      style: style ?? Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 18, color: kWhite,),
+      style: style ??
+          Theme.of(context).textTheme.bodyText2?.copyWith(
+                fontSize: 18,
+                color: kWhite,
+              ),
       textCapitalization: TextCapitalization.words,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onSaved: onSaved,
@@ -84,6 +93,7 @@ class FormFieldWidget extends StatelessWidget {
       textInputAction: textInputAction ?? TextInputAction.next,
       keyboardType: keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
+        enabled: enabled ?? true,
         alignLabelWithHint: true,
         floatingLabelBehavior: FloatingLabelBehavior.never,
         suffixIcon: suffixIcon,
@@ -101,6 +111,9 @@ class FormFieldWidget extends StatelessWidget {
                 .textTheme
                 .bodyText2
                 ?.copyWith(color: const Color(0xff868484), fontSize: 16),
+                disabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            borderSide: BorderSide(color: kWhite, width: 0.7)),
         enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(4)),
             borderSide: BorderSide(color: kWhite, width: 0.7)),

@@ -7,20 +7,21 @@ import 'package:flutter/services.dart';
 class DropList extends StatefulWidget {
   DropList(
       {Key? key,
-        required this.valueName,
-        required this.iterable,
-        this.leading,
-        this.onChanged,
-        this.label,
-        required this.hintText,
-        this.validator,
-        this.errorMessage,
-        this.prefixIcon,
-        this.suffixIcon,
-        this.obscureText,
-        this.controller,
-        this.inputFormatters,
-        this.textCapitalization})
+      required this.valueName,
+      required this.iterable,
+      this.leading,
+      this.onChanged,
+      this.label,
+      required this.hintText,
+      this.validator,
+      this.errorMessage,
+      this.prefixIcon,
+      this.suffixIcon,
+      this.obscureText,
+      this.controller,
+      this.inputFormatters,
+      this.dropdownMaxHeight,
+      this.textCapitalization})
       : super(key: key);
 
   final TextEditingController? valueName;
@@ -28,6 +29,7 @@ class DropList extends StatefulWidget {
   final String? label;
   final Widget? leading;
   final Function? onChanged;
+  final double? dropdownMaxHeight;
   final String hintText;
   final String? Function(String?)? validator;
   final String? Function()? errorMessage;
@@ -56,7 +58,6 @@ class DropList extends StatefulWidget {
 }
 
 class _DropListState extends State<DropList> {
-
   String? valueN;
 
   @override
@@ -65,24 +66,28 @@ class _DropListState extends State<DropList> {
       padding: EdgeInsets.symmetric(),
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
-          style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 18, color: kWhite,),
+          style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                fontSize: 18,
+                color: kWhite,
+              ),
           buttonPadding: const EdgeInsets.symmetric(horizontal: 10),
-          icon: Icon(Icons.keyboard_arrow_down_rounded, color: kWhite,),
+          icon: Icon(
+            Icons.keyboard_arrow_down_rounded,
+            color: kWhite,
+          ),
           selectedItemHighlightColor: Colors.transparent,
           buttonHeight: 53,
           dropdownDecoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: kLightBackGroundColor,
+            color: kDivider,
             border: Border.all(color: kWhite),
           ),
-          dropdownMaxHeight: 200,
+          dropdownMaxHeight: widget.dropdownMaxHeight ?? 200,
           dropdownWidth: MediaQuery.of(context).size.width * 0.8,
           buttonDecoration: BoxDecoration(
             // color: AppColors.white,
             borderRadius: BorderRadius.circular(4),
-            border: Border.all(
-                color: kWhite
-            ),
+            border: Border.all(color: kWhite),
           ),
           value: valueN,
           onChanged: (value) {
@@ -103,13 +108,16 @@ class _DropListState extends State<DropList> {
           isExpanded: true,
           items: widget.iterable
               .map((item) => DropdownMenuItem<String>(
-            value: item,
-            child: Text(
-              "${item[0].toUpperCase() + item.substring(1)}",
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(fontSize: 18, color: kWhite,),
-              overflow: TextOverflow.ellipsis,
-            ),
-          ))
+                    value: item,
+                    child: Text(
+                      "${item[0].toUpperCase() + item.substring(1)}",
+                      style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                            fontSize: 18,
+                            color: kWhite,
+                          ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ))
               .toList(),
         ),
       ),

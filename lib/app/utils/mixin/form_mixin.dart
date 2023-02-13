@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 mixin FormMixin {
-
   /// checks if any fields are empty
-  String? isRequired(String? value){
-    if(value == null || value == ''){
+  String? isRequired(String? value) {
+    if (value == null || value == '') {
       return 'This field is required';
     }
     return null;
@@ -23,17 +22,25 @@ mixin FormMixin {
     return null;
   }
 
-  String? isBvn(String? value){
-    if(value == null || value == ''){
+  String? isBvn(String? value) {
+    if (value == null || value == '') {
       return 'This field is required';
-    }else if(value.length < 11 || value.length > 11){
+    } else if (value.length < 11 || value.length > 11) {
       return "This bvn is not valid";
     }
     return null;
   }
 
-  String? isValidEmailAddress (String? value){
-    final emailAddressRegex = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  String? notEmpty(String? value) {
+    if (value == null || value == '') {
+      return 'This field is required';
+    }
+    return null;
+  }
+
+  String? isValidEmailAddress(String? value) {
+    final emailAddressRegex = RegExp(
+        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
     if (value?.isEmpty ?? true) {
       return 'This field is required';
     } else if (!emailAddressRegex.hasMatch(value!)) {
@@ -42,31 +49,30 @@ mixin FormMixin {
     return null;
   }
 
-  String? isValidPhoneNumber(String? value){
+  String? isValidPhoneNumber(String? value) {
     // final phoneNumberRegex = RegExp(r'(^(?:[+0]9)?[0-9]{11,14}$)');
-    if(value == null || value == ''){
+    if (value == null || value == '') {
       return 'This field is required';
     }
     // if(!phoneNumberRegex.hasMatch(value)){
     //   return 'Phone Number isn\'t Valid' ;
     // }
-    return null ;
+    return null;
   }
 
   /// Validates the required fields and calls a save method on the form
   bool validateAndSaveOnSubmit(BuildContext ctx) {
     final form = Form.of(ctx);
-    if(form == null) {
+    if (form == null) {
       return false;
     }
 
-    if(!form.validate()){
+    if (!form.validate()) {
       return false;
     }
 
     form.save();
     return true;
-
   }
 
   FormFieldValidator<String> validatePassword({
@@ -115,21 +121,21 @@ mixin FormMixin {
   }
 
   static bool isPassword(
-      String? password, {
-        int minLength = 4,
-        int? maxLength,
-        bool shouldContainNumber = false,
-        bool shouldContainSpecialChars = false,
-        bool shouldContainCapitalLetter = false,
-        bool shouldContainSmallLetter = false,
-        Function? reason,
-        void Function(bool)? isNumberPresent,
-        void Function(bool)? isSpecialCharsPresent,
-        void Function(bool)? isCapitalLetterPresent,
-        void Function(bool)? isSmallLetterPresent,
-        void Function()? isMaxLengthFailed,
-        void Function()? isMinLengthFailed,
-      }) {
+    String? password, {
+    int minLength = 4,
+    int? maxLength,
+    bool shouldContainNumber = false,
+    bool shouldContainSpecialChars = false,
+    bool shouldContainCapitalLetter = false,
+    bool shouldContainSmallLetter = false,
+    Function? reason,
+    void Function(bool)? isNumberPresent,
+    void Function(bool)? isSpecialCharsPresent,
+    void Function(bool)? isCapitalLetterPresent,
+    void Function(bool)? isSmallLetterPresent,
+    void Function()? isMaxLengthFailed,
+    void Function()? isMinLengthFailed,
+  }) {
     if (password == null) {
       return false;
     }
@@ -192,5 +198,4 @@ mixin FormMixin {
 
     return true;
   }
-
 }

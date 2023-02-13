@@ -2,7 +2,7 @@ import 'package:crendly/app/constants/asset_path.dart';
 import 'package:crendly/app/constants/color_palette.dart';
 import 'package:crendly/app/shared_widgets/customButton.dart';
 import 'package:crendly/app/shared_widgets/custom_appBar.dart';
-import 'package:crendly/src/auth/auth_screens/registration/identification/select_id_card.dart';
+import 'package:crendly/presentation/modules/registration%20&%20onboarding/pages/update_regulatory_id/select_id_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -26,7 +26,8 @@ class _MeansOfIdentificationState extends State<MeansOfIdentification> {
           title: LinearProgressIndicator(
             color: kGreen,
             value: 0.5,
-          ), centerTitle: false,
+          ),
+          centerTitle: false,
           appBarLabel: Text(
             "Means Of Identification",
             style: Theme.of(context).textTheme.bodyText2?.copyWith(
@@ -39,7 +40,8 @@ class _MeansOfIdentificationState extends State<MeansOfIdentification> {
         ),
         body: Padding(
           padding: const EdgeInsets.only(top: 35, left: 24, right: 24),
-          child: Column(mainAxisAlignment: MainAxisAlignment.start,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SvgPicture.asset(
@@ -78,7 +80,7 @@ class _MeansOfIdentificationState extends State<MeansOfIdentification> {
               Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Passport  .  Driver’s Liscence  .  NIN  .  Voters’ Card",
+                    "Passport  .  Driver’s License  .  NIN  .  Voters’ Card",
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyText2?.copyWith(
                         color: kWhite,

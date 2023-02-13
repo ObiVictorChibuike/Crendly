@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-class LocalCachedData{
+class LocalCachedData {
   final SharedPreferences _prefs;
   LocalCachedData._(this._prefs);
-  static Future<LocalCachedData> create() async => LocalCachedData._(await SharedPreferences.getInstance());
+  static Future<LocalCachedData> create() async =>
+      LocalCachedData._(await SharedPreferences.getInstance());
   static LocalCachedData get instance => Get.find<LocalCachedData>();
 
   Future<String?> getAuthToken() async {
@@ -33,6 +33,51 @@ class LocalCachedData{
 
   Future<void> cacheUserEmail({required String? email}) async {
     _prefs.setString("userEmail", email!);
+  }
+
+  Future<String?> getUserPhoneNumber() async {
+    String? phoneNumber = _prefs.getString("phoneNumber");
+    return phoneNumber;
+  }
+
+  Future<void> cacheUserPhoneNumber({required String? phoneNumber}) async {
+    _prefs.setString("phoneNumber", phoneNumber!);
+  }
+
+  Future<String?> getUserDOB() async {
+    String? dob = _prefs.getString("dob");
+    return dob;
+  }
+
+  Future<void> cacheUserDOB({required String? dob}) async {
+    _prefs.setString("dob", dob!);
+  }
+
+  Future<String?> getUserGender() async {
+    String? gender = _prefs.getString("gender");
+    return gender;
+  }
+
+  Future<void> cacheUserGender({required String? gender}) async {
+    _prefs.setString("gender", gender!);
+  }
+
+  Future<String?> getUserLastName() async {
+    String? lastName = _prefs.getString("lastName");
+    return lastName;
+  }
+
+  Future<void> cacheUserLastName({required String? lastName}) async {
+    _prefs.setString("lastName", lastName!);
+  }
+
+  Future<String?> getUserFirstName() async {
+    String? firstName = _prefs.getString("firstName");
+    return firstName;
+  }
+
+  Future<void> cacheUserFirstName({required String? firstName}) async {
+    _prefs.setString("firstName", firstName!);
   }
 
   Future<void> cachePassword({required String? password}) async {

@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:crendly/app/constants/asset_path.dart';
 import 'package:crendly/app/constants/color_palette.dart';
 import 'package:crendly/app/shared_widgets/custom_appBar.dart';
@@ -7,7 +8,6 @@ import 'package:crendly/app/shared_widgets/custom_outlined_button.dart';
 import 'package:crendly/presentation/modules/registration%20&%20onboarding/pages/update_user_profile/personal_information.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class RegistrationSuccessLoaderScreen extends StatefulWidget {
   const RegistrationSuccessLoaderScreen({Key? key}) : super(key: key);
@@ -55,7 +55,8 @@ class _RegistrationSuccessLoaderScreenState
             const SizedBox(
               height: 30,
             ),
-            Text("OTP Verification successful",
+            Text(
+              "OTP Verification successful",
               style: Theme.of(context).textTheme.bodyText2?.copyWith(
                   color: kOrange, fontWeight: FontWeight.w700, fontSize: 20),
             ),
@@ -107,36 +108,36 @@ class _RegistrationSuccessLoaderScreenState
             Get.back();
           },
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 88, left: 24, right: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    "This would take a second.",
-                    style: Theme.of(context).textTheme.bodyText2?.copyWith(
-                        color: kWhite,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  )),
-              const SizedBox(
-                height: 53,
-              ),
-              SizedBox(
-                height: 60,
-                width: 60,
-                child: CircularProgressIndicator.adaptive(
-                  strokeWidth: 15.0,
-                  backgroundColor: kOrange,
-                ),
-              ),
-              const Spacer()
-            ],
-          ),
-        ),
+        // body: Padding(
+        //   padding: const EdgeInsets.only(top: 88, left: 24, right: 24),
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.center,
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       Align(
+        //           alignment: Alignment.topCenter,
+        //           child: Text(
+        //             "This would take a second.",
+        //             style: Theme.of(context).textTheme.bodyText2?.copyWith(
+        //                 color: kWhite,
+        //                 fontSize: 16,
+        //                 fontWeight: FontWeight.bold),
+        //           )),
+        //       const SizedBox(
+        //         height: 53,
+        //       ),
+        //       SizedBox(
+        //         height: 60,
+        //         width: 60,
+        //         child: CircularProgressIndicator.adaptive(
+        //           strokeWidth: 15.0,
+        //           backgroundColor: kOrange,
+        //         ),
+        //       ),
+        //       const Spacer()
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }
@@ -144,7 +145,7 @@ class _RegistrationSuccessLoaderScreenState
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 1),
       () => showMyDialog(),
     );
     super.initState();
